@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane fx:id="panelPrincipal" prefHeight="418.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.controller.HelloController">
+   <children>
+      <TextField fx:id="cantidad" layoutX="205.0" layoutY="268.0" onAction="#onAlimentarConuter">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+      <ProgressBar fx:id="barraProgreso" layoutX="126.0" layoutY="133.0" prefHeight="20.0" prefWidth="429.0" progress="0.0" />
+      <Text fx:id="texto" layoutX="165.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SceneBuider con style" wrappingWidth="317.7439880371094">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <Button fx:id="ButtonReset" layoutX="264.0" layoutY="233.0" mnemonicParsing="false" onAction="#onClickResetConuter" text="Reset">
+         <opaqueInsets>
+            <Insets top="10.0" />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="ButtonMenos" layoutX="521.0" layoutY="181.0" mnemonicParsing="false" onAction="#onClickMinusConuter" text="-">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets left="10.0" right="40.0" />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="ButtonMas" layoutX="126.0" layoutY="181.0" mnemonicParsing="false" onAction="#onClickPlusConuter" text="+">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets left="40.0" right="10.0" />
+         </opaqueInsets>
+      </Button>
+      <Label fx:id="pantalla" alignment="CENTER" layoutX="172.0" layoutY="181.0" onInputMethodTextChanged="#actualizarTexto" prefHeight="39.0" prefWidth="342.0" text="Pulsa algun boton" textAlignment="CENTER" textFill="#cd1b1b" />
+      <Label fx:id="viewPorce" layoutX="583.0" layoutY="134.0" text="0%" />
+   </children>
+</AnchorPane>

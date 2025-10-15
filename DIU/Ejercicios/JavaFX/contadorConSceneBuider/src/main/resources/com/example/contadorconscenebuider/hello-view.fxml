@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.contadorconscenebuider.HelloController">
+   <children>
+      <HBox layoutX="3.0" layoutY="180.0" prefHeight="100.0" prefWidth="739.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickPlusConuter" prefHeight="96.0" prefWidth="92.0" text="+" textAlignment="CENTER" textFill="#0d0d0d">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Text fx:id="pantalla" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="545.1300010681152">
+               <font>
+                  <Font size="70.0" />
+               </font>
+            </Text>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#onClickMinusConuter" prefHeight="95.0" prefWidth="96.0" text="-">
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="9.0" layoutY="289.0" prefHeight="84.0" prefWidth="727.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#onClickResetConuter" prefHeight="67.0" prefWidth="332.0" text="Reset" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+               <opaqueInsets>
+                  <Insets right="10.0" />
+               </opaqueInsets></Button>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="212.0" layoutY="47.0" prefHeight="77.0" prefWidth="332.0" text="CONTADOR CON SCENE BUIlDER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

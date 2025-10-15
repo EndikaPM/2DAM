@@ -1,0 +1,37 @@
+#panelPrincipal{
+    -fx-background-color: #0d4a48;
+    -fx-text-fill: #ffffff;
+}
+Button{
+    -fx-background-color: #0b5bd4;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "Fira Code Medium";
+    -fx-text-alignment:center;
+    -fx-background-radius: 50,50,50,50;
+    }
+#texto{
+    -fx-text-fill: #2b3f44;
+    -fx-font-family: "Fira Code";
+    -fx-text-alignment:center ;
+    -fx-font-weight: bold;
+}
+
+#pantalla{
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "sans-serif";
+    -fx-text-alignment: center ;
+}
+
+#ButtonMas, #ButtonMenos {
+    -fx-pref-width: 50px;
+    -fx-pref-height: 40px;
+    -fx-font-size: 20px;
+}
+
+#barraProgreso .bar {
+    -fx-background-color: #4f0512;
+}
+
+#barraProgreso .track {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}
