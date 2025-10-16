@@ -11,10 +11,14 @@ public class Car implements Runnable {
         this.raceCounter = raceCounter;
     }
 
+    public Car(String name) {
+        this.name = name;
+    }
+
     @Override
     public void run() {
 
-        while (raceCounter.getCurrentPosicion() != 100) {
+        while (raceCounter.getCurrentPosicion() != 300) {
             raceCounter.incrementTurn();
             String text = "";
             if (raceCounter.getUsed() == true) {
