@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 addTex.setSpan(new ForegroundColorSpan(Color.MAGENTA),0,addTex.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 texto.append(addTex);
                 SpannableString addTex2 = new SpannableString("\nBoton 2 Pulsado");
-                addTex2.setSpan(new ForegroundColorSpan(Color.GREEN),0,addTex2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                addTex2.setSpan(new ForegroundColorSpan(Color.BLUE),0,addTex2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                addTex2.setSpan(new BackgroundColorSpan(Color.YELLOW),0,addTex2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 texto.append(addTex2);
             }
         });
