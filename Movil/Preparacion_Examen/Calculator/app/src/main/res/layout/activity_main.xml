@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    style="@style/fondo">
+
+    <LinearLayout
+        style="@style/fondo"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_weight="1" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:columnCount="4"
+            android:rowCount="6"
+            android:layout_margin="20dp"
+            style="@style/fondo">
+            <TextView
+                android:id="@+id/pantalla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textSize="50dp"
+                android:layout_columnSpan="3"
+                android:layout_rowSpan="2"
+                android:textColor="@color/white" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/div"
+                style="@style/botonCalculadoraFunciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/muti"
+            style="@style/botonCalculadoraFunciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="*" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/siete"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ocho"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/nueve"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rest"
+                style="@style/botonCalculadoraFunciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cuatro"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cinco"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/seis"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/suma"
+                style="@style/botonCalculadoraFunciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/uno"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dos"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tres"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/igual"
+                style="@style/botonCalculadoraFuncionesMaterial"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="="
+                android:layout_rowSpan="2"
+                android:layout_gravity="fill"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/limp"
+                style="@style/botonResto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cero"
+                style="@style/botonCalculadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/coma"
+                style="@style/botonResto"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=","/>
+
+        </GridLayout>
+
+</LinearLayout>
