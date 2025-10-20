@@ -43,16 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button Cc = (Button) findViewById(R.id.limp);
         Button coma = (Button)findViewById(R.id.coma);
-        /* forma que v en internet para repasar y reutilizar codigo
-        View.OnClickListener botGeneral = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Button botonG = (Button) v;
-                textoPantalla.append(botonG.getText());
-                pantall.setText(textoPantalla.toString());
-            }
-        };
-        */
+
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
