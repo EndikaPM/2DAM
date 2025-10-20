@@ -14,8 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,7 +38,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/endika/2ºDAM/DIU/AgendaFMX/controlsfx-8.0.6_20.jar",
+    "last_opened_file_path": "/home/usuario/Descargas/2DAM-main/DIU/Ejercicios/JavaFX/EjemploMonedas2",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,6 +83,7 @@
       <workItem from="1760719424058" duration="741000" />
       <workItem from="1760720257790" duration="260000" />
       <workItem from="1760720698420" duration="7781000" />
+      <workItem from="1760959295658" duration="4029000" />
     </task>
     <servers />
   </component>

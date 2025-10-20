@@ -9,6 +9,7 @@ module org.example.agendafmx {
     requires com.almasb.fxgl.all;
     requires java.desktop;
     requires controlsfx;
+    requires java.sql;
 
     opens org.example.agendafmx to javafx.fxml;
     exports org.example.agendafmx;
