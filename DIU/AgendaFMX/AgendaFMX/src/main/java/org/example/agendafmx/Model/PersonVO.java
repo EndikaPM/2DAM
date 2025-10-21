@@ -12,13 +12,13 @@ public class PersonVO {
     private LocalDate birthDate;
 
     public PersonVO() {}
-    public PersonVO(String firstName, String lastName, String streetLabel, String postalCode, String city, LocalDate birthDate) {
+    public PersonVO(String firstName, String lastName, String streetLabel, String postalCode, String city, String birthDate) {
         this.firstName = firstName;
         this.lastName =  lastName;
         this.streetLabel = streetLabel;
         this.postalCode = postalCode;
         this.city = city;
-        this.birthDate = birthDate;
+        this.birthDate = LocalDate.parse(birthDate);
     }
     public PersonVO(int id, String firstName, String lastName, String streetLabel, String postalCode, String city, LocalDate birthDate) {
         this.id = id;

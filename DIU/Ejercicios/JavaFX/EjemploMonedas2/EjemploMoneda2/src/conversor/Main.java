@@ -17,13 +17,13 @@ public class Main {
             MonedaVO monedaPrueba = new MonedaVO("prueba", 1.2F);
             monedaModelo.addMoneda(monedaPrueba);
             System.out.println(monedarepositoryImpl.ObtenerListaMonedas().size());
-            //monedarepositoryImpl.deleteMoneda(8);
+            monedarepositoryImpl.deleteMoneda(8);
             System.out.println(monedaModelo.ObtenerListaMonedas().size());
             monedaPrueba.setNombre("Holassssss");
             monedaPrueba.setMultiplicador(2.0F);
             monedaPrueba.setCodigo(22);
-            //monedarepositoryImpl.editMoneda(monedaPrueba);
-            //System.out.println(monedarepositoryImpl.lastId() + " last id");
+            monedaPrueba.editMoneda(monedaPrueba);
+            System.out.println(monedarepositoryImpl.lastId() + " last id");
 
             for(MonedaVO mon : monedaModelo.ObtenerListaMonedas()) {
                 System.out.println(mon.getCodigo() + " " + mon.getNombre() + ' ' + mon.getMultiplicador());

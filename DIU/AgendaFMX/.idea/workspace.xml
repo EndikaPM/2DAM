@@ -16,6 +16,8 @@
         <option value="FxmlFile" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="Exception" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -38,7 +40,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/usuario/Descargas/2DAM-main/DIU/Ejercicios/JavaFX/EjemploMonedas2",
+    "last_opened_file_path": "/home/usuario/2DAM/DIU/AgendaFMX/controlsfx-8.0.6_20.jar",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -48,13 +50,16 @@
     "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/AgendaFMX/src/main/resources/views" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.agendafmx.Model.Repository" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -84,6 +89,7 @@
       <workItem from="1760720257790" duration="260000" />
       <workItem from="1760720698420" duration="7781000" />
       <workItem from="1760959295658" duration="4029000" />
+      <workItem from="1761028318808" duration="6479000" />
     </task>
     <servers />
   </component>

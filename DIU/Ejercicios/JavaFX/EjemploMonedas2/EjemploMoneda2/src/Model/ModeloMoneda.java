@@ -27,4 +27,7 @@ public class ModeloMoneda {
     public ArrayList<MonedaVO> ObtenerListaMonedas() throws ExcepcionMoneda{
         return monedaRepository.ObtenerListaMonedas();
     }
+    public void editMoneda(MonedaVO monedaVO) throws ExcepcionMoneda{
+        monedaRepository.editMoneda(monedaVO);
+    }
 }

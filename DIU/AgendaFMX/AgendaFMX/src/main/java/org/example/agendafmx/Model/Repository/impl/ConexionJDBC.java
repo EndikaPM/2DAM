@@ -1,11 +1,11 @@
-package org.example.agendafmx.Model.Repository;
+package org.example.agendafmx.Model.Repository.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-public class Conexion {
+public class ConexionJDBC {
 
 
     public Connection conectarBD() throws SQLException {
