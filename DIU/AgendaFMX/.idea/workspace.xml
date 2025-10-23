@@ -15,9 +15,9 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="Exception" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,7 +40,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/usuario/2DAM/DIU/AgendaFMX/controlsfx-8.0.6_20.jar",
+    "last_opened_file_path": "/home/usuario/2DAM/DIU/Ejercicios/JavaFX/EjemploMonedas2/mysql-connector-java-8.0.12.jar",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -61,6 +61,26 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.agendafmx.Model.Repository" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.agendafmx.Main" />
+      <module name="AgendaFMX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.agendafmx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -90,6 +110,7 @@
       <workItem from="1760720698420" duration="7781000" />
       <workItem from="1760959295658" duration="4029000" />
       <workItem from="1761028318808" duration="6479000" />
+      <workItem from="1761207791926" duration="7012000" />
     </task>
     <servers />
   </component>

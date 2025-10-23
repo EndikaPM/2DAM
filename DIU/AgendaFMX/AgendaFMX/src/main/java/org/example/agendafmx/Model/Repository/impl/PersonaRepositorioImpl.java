@@ -51,12 +51,20 @@ public class PersonaRepositorioImpl implements PersonaRepository {
         try {
             Connection conn = this.conexion.conectarBD();
             this.statm = conn.createStatement();
-            this.sentencia = "INSERT INTO Persona (firstName, lastName, streetLabel, postalCode,cityLabe, birthdayLabel) VALUES ('" + p.getFirstName() + "','" + p.getLastName()
-                    + p.getStreetLabel() + "','" + p.getPostalCode() + "','" + p.getCity() + "','" + p.getBirthDate() + "');";
+            this.sentencia = "INSERT INTO Persona (firstName, lastName, streetLabel, postalCode, cityLabel, birthdayLabel) VALUES ('"
+                    + p.getFirstName() + "','"
+                    + p.getLastName() + "','"
+                    + p.getStreetLabel() + "','"
+                    + p.getPostalCode() + "','"
+                    + p.getCity() + "','"
+                    + p.getBirthDate() + "')";
+
+
             this.statm.executeUpdate(this.sentencia);
             this.statm.close();
             this.conexion.desconectarBD(conn);
         } catch (SQLException var3) {
+            System.out.println(var3.getMessage());
             throw new ExceptionPersona("No se ha podido realizar la operación");
         }
 
@@ -68,10 +76,11 @@ public class PersonaRepositorioImpl implements PersonaRepository {
             Connection conn = this.conexion.conectarBD();
             this.statm = conn.createStatement();
             Statement comando = conn.createStatement();
-            String sql = String.format("DELETE FROM Persona WHERE codigo = %d", idPersona);
+            String sql = String.format("DELETE FROM Persona WHERE id = %d", idPersona);
             comando.executeUpdate(sql);
             this.conexion.desconectarBD(conn);
         } catch (SQLException var5) {
+            System.out.println(var5.getMessage());
             throw new ExceptionPersona("No se ha podido relaizr la eliminación");
         }
     }
@@ -81,9 +90,10 @@ public class PersonaRepositorioImpl implements PersonaRepository {
         try {
             Connection conn = this.conexion.conectarBD();
             this.statm = conn.createStatement();
-            String sql = String.format("UPDATE monedas SET nombre = '%s', multiplicador = '%s' WHERE codigo = %d", p.getFirstName(), p.getLastName(), p.getId());
+            String sql = String.format("UPDATE Persona SET firstName = '%s', lastName = '%s', streetLabel = '%s', postalCode = '%s', cityLabel = '%s', birthdayLabel = '%s' WHERE id = %d", p.getFirstName(), p.getLastName(), p.getStreetLabel(), p.getPostalCode(), p.getCity(), p.getBirthDate(), p.getId());
             this.statm.executeUpdate(sql);
         } catch (Exception var4) {
+            System.out.println(var4.getMessage());
             throw new ExceptionPersona("No se ha podido relaizr la edición");
         }
     }

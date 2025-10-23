@@ -1,6 +1,8 @@
 package org.example.agendafmx;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -14,7 +16,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.agendafmx.Controller.PersonController;
 import org.example.agendafmx.Controller.PersonEditDialogController;
+import org.example.agendafmx.Model.ExceptionPersona;
 import org.example.agendafmx.Model.Person;
+import org.example.agendafmx.Model.PersonVO;
+import org.example.agendafmx.Model.PersonaModel;
+import org.example.agendafmx.Model.Repository.PersonaRepository;
+import org.example.agendafmx.Model.Repository.impl.ConexionJDBC;
+import org.example.agendafmx.Model.Repository.impl.PersonaRepositorioImpl;
 
 public class Main extends Application {
 
@@ -22,14 +30,29 @@ public class Main extends Application {
     private BorderPane rootLayout;
 
     @Override
-    public void start(Stage primaryStage) {
-        this.primaryStage = primaryStage;
+    public void start(Stage primaryStage) throws ExceptionPersona {
+        /*this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
 
         this.primaryStage.getIcons().add(new Image(getClass().getResource("/images/libretaPng.png").toExternalForm()));
+*/
+        //initRootLayout();
+        //showPersonOverview();
 
-        initRootLayout();
-        showPersonOverview();
+        /*PersonaModel personaModel = new PersonaModel();
+        PersonaRepository personaRepository = new PersonaRepositorioImpl();
+
+        personaModel.setPersonaRepository(personaRepository);
+
+        PersonVO personaVO = new PersonVO("Endika", "pewrez", "sevilla", "41500", "españa","2025-12-14");
+
+        personaModel.addPersona(personaVO);
+        personaModel.deletePersona(2);
+        personaVO.setPostalCode("41008");
+        personaVO.setId(1);
+        personaModel.updatePersona(personaVO);
+
+        System.out.println(personaModel.ObtenerListaPersona());*/
     }
 
 
@@ -57,18 +80,13 @@ public class Main extends Application {
     public Stage getPrimaryStage() {
         return primaryStage;
     }
+
     private static ObservableList<Person> personData = FXCollections.observableArrayList();
-    public Main(){
-        personData.add(new Person("Hans", "Muster"));
-        personData.add(new Person("Ruth", "Mueller"));
-        personData.add(new Person("Heinz", "Kurz"));
-        personData.add(new Person("Cornelia", "Meier"));
-        personData.add(new Person("Werner", "Meyer"));
-        personData.add(new Person("Lydia", "Kunz"));
-        personData.add(new Person("Anna", "Best"));
-        personData.add(new Person("Stefan", "Meier"));
-        personData.add(new Person("Martin", "Mueller"));
+
+    public Main() throws ExceptionPersona {
+
     }
+
     public static void main(String[] args) {
         launch(args);
 

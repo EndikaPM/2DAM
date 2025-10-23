@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 public class ConexionJDBC {
 
-
     public Connection conectarBD() throws SQLException {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/Agenda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");

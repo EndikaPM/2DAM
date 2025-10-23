@@ -6,8 +6,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.controlsfx.dialog.Dialogs;
 import org.example.agendafmx.Main;
+import org.example.agendafmx.Model.ExceptionPersona;
 import org.example.agendafmx.Model.Person;
+import org.example.agendafmx.Model.Repository.impl.PersonaRepositorioImpl;
 import org.example.agendafmx.util.DateUtil;
+import org.example.agendafmx.util.PersonUtil;
 
 import java.awt.*;
 
@@ -34,6 +37,7 @@ public class PersonController {
 
     // Reference to the main application.
     private Main mainApp;
+    private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
 
     /**
      * The constructor.
@@ -117,11 +121,12 @@ public class PersonController {
      * details for a new person.
      */
     @FXML
-    private void handleNewPerson() {
+    private void handleNewPerson() throws ExceptionPersona {
         Person tempPerson = new Person();
         boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
         if (okClicked) {
-            mainApp.getPersonData().add(tempPerson);
+            //mainApp.getPersonData().add(tempPerson);
+            personaRepositorio.addPersona(PersonUtil.getPerson(tempPerson));
         }
     }
 
@@ -135,7 +140,7 @@ public class PersonController {
         if (selectedPerson != null) {
             boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
             if (okClicked) {
-                showPersonDetails(selectedPerson);
+                //showPersonDetails(selectedPerson);
             }
 
         } else {
