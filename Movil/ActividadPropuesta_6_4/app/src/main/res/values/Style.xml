@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textoPrincipal">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="style_texto_titulo">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="style_texto_datos">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <style name="backgroundLinas">
+        <item name="android:background">@color/grey</item>
+    </style>
+
+</resources>

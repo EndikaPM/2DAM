@@ -40,7 +40,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/usuario/2DAM/DIU/Ejercicios/JavaFX/EjemploMonedas2/mysql-connector-java-8.0.12.jar",
+    "last_opened_file_path": "/home/endika/2DAM-main/2DAM/DIU/AgendaFMX/mysql-connector-java-8.0.12.jar",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -111,6 +111,7 @@
       <workItem from="1760959295658" duration="4029000" />
       <workItem from="1761028318808" duration="6479000" />
       <workItem from="1761207791926" duration="7012000" />
+      <workItem from="1761228137501" duration="1876000" />
     </task>
     <servers />
   </component>

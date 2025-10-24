@@ -35,24 +35,24 @@ public class Main extends Application {
         this.primaryStage.setTitle("AddressApp");
 
         this.primaryStage.getIcons().add(new Image(getClass().getResource("/images/libretaPng.png").toExternalForm()));
-*/
-        //initRootLayout();
-        //showPersonOverview();
 
-        /*PersonaModel personaModel = new PersonaModel();
+        initRootLayout();
+        showPersonOverview();*/
+
+        PersonaModel personaModel = new PersonaModel();
         PersonaRepository personaRepository = new PersonaRepositorioImpl();
 
         personaModel.setPersonaRepository(personaRepository);
 
-        PersonVO personaVO = new PersonVO("Endika", "pewrez", "sevilla", "41500", "españa","2025-12-14");
+        PersonVO personaVO = new PersonVO("Maria", "Comesaña", "Calle Silos 18", "41500", "Alcala de guadaira","2025-11-23");
 
         personaModel.addPersona(personaVO);
         personaModel.deletePersona(2);
-        personaVO.setPostalCode("41008");
+        personaVO.setLastName("Perez");
         personaVO.setId(1);
         personaModel.updatePersona(personaVO);
 
-        System.out.println(personaModel.ObtenerListaPersona());*/
+        System.out.println(personaModel.ObtenerListaPersona());
     }
 
 

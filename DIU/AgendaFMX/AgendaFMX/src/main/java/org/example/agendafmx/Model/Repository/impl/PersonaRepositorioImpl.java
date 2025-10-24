@@ -106,7 +106,7 @@ public class PersonaRepositorioImpl implements PersonaRepository {
             Connection conn = this.conexion.conectarBD();
             Statement comando = conn.createStatement();
 
-            for(ResultSet registro = comando.executeQuery("SELECT codigo FROM monedas ORDER BY codigo DESC LIMIT 1"); registro.next(); lastMonedaId = registro.getInt("id")) {
+            for(ResultSet registro = comando.executeQuery("SELECT id FROM Persona ORDER BY id DESC LIMIT 1"); registro.next(); lastMonedaId = registro.getInt("id")) {
             }
 
             return lastMonedaId;
