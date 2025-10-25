@@ -1,39 +1,62 @@
-import java.util.Scanner;
+import java.util.ArrayList;
 
-public class Bank  implements Runnable{
-    Account [] accounts;
+public class Bank {
+    private ArrayList<Account> accounts;
 
-    public Bank(Account[] accounts) {
+
+    public Bank(ArrayList<Account> accounts) {
         this.accounts = accounts;
     }
 
     // Transfiere dinero de una cuenta a otra
     public void transfer(int fromAccount, int toAccount, double amount) {
-        if (accounts[fromAccount].getBalance() >= amount) {
-            accounts[fromAccount].withdraw(amount);
+        if (accounts.get(fromAccount).getBalance() >= amount) {
+            Account from = accounts.get(fromAccount);
+            Account to = accounts.get(toAccount);
 
-            // Se la suma a la cuenta destino el total
-            accounts[toAccount].deposit(amount);
-        }
-    }
+            from.getLock().lock();
+            to.getLock().lock();
 
-    public void applyInterest(double rate, int accountNumber) {
-        double addCo = (accounts[accountNumber].getBalance() * rate) /100;
-        accounts[accountNumber].deposit(addCo);
-    }
+            try {
+                // Guardamos los saldos ANTES de la transferencia
+                double balanceFromAntes = from.getBalance();
+                double balanceToAntes = to.getBalance();
 
-    @Override
-    public void run() {
-        for (int accountNumber = 0; accountNumber < 10; accountNumber++) {
-            int id = (int) Math.random() * (accounts.length - 1);
-            int id_Receptor = id; // ???
+                // Realizamos la transferencia
+                accounts.get(fromAccount).withdraw(amount);
+                accounts.get(toAccount).deposit(amount);
 
-            // Mientras el id de quien recibe la transferencia no sea el que lo envía
-            while (id != id_Receptor){
-                id = (int) Math.random() * (accounts.length - 1);
+                // Obtenemos los saldos DESPUÉS de la transferencia
+                double balanceFromDespues = accounts.get(fromAccount).getBalance();
+                double balanceToDespues = accounts.get(toAccount).getBalance();
+
+                System.out.println("El hilo " + Thread.currentThread().getName() + " del " + from.getName() +
+                        "\n\t Cuenta origen nº" + fromAccount + " " + from.getName() + ":" +
+                        "\n\t\t Saldo ANTES: " + balanceFromAntes + "€" +
+                        "\n\t\t Saldo DESPUÉS: " + balanceFromDespues + "€" +
+                        "\n\t Transfiere " + amount + "€ a la cuenta " + toAccount + " (" + to.getName() + ")" +
+                        "\n\t Cuenta destino nº" + toAccount + " (" + to.getName() + "):" +
+                        "\n\t\t Saldo ANTES: " + balanceToAntes + "€" +
+                        "\n\t\t Saldo DESPUÉS: " + balanceToDespues + "€");
+                System.out.println("===========================================================================================================================================");
+            } finally {
+                from.getLock().unlock();
+                to.getLock().unlock();
             }
-
-            transfer(id, id_Receptor, 100);
+        } else {
+            System.out.println("[" + Thread.currentThread().getName() + "] Crédito Insuficiente en " +
+                    accounts.get(fromAccount).getName());
         }
+    }
+    public double getTotalBalance() {
+        double total = 0;
+        for (Account account : accounts) {
+            total += account.getBalance();
+        }
+        return total;
+    }
+
+    public int getNumAccounts() {
+        return accounts.size();
     }
 }

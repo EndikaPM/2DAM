@@ -10,7 +10,7 @@ public class RaceCounter {
 //            System.out.println("Coche: " + car.getName() + ", Prosición actual: " + curPlace);
 //        }
 //    }
-    private int valor = 0;
+    private static int valor = 0;
 
     public synchronized void incrementar() {
         valor++;
