@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Activity2">
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Desea responder al mensaje?"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/yes"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Sí"
+            android:textStyle="bold"
+            android:drawableRight="@drawable/outline_arrow_forward_24"
+            android:backgroundTint="@color/green"/>
+
+        <Button
+            android:id="@+id/no"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textStyle="bold"
+            android:drawableRight="@drawable/outline_block_24"
+            android:backgroundTint="@color/red"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+</LinearLayout>

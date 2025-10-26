@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EviarMensajeAnimado</string>
+    <string name="enviar_mensaje">Introduzca los datos \npara enviar un mensaje</string>
+</resources>
