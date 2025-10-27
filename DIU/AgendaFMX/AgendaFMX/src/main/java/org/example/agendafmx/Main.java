@@ -3,6 +3,7 @@ package org.example.agendafmx;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -31,28 +32,31 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws ExceptionPersona {
-        /*this.primaryStage = primaryStage;
+        this.primaryStage = primaryStage;
         this.primaryStage.setTitle("AddressApp");
 
         this.primaryStage.getIcons().add(new Image(getClass().getResource("/images/libretaPng.png").toExternalForm()));
 
         initRootLayout();
-        showPersonOverview();*/
+        showPersonOverview();
 
-        PersonaModel personaModel = new PersonaModel();
+        /*PersonaModel personaModel = new PersonaModel();
         PersonaRepository personaRepository = new PersonaRepositorioImpl();
 
         personaModel.setPersonaRepository(personaRepository);
 
         PersonVO personaVO = new PersonVO("Maria", "Comesaña", "Calle Silos 18", "41500", "Alcala de guadaira","2025-11-23");
+        PersonVO personaVO2 = new PersonVO("Endika", "Perez", "Calle Silos 18", "41500", "Alcala de guadaira","2025-11-23");
 
         personaModel.addPersona(personaVO);
-        personaModel.deletePersona(2);
-        personaVO.setLastName("Perez");
-        personaVO.setId(1);
-        personaModel.updatePersona(personaVO);
+        personaModel.addPersona(personaVO2);*/
+        //personaModel.deletePersona(3);
+        //personaModel.deletePersona(4);
+        //personaVO.setLastName("Perez");
+        //personaVO.setId(1);
+        //personaModel.updatePersona(personaVO);
 
-        System.out.println(personaModel.ObtenerListaPersona());
+        //System.out.println(personaModel.ObtenerListaPersona());
     }
 
 
@@ -84,6 +88,14 @@ public class Main extends Application {
     private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
     public Main() throws ExceptionPersona {
+
+        PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
+        ArrayList<PersonVO> personaVo = personaRepositorio.ObtenerListaPersona();
+
+        for (PersonVO persona : personaVo) {
+            personaVo.add(persona);
+        }
+
 
     }
 

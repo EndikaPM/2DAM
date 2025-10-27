@@ -6,9 +6,12 @@ import java.sql.SQLException;
 
 
 public class ConexionJDBC {
-
+    private final String URL = "jdbc:mysql://localhost/Agenda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private final String user = "root";
+    private final String passw = "";
     public Connection conectarBD() throws SQLException {
         try {
+
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/Agenda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
             Class.forName("com.mysql.cj.jdbc.Driver");
             return conn;
