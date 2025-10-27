@@ -24,6 +24,7 @@ import org.example.agendafmx.Model.PersonaModel;
 import org.example.agendafmx.Model.Repository.PersonaRepository;
 import org.example.agendafmx.Model.Repository.impl.ConexionJDBC;
 import org.example.agendafmx.Model.Repository.impl.PersonaRepositorioImpl;
+import org.example.agendafmx.util.PersonUtil;
 
 public class Main extends Application {
 
@@ -75,8 +76,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
-
     /**
      * Returns the main stage.
      * @return
@@ -89,11 +88,13 @@ public class Main extends Application {
 
     public Main() throws ExceptionPersona {
 
-        PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
-        ArrayList<PersonVO> personaVo = personaRepositorio.ObtenerListaPersona();
+        PersonaModel personaModel = new PersonaModel();
+        PersonaRepository personaRepositorio = new PersonaRepositorioImpl();
+        personaModel.setPersonaRepository(personaRepositorio);
+        ArrayList<PersonVO> personaVo = personaModel.ObtenerListaPersona();
 
         for (PersonVO persona : personaVo) {
-            personaVo.add(persona);
+            personData.add(PersonUtil.getPerson(persona));
         }
 
 
@@ -104,7 +105,7 @@ public class Main extends Application {
 
     }
 
-    public ObservableList<Person> getPersonData() {
+    public static ObservableList<Person> getPersonData() {
         return personData;
     }
 
@@ -126,7 +127,6 @@ public class Main extends Application {
             e.printStackTrace();
         }
     }
-
     /**
      * Opens a dialog to edit details for the specified person. If the user
      * clicks OK, the changes are saved into the provided person object and true

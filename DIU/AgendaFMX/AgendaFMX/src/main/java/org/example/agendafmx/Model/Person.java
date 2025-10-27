@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Person {
+    private IntegerProperty id =  new SimpleIntegerProperty();
     private final StringProperty firstName;
     private final StringProperty lastName;
     private final StringProperty street;
@@ -39,6 +40,26 @@ public class Person {
         this.postalCode = new SimpleIntegerProperty(1234);
         this.city = new SimpleStringProperty("Alguna ciudad");
         this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 5, 28));
+    }
+
+    public void setId(IntegerProperty id) {
+        this.id = id;
+    }
+
+    public IntegerProperty getId() {
+        return id;
+    }
+
+    public int getIdProperty() {
+
+        return this.id.get();
+    }
+
+    public void setIdPorperty(int id) {
+        if (this.id == null) {
+            this.id = new SimpleIntegerProperty(id);
+        }else{
+        this.id.set(id);}
     }
 
     public String getFirstName() {

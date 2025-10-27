@@ -14,15 +14,15 @@ public class PersonaModel {
     public ArrayList<PersonVO> ObtenerListaPersona() throws ExceptionPersona{
         return personaRepository.ObtenerListaPersona();
     }
-    public void addPersona(PersonVO p) throws ExceptionPersona {
-        this.personaRepository.addPersona(p);
+    public void addPersona(PersonVO personVO) throws ExceptionPersona {
+        this.personaRepository.addPersona(personVO);
     }
     public void deletePersona(int idPersona) throws ExceptionPersona{
         this.personaRepository.deletePersona(idPersona);
     }
 
-    public void updatePersona(PersonVO p) throws ExceptionPersona{
-        this.personaRepository.updatePersona(p);
+    public void updatePersona(PersonVO personVO) throws ExceptionPersona{
+        this.personaRepository.updatePersona(personVO);
     }
     public int lastId() throws ExceptionPersona{
     return this.personaRepository.lastId();

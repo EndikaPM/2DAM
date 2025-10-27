@@ -8,6 +8,7 @@ import org.controlsfx.dialog.Dialogs;
 import org.example.agendafmx.Main;
 import org.example.agendafmx.Model.ExceptionPersona;
 import org.example.agendafmx.Model.Person;
+import org.example.agendafmx.Model.PersonaModel;
 import org.example.agendafmx.Model.Repository.impl.PersonaRepositorioImpl;
 import org.example.agendafmx.util.DateUtil;
 import org.example.agendafmx.util.PersonUtil;
@@ -38,6 +39,9 @@ public class PersonController {
     // Reference to the main application.
     private Main mainApp;
     private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
+    private PersonaModel personaModel = new PersonaModel();
+
+
 
     /**
      * The constructor.
@@ -63,9 +67,13 @@ public class PersonController {
     }
 
     @FXML
-    public void handleDeletePerson() {
+    public void handleDeletePerson() throws ExceptionPersona {
         int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+        personaModel.setPersonaRepository(personaRepositorio);
         if (selectedIndex >= 0) {
+            Person perElimi = personTable.getSelectionModel().getSelectedItem();
+            int personID = perElimi.getIdProperty();
+            personaModel.deletePersona(personID);
             personTable.getItems().remove(selectedIndex);
         }else {
             // Nothing selected.
@@ -123,10 +131,15 @@ public class PersonController {
     @FXML
     private void handleNewPerson() throws ExceptionPersona {
         Person tempPerson = new Person();
+        personaModel.setPersonaRepository(personaRepositorio);
         boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
         if (okClicked) {
-            //mainApp.getPersonData().add(tempPerson);
-            personaRepositorio.addPersona(PersonUtil.getPerson(tempPerson));
+            personaModel.addPersona(PersonUtil.getPerson(tempPerson));
+
+            int lastId = personaRepositorio.lastId();
+            tempPerson.setIdPorperty(lastId);
+            System.out.println("id A eliminar "+lastId);
+            mainApp.getPersonData().add(tempPerson);
         }
     }
 
@@ -135,12 +148,14 @@ public class PersonController {
      * details for the selected person.
      */
     @FXML
-    private void handleEditPerson() {
+    private void handleEditPerson() throws ExceptionPersona{
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
             boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
             if (okClicked) {
-                //showPersonDetails(selectedPerson);
+                showPersonDetails(selectedPerson);
+                personaModel.setPersonaRepository(personaRepositorio);
+                personaModel.updatePersona(PersonUtil.getPerson(selectedPerson));
             }
 
         } else {

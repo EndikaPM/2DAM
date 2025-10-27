@@ -1,11 +1,15 @@
 package org.example.agendafmx.Controller;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import org.controlsfx.dialog.Dialogs;
 
+import org.example.agendafmx.Main;
 import org.example.agendafmx.Model.Person;
 import org.example.agendafmx.util.DateUtil;
 
@@ -23,10 +27,16 @@ public class PersonEditDialogController {
     @FXML
     private TextField birthdayField;
 
+    @FXML
+    private ProgressBar progressBar;
+    @FXML
+    private ProgressIndicator  progressIndicator;
+
 
     private Stage dialogStage;
     private Person person;
     private boolean okClicked = false;
+    private SimpleIntegerProperty indicadorProgreso;
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -34,6 +44,11 @@ public class PersonEditDialogController {
      */
     @FXML
     private void initialize() {
+        int tamanoArray = Main.getPersonData().size();
+        float porcentaje = (float) tamanoArray / 50;
+
+        progressBar.setProgress(porcentaje);
+        progressIndicator.setProgress(porcentaje);
     }
 
     /**

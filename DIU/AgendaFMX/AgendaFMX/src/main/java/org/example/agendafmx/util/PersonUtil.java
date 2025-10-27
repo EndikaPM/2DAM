@@ -6,6 +6,7 @@ import org.example.agendafmx.Model.PersonVO;
 public class PersonUtil {
     public static PersonVO getPerson(Person tempPerson) {
         PersonVO personVO = new PersonVO();
+        personVO.setId(tempPerson.getIdProperty());
         personVO.setFirstName(tempPerson.getFirstName());
         personVO.setLastName(tempPerson.getLastName());
         personVO.setStreetLabel(tempPerson.getStreet());
@@ -17,6 +18,7 @@ public class PersonUtil {
 
     public static Person getPerson(PersonVO tempPersonVO) {
         Person person = new Person();
+        person.setIdPorperty(tempPersonVO.getId());
         person.setFirstName(tempPersonVO.getFirstName());
         person.setLastName(tempPersonVO.getLastName());
         person.setLastName(tempPersonVO.getLastName());
