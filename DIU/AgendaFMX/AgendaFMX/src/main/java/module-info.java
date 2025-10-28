@@ -10,6 +10,7 @@ module org.example.agendafmx {
     requires java.desktop;
     requires controlsfx;
     requires java.sql;
+    requires javafx.base;
 
     opens org.example.agendafmx to javafx.fxml;
     exports org.example.agendafmx;

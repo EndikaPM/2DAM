@@ -40,6 +40,7 @@ public class PersonController {
     private Main mainApp;
     private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
     private PersonaModel personaModel = new PersonaModel();
+    private PersonEditDialogController personEditDialogController = new PersonEditDialogController();
 
 
 
@@ -75,6 +76,10 @@ public class PersonController {
             int personID = perElimi.getIdProperty();
             personaModel.deletePersona(personID);
             personTable.getItems().remove(selectedIndex);
+
+            //actualizar la barra de progreso
+            mainApp.updateProgressProperty();
+            personEditDialogController.setProgressBar(mainApp.getProgressProperty());
         }else {
             // Nothing selected.
             Dialogs.create()
@@ -130,16 +135,24 @@ public class PersonController {
      */
     @FXML
     private void handleNewPerson() throws ExceptionPersona {
-        Person tempPerson = new Person();
-        personaModel.setPersonaRepository(personaRepositorio);
-        boolean okClicked = mainApp.showPersonEditDialog(tempPerson);
-        if (okClicked) {
-            personaModel.addPersona(PersonUtil.getPerson(tempPerson));
+        if(Main.getPersonData().size() != 50) {
+            Person tempPerson = new Person();
+            personaModel.setPersonaRepository(personaRepositorio);
+            boolean okClicked = mainApp.showPersonEditDialog(tempPerson, "Añadir Persona");
+            if (okClicked) {
+                personaModel.addPersona(PersonUtil.getPerson(tempPerson));
 
-            int lastId = personaRepositorio.lastId();
-            tempPerson.setIdPorperty(lastId);
-            System.out.println("id A eliminar "+lastId);
-            mainApp.getPersonData().add(tempPerson);
+                int lastId = personaRepositorio.lastId();
+                tempPerson.setIdPorperty(lastId);
+                System.out.println("id A eliminar " + lastId);
+                mainApp.getPersonData().add(tempPerson);
+
+                //actualizar la barra de progreso
+                mainApp.updateProgressProperty();
+                personEditDialogController.setProgressBar(mainApp.getProgressProperty());
+            }else{
+                Dialogs.create().message("Agenda completada max 50 usuario \nelimina alguno si quieres añadir mas");
+            }
         }
     }
 
@@ -151,7 +164,7 @@ public class PersonController {
     private void handleEditPerson() throws ExceptionPersona{
         Person selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
-            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson, "Editar Persona");
             if (okClicked) {
                 showPersonDetails(selectedPerson);
                 personaModel.setPersonaRepository(personaRepositorio);

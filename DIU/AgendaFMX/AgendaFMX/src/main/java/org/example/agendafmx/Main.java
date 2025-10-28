@@ -1,11 +1,10 @@
 package org.example.agendafmx;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +21,6 @@ import org.example.agendafmx.Model.Person;
 import org.example.agendafmx.Model.PersonVO;
 import org.example.agendafmx.Model.PersonaModel;
 import org.example.agendafmx.Model.Repository.PersonaRepository;
-import org.example.agendafmx.Model.Repository.impl.ConexionJDBC;
 import org.example.agendafmx.Model.Repository.impl.PersonaRepositorioImpl;
 import org.example.agendafmx.util.PersonUtil;
 
@@ -30,6 +28,17 @@ public class Main extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private SimpleFloatProperty progressBar = new SimpleFloatProperty();
+    private final int MAX_PERSON_AGENDA = 50;
+
+
+    public SimpleFloatProperty getProgressProperty() {
+        return progressBar;
+    }
+
+    public void updateProgressProperty() {
+        this.progressBar.set((float)getPersonData().size() / MAX_PERSON_AGENDA);
+    }
 
     @Override
     public void start(Stage primaryStage) throws ExceptionPersona {
@@ -40,6 +49,8 @@ public class Main extends Application {
 
         initRootLayout();
         showPersonOverview();
+
+        getProgressProperty().addListener((observable, oldValue, newValue) ->{updateProgressProperty();});
 
         /*PersonaModel personaModel = new PersonaModel();
         PersonaRepository personaRepository = new PersonaRepositorioImpl();
@@ -87,7 +98,6 @@ public class Main extends Application {
     private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
     public Main() throws ExceptionPersona {
-
         PersonaModel personaModel = new PersonaModel();
         PersonaRepository personaRepositorio = new PersonaRepositorioImpl();
         personaModel.setPersonaRepository(personaRepositorio);
@@ -135,7 +145,7 @@ public class Main extends Application {
      * @param person the person object to be edited
      * @return true if the user clicked OK, false otherwise.
      */
-    public boolean showPersonEditDialog(Person person) {
+    public boolean showPersonEditDialog(Person person, String title) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
@@ -144,14 +154,15 @@ public class Main extends Application {
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Person");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.setTitle(title);
+            dialogStage.initModality(Modality.NONE);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
             // Set the person into the controller.
             PersonEditDialogController controller = loader.getController();
+            controller.setMainApp(this);
             controller.setDialogStage(dialogStage);
             controller.setPerson(person);
 

@@ -1,5 +1,6 @@
 package org.example.agendafmx.Controller;
 
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ProgressBar;
@@ -28,28 +29,24 @@ public class PersonEditDialogController {
     private TextField birthdayField;
 
     @FXML
-    private ProgressBar progressBar;
+    private ProgressBar progressBar = new ProgressBar(0.0);
     @FXML
-    private ProgressIndicator  progressIndicator;
+    private ProgressIndicator  progressIndicator = new ProgressIndicator(0.0);
+
 
 
     private Stage dialogStage;
     private Person person;
     private boolean okClicked = false;
-    private SimpleIntegerProperty indicadorProgreso;
+    private Main mainApp;
+
 
     /**
      * Initializes the controller class. This method is automatically called
      * after the fxml file has been loaded.
      */
     @FXML
-    private void initialize() {
-        int tamanoArray = Main.getPersonData().size();
-        float porcentaje = (float) tamanoArray / 50;
-
-        progressBar.setProgress(porcentaje);
-        progressIndicator.setProgress(porcentaje);
-    }
+    private void initialize() {}
 
     /**
      * Sets the stage of this dialog.
@@ -165,4 +162,15 @@ public class PersonEditDialogController {
             return false;
         }
     }
+
+    public void setProgressBar(SimpleFloatProperty indicador){
+        this.progressBar.setProgress(indicador.getValue());
+        this.progressIndicator.setProgress(indicador.getValue());
+    }
+    public void setMainApp(Main mainApp) {
+        this.mainApp = mainApp;
+        this.progressBar.progressProperty().bind(mainApp.getProgressProperty());
+        this.progressIndicator.progressProperty().bind(mainApp.getProgressProperty());
+    }
+
 }
