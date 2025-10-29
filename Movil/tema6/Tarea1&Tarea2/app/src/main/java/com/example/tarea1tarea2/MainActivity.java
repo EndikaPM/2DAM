@@ -37,9 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 String user = textUser.getText().toString();
                 String passwo = textPassword.getText().toString();
                 boolean registrado = false;
-                for (int i = 0; i < tam ; i++) {
-                    System.out.println(usuario[i]);
-                    System.out.println(user);
+
+                for (int i = 0; i < tam && !registrado; i++) {
                     if (usuario[i].toLowerCase().equals(user.toLowerCase())&& password[i].equals(passwo)){
                         Intent pasarActivity2 = new Intent(MainActivity.this, Activity2.class);
                         startActivity(pasarActivity2);

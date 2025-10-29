@@ -107,7 +107,7 @@ public class Main extends Application {
             personData.add(PersonUtil.getPerson(persona));
         }
 
-
+        updateProgressProperty();
     }
 
     public static void main(String[] args) {

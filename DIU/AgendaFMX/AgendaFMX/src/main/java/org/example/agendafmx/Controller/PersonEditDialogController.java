@@ -167,10 +167,11 @@ public class PersonEditDialogController {
         this.progressBar.setProgress(indicador.getValue());
         this.progressIndicator.setProgress(indicador.getValue());
     }
+
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
-        this.progressBar.progressProperty().bind(mainApp.getProgressProperty());
-        this.progressIndicator.progressProperty().bind(mainApp.getProgressProperty());
-    }
 
+        progressBar.progressProperty().bind(mainApp.getProgressProperty());
+        progressIndicator.progressProperty().bind(mainApp.getProgressProperty());
+    }
 }
