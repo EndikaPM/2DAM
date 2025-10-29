@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String [] usuario = {"Endika", "Eva", "Usuario","Root"};
-        String [] password = {"Endika", "Eva", "Usuario", "root"};
+        Usuario [] usuario = {new Usuario("Endika", "Endika"),new Usuario("Eva", "Eva"),
+                new Usuario("Usuario", "Usuario"),new Usuario("Root", "root")};
 
         Button ok = (Button) findViewById(R.id.ok);
         Button singIn = (Button) findViewById(R.id.sign_In);
@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 boolean registrado = false;
 
                 for (int i = 0; i < tam && !registrado; i++) {
-                    if (usuario[i].toLowerCase().equals(user.toLowerCase())&& password[i].equals(passwo)){
+                    if (usuario[i].getUser().equals(user) && usuario[i].getPassword().equals(passwo)){
+                        registrado = true;
                         Intent pasarActivity2 = new Intent(MainActivity.this, Activity2.class);
                         startActivity(pasarActivity2);
-                        registrado = true;
                     }
                 }
                 if (!registrado) {

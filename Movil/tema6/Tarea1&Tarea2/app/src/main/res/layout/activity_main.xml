@@ -10,10 +10,10 @@
     android:orientation="vertical"
     android:background="@color/blueGren">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Introduce Usuario y contraseña\n para acceder"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/iconobiblioteca_alfa"
          style="@style/inicioSesion"/>
 
     <EditText
@@ -37,16 +37,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OK"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sign_In"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Registrar"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"/>
     </LinearLayout>
 
 </LinearLayout>
