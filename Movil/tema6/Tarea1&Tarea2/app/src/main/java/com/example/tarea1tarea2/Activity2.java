@@ -87,14 +87,14 @@ public class Activity2 extends AppCompatActivity {
                     TextView texto_inferior_entrada = (TextView) view.findViewById(R.id.texto_datos);
                     ImageView imagen_entrada = (ImageView) view.findViewById(R.id.imagen);
                     RadioButton miRadioButon = (RadioButton) view.findViewById(R.id.boton);
-                    RatingBar rankin = (RatingBar) findViewById(R.id.valoracion);
-                    TextView fecha = (TextView) findViewById(R.id.fecha);
+                    RatingBar rankin = (RatingBar) view.findViewById(R.id.valoracion);
+                    TextView fecha = (TextView) view.findViewById(R.id.fecha);
 
                     texto_superior_entrada.setText(((Encapsulador) entrada).getTitulo());
                     texto_inferior_entrada.setText(((Encapsulador) entrada).getContenido());
                     imagen_entrada.setImageResource(((Encapsulador) entrada).getImagenId());
                     fecha.setText(((Encapsulador) entrada).getFecha());
-                    //rankin.setRating(0.0f);
+                    
 
 
                     miRadioButon.setOnClickListener(new View.OnClickListener() {
