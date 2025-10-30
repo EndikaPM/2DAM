@@ -21,20 +21,11 @@
             android:layout_height="wrap_content"
             android:text="Fecha a añadir"
             android:gravity="center"
-            android:textSize="12dp"
+            android:textSize="15dp"
             android:layout_margin="5dp"
             android:textColor="@color/blue"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <RadioButton
-            android:id="@+id/boton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -42,18 +33,35 @@
         android:orientation="vertical"
         android:gravity="center"
         android:layout_marginBottom="10dp">
-        <TextView
-            android:id="@+id/texto_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sustituirTi"
-            style="@style/style_texto_titulo"/>
-        <TextView
-            android:id="@+id/texto_datos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sustituirCon"
-            style="@style/style_texto_datos"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/texto_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sustituirTi"
+                    style="@style/style_texto_titulo"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <RadioButton
+                        android:id="@+id/boton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/texto_datos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sustituirCon"
+                    style="@style/style_texto_datos"/>
+            </LinearLayout>
+        </LinearLayout>
 
         <RatingBar
             android:id="@+id/valoracion"

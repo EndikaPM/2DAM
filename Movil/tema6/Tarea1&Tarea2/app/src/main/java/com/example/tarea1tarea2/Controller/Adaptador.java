@@ -1,4 +1,4 @@
-package com.example.tarea1tarea2;
+package com.example.tarea1tarea2.Controller;
 
 import android.content.Context;
 import android.view.LayoutInflater;

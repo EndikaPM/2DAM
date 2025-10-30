@@ -6,4 +6,6 @@
     <color name="blueGren">#34AC99</color>
     <color name="red">#F44336</color>
     <color name="blue">#17246F</color>
+    <color name="blueGrenDark">#24CFDB</color>
+    <color name="blueLight">#07A02F</color>
 </resources>

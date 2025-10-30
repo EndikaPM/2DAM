@@ -1,4 +1,4 @@
-package com.example.tarea1tarea2;
+package com.example.tarea1tarea2.Model;
 
 public class Usuario {
     private String user;

@@ -7,13 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
+import com.example.tarea1tarea2.Controller.Activity2;
+import com.example.tarea1tarea2.Model.Usuario;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Usuario [] usuario = {new Usuario("Endika", "Endika"),new Usuario("Eva", "Eva"),
+        Usuario[] usuario = {new Usuario("Endika", "Endika"),new Usuario("Eva", "Eva"),
                 new Usuario("Usuario", "Usuario"),new Usuario("Root", "root")};
 
         Button ok = (Button) findViewById(R.id.ok);
