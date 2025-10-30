@@ -38,8 +38,8 @@ public class PersonController {
 
     // Reference to the main application.
     private Main mainApp;
-    private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
-    private PersonaModel personaModel = new PersonaModel();
+    //private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
+    //private PersonaModel personaModel = new PersonaModel();
     private PersonEditDialogController personEditDialogController = new PersonEditDialogController();
 
 
@@ -66,7 +66,7 @@ public class PersonController {
         personTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showPersonDetails(newValue));
     }
-
+//arreglar---------------------------------
     @FXML
     public void handleDeletePerson() throws ExceptionPersona {
         int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
@@ -97,7 +97,6 @@ public class PersonController {
      */
     public void setMain(Main mainApp) {
         this.mainApp = mainApp;
-
         // Add observable list data to the table
         personTable.setItems(mainApp.getPersonData());
     }

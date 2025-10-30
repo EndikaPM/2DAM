@@ -41,12 +41,14 @@
             android:id="@+id/sign_In"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar"/>
+            android:text="Registrar"
+            style="@style/botones"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"/>
+            android:text="OK"
+            style="@style/botones"/>
     </LinearLayout>
 
 </LinearLayout>
