@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/month" android:title="mes">
+        <menu>
+            <item android:id="@+id/op1" android:title="Lunes">Luenes</item>
+            <item android:id="@+id/op2" android:title="Martes">Martes</item>
+            <item android:id="@+id/op3" android:title="Miercoles">Miercoles</item>
+            <item android:id="@+id/op4" android:title="Jueves">Jueves</item>
+            <item android:id="@+id/op5" android:title="Viernes">Viernes</item>
+            <item android:id="@+id/op6" android:title="Sabado">Sabado</item>
+            <item android:id="@+id/op7" android:title="Domingo">Domingo</item>
+        </menu>
+    </item>
+    <item android:id="@+id/day_week" android:title="dia">
+        <menu>
+            <item android:id="@+id/enero" android:title="Enero"></item>
+            <item android:id="@+id/febrero" android:title="Febrero"></item>
+            <item android:id="@+id/marzo" android:title="marzo"></item>
+            <item android:id="@+id/abril" android:title="abril"></item>
+            <item android:id="@+id/mayo" android:title="Mayo"></item>
+            <item android:id="@+id/junio" android:title="junio"></item>
+            <item android:id="@+id/julio" android:title="julio"></item>
+            <item android:id="@+id/agosto" android:title="agosto"></item>
+            <item android:id="@+id/septiempre" android:title="septiempre"></item>
+            <item android:id="@+id/octubre" android:title="octubre"></item>
+            <item android:id="@+id/novienbre" android:title="Novienbre"></item>
+            <item android:id="@+id/dicienbre" android:title="Dicienbre"></item>
+        </menu>
+    </item>
+</menu>
