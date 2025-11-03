@@ -39,8 +39,7 @@ public class Account{
         try {
             double oldBalance = balance;
             balance += balance * rate;
-            System.out.printf("[%s] Interés aplicado: %.2f -> %.2f (tasa: %.2f%%)%n",
-                    Thread.currentThread().getName(), oldBalance, balance, rate * 100);
+            System.out.println(Thread.currentThread().getName() + " "+ oldBalance+" "+ balance +" " +rate * 100);
         } finally {
             block.unlock();
         }

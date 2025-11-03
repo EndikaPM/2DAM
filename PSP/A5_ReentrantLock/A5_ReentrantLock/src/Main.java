@@ -33,7 +33,7 @@ public class Main  {
 
         System.out.println("--- INICIANDO OPERACIONES ---\n");
 
-        // Crear hilos de transferencias (uno por uno, con nombres claros)
+        // Crear hilos de transferencias
         Thread hilo1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + " inicia");
             banco.transfer((int)(Math.random()*listaCuentas.size()), (int)(Math.random()*listaCuentas.size()), 200.0);
@@ -49,7 +49,7 @@ public class Main  {
             banco.transfer((int)(Math.random()*listaCuentas.size()),(int)(Math.random()*listaCuentas.size()), 300.0);
         }, "Transferencia 3");
 
-        // Crear hilos de intereses (uno por uno)
+        // Crear hilos de intereses
         Thread hiloInteres1 = new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + " inicia");
             cuenta5.applyInterest(0.05);
@@ -60,7 +60,7 @@ public class Main  {
             cuenta2.applyInterest(0.03);
         }, "Cuenta 2");
 
-        // Iniciar todos los hilos uno por uno
+        // Iniciar todos los hilos
         hilo1.start();
         hilo2.start();
         hilo3.start();
@@ -85,6 +85,6 @@ public class Main  {
         System.out.println("Cuenta 5: " + cuenta5.getBalance() + "€");
         System.out.println("TOTAL: " + banco.getTotalBalance() + "€");
 
-        System.out.println("\n✓ El dinero total despues de intereses");
+        System.out.println("\n El dinero total despues de intereses");
     }
 }

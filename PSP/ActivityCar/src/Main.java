@@ -1,3 +1,4 @@
+import java.util.concurrent.Semaphore;
 
 void main() {
    /* RaceCounter race = new RaceCounter();
@@ -9,15 +10,16 @@ void main() {
     threadLuigi.start();
     threadToad.start();
 */
-    System.out.println("-------------------Pazas parking-------------------");
+    System.out.println("-------------------Plazas parking-------------------");
 
     Car hilo1 = new Car("Hilo1");
     Car hilo2 = new Car("Hilo2");
     Car hilo3 = new Car("Hilo3");
 
-    Parking parkin1 = new Parking(hilo1, new Semaphore(2));
-    Parking parkin2 = new Parking(hilo2, new Semaphore(2));
-    Parking parking3 = new Parking(hilo3, new Semaphore(2));
+    Semaphore se = new Semaphore(2);
+    Parking parkin1 = new Parking(hilo1, se);
+    Parking parkin2 = new Parking(hilo2, se);
+    Parking parking3 = new Parking(hilo3, se);
 
     Thread threadParking = new Thread(parkin1);
     Thread threadParking2 = new Thread(parkin2);

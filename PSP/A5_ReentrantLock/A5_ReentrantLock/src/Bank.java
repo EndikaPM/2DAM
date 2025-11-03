@@ -23,12 +23,12 @@ public class Bank {
                 double balanceToAntes = to.getBalance();
 
                 // Realizamos la transferencia
-                accounts.get(fromAccount).withdraw(amount);
-                accounts.get(toAccount).deposit(amount);
+                from.withdraw(amount);
+                to.deposit(amount);
 
                 // Obtenemos los saldos DESPUÉS de la transferencia
-                double balanceFromDespues = accounts.get(fromAccount).getBalance();
-                double balanceToDespues = accounts.get(toAccount).getBalance();
+                double balanceFromDespues = from.getBalance();
+                double balanceToDespues = to.getBalance();
 
                 System.out.println("El hilo " + Thread.currentThread().getName() + " del " + from.getName() +
                         "\n\t Cuenta origen nº" + fromAccount + " " + from.getName() + ":" +
