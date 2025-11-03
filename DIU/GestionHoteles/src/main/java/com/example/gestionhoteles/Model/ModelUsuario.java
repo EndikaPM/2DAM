@@ -1,0 +1,30 @@
+package com.example.gestionhoteles.Model;
+
+import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
+import com.example.gestionhoteles.Model.Repositorio.UsuarioRepositorio;
+
+import java.util.ArrayList;
+
+public class ModelUsuario {
+    private UsuarioRepositorio usuarioRepositorio;
+
+    public ModelUsuario(UsuarioRepositorio usuarioRepositorio) {
+        this.usuarioRepositorio = usuarioRepositorio;
+    }
+
+    public ArrayList<UsuarioVO> ObtenerListaUsuario() throws ExceptionUsuario{
+       return usuarioRepositorio.ObtenerListaUsuario();
+    }
+
+    public void addUsuario(UsuarioVO u) throws ExceptionUsuario {
+        usuarioRepositorio.addUsuario(u);
+    }
+
+    public void deleteUsuario(String dniUsuario) throws ExceptionUsuario {
+        usuarioRepositorio.deleteUsuario(dniUsuario);
+    }
+
+    public void updateUsuario(UsuarioVO userVO) throws ExceptionUsuario {
+        usuarioRepositorio.updateUsuario(userVO);
+    }
+}
