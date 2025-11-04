@@ -77,4 +77,17 @@ public class UsuarioVO {
     public void setCodigoPostal(int codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioVO{" +
+                ", " + dni +
+                ", " + nombre +
+                ", " + apellido +
+                ", " + direccion +
+                ", " + localidad +
+                ", " + provincia +
+                ", " + codigoPostal +
+                '}';
+    }
 }

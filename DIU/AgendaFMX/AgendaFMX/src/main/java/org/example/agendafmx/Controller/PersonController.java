@@ -38,8 +38,8 @@ public class PersonController {
 
     // Reference to the main application.
     private Main mainApp;
-    //private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
-    //private PersonaModel personaModel = new PersonaModel();
+    private PersonaRepositorioImpl personaRepositorio = new PersonaRepositorioImpl();
+    private PersonaModel personaModel = new PersonaModel();
     private PersonEditDialogController personEditDialogController = new PersonEditDialogController();
 
 

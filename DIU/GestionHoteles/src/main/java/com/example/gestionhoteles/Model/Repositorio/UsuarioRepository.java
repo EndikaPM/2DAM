@@ -4,7 +4,7 @@ import com.example.gestionhoteles.Model.UsuarioVO;
 
 import java.util.ArrayList;
 
-public interface UsuarioRepositorio {
+public interface UsuarioRepository {
     ArrayList<UsuarioVO> ObtenerListaUsuario() throws ExceptionUsuario;
 
     void addUsuario(UsuarioVO usuarioVO) throws ExceptionUsuario;

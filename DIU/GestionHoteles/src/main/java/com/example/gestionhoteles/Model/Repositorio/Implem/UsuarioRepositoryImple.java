@@ -1,18 +1,15 @@
 package com.example.gestionhoteles.Model.Repositorio.Implem;
 
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
-import com.example.gestionhoteles.Model.Repositorio.UsuarioRepositorio;
+import com.example.gestionhoteles.Model.Repositorio.UsuarioRepository;
 import com.example.gestionhoteles.Model.UsuarioVO;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
-public class UsuarioRepositoryImple implements UsuarioRepositorio {
+public class UsuarioRepositoryImple implements UsuarioRepository {
     private final ConexionJDBC conexion = new ConexionJDBC();
-    private Statement statm;
+    private PreparedStatement statm;
     private String sentencia;
     private ArrayList<UsuarioVO> listaUsuario;
     private UsuarioVO usuario;
@@ -22,8 +19,8 @@ public class UsuarioRepositoryImple implements UsuarioRepositorio {
         try{
             Connection conex = this.conexion.conectarBD();
             this.listaUsuario = new ArrayList<>();
-            this.statm = conex.createStatement();
             this.sentencia = "SELECT * FROM usuario";
+            this.statm = conex.prepareStatement(sentencia);
             ResultSet rs = this.statm.executeQuery(this.sentencia);
 
             while (rs.next()){
@@ -49,18 +46,17 @@ public class UsuarioRepositoryImple implements UsuarioRepositorio {
     public void addUsuario(UsuarioVO u) throws ExceptionUsuario {
         try{
             Connection conn = this.conexion.conectarBD();
-            this.statm = conn.createStatement();
-            this.sentencia = "INSERT INTO usuario (dni, nombre,apellido, direccion,  localida , provincia, codigo_postal) VALUES ('" +
-                    u.getDni() + "','" +
-                    u.getNombre() + "','" +
-                    u.getApellido() + "','" +
-                    u.getDireccion() + "','" +
-                    u.getLocalidad() + "','" +
-                    u.getProvincia() + "','" +
-                    u.getCodigoPostal() + "')";
+            this.sentencia = "INSERT INTO usuario (dni, nombre, apellido, direccion, localida, provincia, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            this.statm = conn.prepareStatement(this.sentencia);
+            this.statm.setString(1, u.getDni());
+            this.statm.setString(2, u.getNombre());
+            this.statm.setString(3, u.getApellido());
+            this.statm.setString(4, u.getDireccion());
+            this.statm.setString(5, u.getLocalidad());
+            this.statm.setString(6, u.getProvincia());
+            this.statm.setInt(7, u.getCodigoPostal());
 
-
-            this.statm.executeUpdate(this.sentencia);
+            this.statm.executeUpdate();
             this.statm.close();
             this.conexion.desconectarBD(conn);
         }catch (SQLException e) {
@@ -73,10 +69,12 @@ public class UsuarioRepositoryImple implements UsuarioRepositorio {
     public void deleteUsuario(String dniUsuario) throws ExceptionUsuario {
         try {
             Connection conn = this.conexion.conectarBD();
-            this.statm = conn.createStatement();
-            Statement comando = conn.createStatement();
-            String sql = String.format("DELETE FROM usuario WHERE dni = %d", dniUsuario);
-            comando.executeUpdate(sql);
+            this.sentencia = "DELETE FROM usuario WHERE dni = ?";
+            this.statm = conn.prepareStatement(this.sentencia);
+            this.statm.setString(1, dniUsuario);
+
+            this.statm.executeUpdate();
+            this.statm.close();
             this.conexion.desconectarBD(conn);
         } catch (SQLException var5) {
             throw new ExceptionUsuario("No se ha podido realizar la eliminación");
@@ -87,15 +85,22 @@ public class UsuarioRepositoryImple implements UsuarioRepositorio {
     public void updateUsuario(UsuarioVO userVO) throws ExceptionUsuario {
         try {
             Connection conn = this.conexion.conectarBD();
-            this.statm = conn.createStatement();
-            String usuario = String.format("UPDATE usuario SET dni = '%s', nombre = '%s', apellido = '%s', direccion = '%s', localida = '%s', " +
-                            "provincia = '%s'+ codigo_postal = '%s' WHERE id = %d", userVO.getDni(), userVO.getNombre(), userVO.getApellido(),
-                    userVO.getDireccion(),userVO.getLocalidad(), userVO.getProvincia(), userVO.getCodigoPostal(), userVO.getDireccion());
+            this.sentencia = "UPDATE usuario SET nombre = ?, apellido = ?, direccion = ?, localida = ?, provincia = ?, codigo_postal = ? WHERE dni = ?";
+            this.statm = conn.prepareStatement(this.sentencia);
+            this.statm.setString(1, userVO.getNombre());
+            this.statm.setString(2, userVO.getApellido());
+            this.statm.setString(3, userVO.getDireccion());
+            this.statm.setString(4, userVO.getLocalidad());
+            this.statm.setString(5, userVO.getProvincia());
+            this.statm.setInt(6, userVO.getCodigoPostal());
+            this.statm.setString(7, userVO.getDni());
 
-
-            this.statm.executeUpdate(usuario);
+            this.statm.executeUpdate();
+            this.statm.close();
+            this.conexion.desconectarBD(conn);
         } catch (Exception e) {
-            throw new ExceptionUsuario("No se ha podido realizar la modificiación"+ e.getMessage());
+            System.out.println("Error aqui "+e.getMessage());
+            throw new ExceptionUsuario("No se ha podido realizar la modificiación");
         }
     }
 

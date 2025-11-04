@@ -13,8 +13,7 @@ public class ReservaVO {
     private String idUsuario;
     private int id;
 
-    public ReservaVO(int id, String idUsuario, boolean isFumador, RegimenAlogamiento regimenAlogamiento, TipoHabitaciones tipoHAbitaciones, int numHabitaciones, LocalDate fechaSalida, LocalDate fechaEntrada) {
-        this.id = id;
+    public ReservaVO( String idUsuario, boolean isFumador, RegimenAlogamiento regimenAlogamiento, TipoHabitaciones tipoHAbitaciones, int numHabitaciones, LocalDate fechaSalida, LocalDate fechaEntrada) {
         this.idUsuario = idUsuario;
         this.isFumador = isFumador;
         this.regimenAlogamiento = regimenAlogamiento;
@@ -86,5 +85,19 @@ public class ReservaVO {
 
     public void setIdUsuario(String idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    @Override
+    public String toString() {
+        return "ReservaVO{" +
+                ", " + fechaEntrada +
+                ", " + fechaSalida +
+                ", " + numHabitaciones +
+                ", " + tipoHAbitaciones +
+                ", " + isFumador +
+                ", " + regimenAlogamiento +
+                ", " + idUsuario +
+                ", " + id +
+                '}';
     }
 }

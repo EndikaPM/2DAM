@@ -12,12 +12,11 @@ void main() {
             }
         });
 
-        Thread hilo2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
+        Thread hilo2 = new Thread(() ->{{
                 tarea2.readFile();
             }
         });
+
 
         hilo1.start();
         hilo2.start();

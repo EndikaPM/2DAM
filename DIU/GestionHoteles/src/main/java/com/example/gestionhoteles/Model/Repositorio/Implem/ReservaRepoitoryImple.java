@@ -8,10 +8,7 @@ import com.example.gestionhoteles.Model.ReservaVO;
 import com.example.gestionhoteles.Model.TipoHabitaciones;
 import com.example.gestionhoteles.Model.UsuarioVO;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -43,7 +40,7 @@ public class ReservaRepoitoryImple implements ReservaRepository {
                 String idUser = rs.getString("id_usuario");
                 int id = rs.getInt("id");
 
-                this.reserva = new ReservaVO(id,idUser, isFum, regHabit, tipoHabit,numHabit,diaSalia,diaLlegada);
+                this.reserva = new ReservaVO(idUser, isFum, regHabit, tipoHabit,numHabit,diaSalia,diaLlegada);
                 this.listaReservas.add(reserva);
             }
             this.conexion.desconectarBD(conex);
@@ -56,22 +53,24 @@ public class ReservaRepoitoryImple implements ReservaRepository {
     @Override
     public void addReserva(ReservaVO rVO) throws ExeptionReserva {
         try{
-            Connection conn = this.conexion.conectarBD();
-            this.statm = conn.createStatement();
-            this.sentencia = "INSERT INTO reserva (dia_llegada, dia_salida,num_habitaciones, tipo_habitacion,  is_fumador , Regimen_alojamiento, id_usuario,id) VALUES ('" +
-                    rVO.getFechaEntrada() + "','" +
-                    rVO.getFechaSalida() + "','" +
-                    rVO.getNumHabitaciones() + "','" +
-                    rVO.getTipoHAbitaciones() + "','" +
-                    rVO.getIsFumador() + "','" +
-                    rVO.getRegimenAlogamiento() + "','" +
-                    rVO.getIdUsuario() + "','" +
-                    rVO.getId() + "')";
+            String sql = "INSERT INTO reserva (dia_llegada, dia_salida, num_habitaciones, tipo_habitacion, is_fumador, Regimen_alojamiento, id_usuario, id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conexion.conectarBD().prepareStatement(sql);
 
+            Date dateEntrada = Date.valueOf(rVO.getFechaEntrada());
+            ps.setDate(1, dateEntrada);
+            Date dateSalida = Date.valueOf(rVO.getFechaSalida());
+            ps.setDate(2, dateSalida);
+            ps.setInt(3, rVO.getNumHabitaciones());
+            String tipohabita = rVO.getTipoHAbitaciones().toString();
+            ps.setString(4, tipohabita);
+            ps.setBoolean(5, rVO.getIsFumador());
+            String regimenAlogamiento = rVO.getRegimenAlogamiento().toString();
+            ps.setString(6, regimenAlogamiento);
+            ps.setString(7, rVO.getIdUsuario());
+            ps.setInt(8, rVO.getId());
 
-            this.statm.executeUpdate(this.sentencia);
-            this.statm.close();
-            this.conexion.desconectarBD(conn);
+            ps.executeUpdate();
+            ps.close();
         }catch (SQLException e) {
             System.out.println(e.getMessage());
             throw new ExeptionReserva("Error al obtener lista de personas");
@@ -93,13 +92,13 @@ public class ReservaRepoitoryImple implements ReservaRepository {
     }
 
     @Override
-    public void updateReserva(ReservaVO reservaVO) throws ExeptionReserva {
+    public void updateReserva(ReservaVO reserVO) throws ExeptionReserva {
         try {
             Connection conn = this.conexion.conectarBD();
             this.statm = conn.createStatement();
-            String usuario = String.format("UPDATE reserva SET dni = '%s', nombreCompleto = '%s', direccion = '%s', localidad = '%s', " +
-                            "provincia = '%s' WHERE id = %d", userVO.getDni(), userVO.getNombre(), userVO.getApellido(),
-                    userVO.getDireccion(),userVO.getLocalidad(), userVO.getProvincia(), userVO.getCodigoPostal());
+            String usuario = String.format("UPDATE reserva SET dni = '%s', dia_llegada = '%s', dia_salida = '%s', num_habitaciones = '%s', tipo_habitacion = '%s', " +
+                            "is_fumador = '%s' , Regimen_alojamiento = '%s', id_usuario = '%s' WHERE id = %d", reserVO.getFechaEntrada(), reserVO.getFechaSalida(), reserVO.getNumHabitaciones(),
+                    reserVO.getTipoHAbitaciones(),reserVO.getIsFumador(), reserVO.getRegimenAlogamiento(), reserVO.getIdUsuario());
 
 
             this.statm.executeUpdate(usuario);

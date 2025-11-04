@@ -1,14 +1,14 @@
 package com.example.gestionhoteles.Model;
 
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
-import com.example.gestionhoteles.Model.Repositorio.UsuarioRepositorio;
+import com.example.gestionhoteles.Model.Repositorio.UsuarioRepository;
 
 import java.util.ArrayList;
 
 public class ModelUsuario {
-    private UsuarioRepositorio usuarioRepositorio;
+    private UsuarioRepository usuarioRepositorio;
 
-    public ModelUsuario(UsuarioRepositorio usuarioRepositorio) {
+    public ModelUsuario(UsuarioRepository usuarioRepositorio) {
         this.usuarioRepositorio = usuarioRepositorio;
     }
 
