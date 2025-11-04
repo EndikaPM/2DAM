@@ -10,6 +10,7 @@ module com.example.gestionhoteles {
     requires eu.hansolo.tilesfx;
     requires java.sql;
 
+
     opens com.example.gestionhoteles to javafx.fxml;
     exports com.example.gestionhoteles;
 }

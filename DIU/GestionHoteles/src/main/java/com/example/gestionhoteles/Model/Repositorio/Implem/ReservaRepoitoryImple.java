@@ -1,21 +1,24 @@
 package com.example.gestionhoteles.Model.Repositorio.Implem;
 
 import com.example.gestionhoteles.Model.RegimenAlogamiento;
-import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
 import com.example.gestionhoteles.Model.ReservaVO;
 import com.example.gestionhoteles.Model.TipoHabitaciones;
-import com.example.gestionhoteles.Model.UsuarioVO;
+import com.example.gestionhoteles.Util.DateUtil;
+import javafx.scene.control.Alert;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import static javafx.scene.input.KeyCode.T;
+
 public class ReservaRepoitoryImple implements ReservaRepository {
     private final ConexionJDBC conexion = new ConexionJDBC();
     private Statement statm;
     private String sentencia;
+    PreparedStatement ps;
     private ArrayList<ReservaVO> listaReservas;
     private ReservaVO reserva;
 
@@ -29,18 +32,19 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             ResultSet rs = this.statm.executeQuery(this.sentencia);
 
             while (rs.next()){
-                LocalDate diaLlegada = rs.getDate("dia_llegada").toLocalDate();
-                LocalDate diaSalia = rs.getDate("dia_salida").toLocalDate();
+                String diaLlegada = DateUtil.format(rs.getDate("dia_llegada").toLocalDate());
+                String diaSalia = DateUtil.format(rs.getDate("dia_salida").toLocalDate());
                 int numHabit = rs.getInt("num_habitaciones");
                 String temTipoHabi = rs.getString("tipo_habitacion");
-                TipoHabitaciones tipoHabit = TipoHabitaciones.valueOf(temTipoHabi);
+                //TipoHabitaciones tipoHabit = TipoHabitaciones.valueOf(temTipoHabi.toUpperCase());
                 boolean isFum = rs.getBoolean("is_fumador");
                 String temResHabit = rs.getString("Regimen_alojamiento");
-                RegimenAlogamiento regHabit = RegimenAlogamiento.valueOf(temResHabit);
+                //RegimenAlogamiento regHabit = RegimenAlogamiento.valueOf(temResHabit);
                 String idUser = rs.getString("id_usuario");
                 int id = rs.getInt("id");
 
-                this.reserva = new ReservaVO(idUser, isFum, regHabit, tipoHabit,numHabit,diaSalia,diaLlegada);
+                this.reserva = new ReservaVO(idUser, isFum, temResHabit, temTipoHabi,numHabit,diaSalia,diaLlegada);
+                this.reserva.setId(id);
                 this.listaReservas.add(reserva);
             }
             this.conexion.desconectarBD(conex);
@@ -54,18 +58,18 @@ public class ReservaRepoitoryImple implements ReservaRepository {
     public void addReserva(ReservaVO rVO) throws ExeptionReserva {
         try{
             String sql = "INSERT INTO reserva (dia_llegada, dia_salida, num_habitaciones, tipo_habitacion, is_fumador, Regimen_alojamiento, id_usuario, id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = conexion.conectarBD().prepareStatement(sql);
+            ps = conexion.conectarBD().prepareStatement(sql);
 
             Date dateEntrada = Date.valueOf(rVO.getFechaEntrada());
             ps.setDate(1, dateEntrada);
             Date dateSalida = Date.valueOf(rVO.getFechaSalida());
             ps.setDate(2, dateSalida);
             ps.setInt(3, rVO.getNumHabitaciones());
-            String tipohabita = rVO.getTipoHAbitaciones().toString();
-            ps.setString(4, tipohabita);
+            //String tipohabita = rVO.getTipoHAbitaciones().toString();
+            ps.setString(4, rVO.getTipoHAbitaciones());
             ps.setBoolean(5, rVO.getIsFumador());
-            String regimenAlogamiento = rVO.getRegimenAlogamiento().toString();
-            ps.setString(6, regimenAlogamiento);
+            //String regimenAlogamiento = rVO.getRegimenAlogamiento().toString();
+            ps.setString(6, rVO.getRegimenAlogamiento());
             ps.setString(7, rVO.getIdUsuario());
             ps.setInt(8, rVO.getId());
 

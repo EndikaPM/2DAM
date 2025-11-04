@@ -1,5 +1,7 @@
 package com.example.gestionhoteles.Model;
 
+import com.example.gestionhoteles.Util.DateUtil;
+
 import java.time.LocalDate;
 
 public class ReservaVO {
@@ -7,20 +9,38 @@ public class ReservaVO {
     private LocalDate fechaEntrada;
     private LocalDate fechaSalida;
     private int numHabitaciones;
-    private TipoHabitaciones tipoHAbitaciones;
+    //private TipoHabitaciones tipoHAbitaciones;
+    private String tipoHAbitaciones;
     private boolean isFumador;
-    private RegimenAlogamiento regimenAlogamiento;
+    //private RegimenAlogamiento regimenAlogamiento;
+    private String regimenAlogamiento;
     private String idUsuario;
     private int id;
 
-    public ReservaVO( String idUsuario, boolean isFumador, RegimenAlogamiento regimenAlogamiento, TipoHabitaciones tipoHAbitaciones, int numHabitaciones, LocalDate fechaSalida, LocalDate fechaEntrada) {
+    public ReservaVO() {}
+    public ReservaVO( String idUsuario, boolean isFumador, String regimenAlogamiento, String tipoHAbitaciones, int numHabitaciones, String fechaSalida, String fechaEntrada) {
         this.idUsuario = idUsuario;
         this.isFumador = isFumador;
         this.regimenAlogamiento = regimenAlogamiento;
         this.tipoHAbitaciones = tipoHAbitaciones;
         this.numHabitaciones = numHabitaciones;
-        this.fechaSalida = fechaSalida;
-        this.fechaEntrada = fechaEntrada;
+        this.fechaSalida = DateUtil.parse(fechaSalida);
+        this.fechaEntrada = DateUtil.parse(fechaEntrada);
+    }
+    public String getTipoHAbitaciones() {
+        return tipoHAbitaciones;
+    }
+
+    public String getRegimenAlogamiento() {
+        return regimenAlogamiento;
+    }
+
+    public void setRegimenAlogamiento(String regimenAlogamiento) {
+        this.regimenAlogamiento = regimenAlogamiento;
+    }
+
+    public void setTipoHAbitaciones(String tipoHAbitaciones) {
+        this.tipoHAbitaciones = tipoHAbitaciones;
     }
 
     public int getId() {
@@ -55,13 +75,13 @@ public class ReservaVO {
         this.numHabitaciones = numHabitaciones;
     }
 
-    public TipoHabitaciones getTipoHAbitaciones() {
+    /*public TipoHabitaciones getTipoHAbitaciones() {
         return tipoHAbitaciones;
-    }
+
 
     public void setTipoHAbitaciones(TipoHabitaciones tipoHAbitaciones) {
         this.tipoHAbitaciones = tipoHAbitaciones;
-    }
+    }*/
 
     public boolean getIsFumador() {
         return isFumador;
@@ -71,13 +91,13 @@ public class ReservaVO {
         isFumador = fumador;
     }
 
-    public RegimenAlogamiento getRegimenAlogamiento() {
-        return regimenAlogamiento;
-    }
+    //public RegimenAlogamiento getRegimenAlogamiento() {
+        //return regimenAlogamiento;
+   // }
 
-    public void setRegimenAlogamiento(RegimenAlogamiento regimenAlogamiento) {
-        this.regimenAlogamiento = regimenAlogamiento;
-    }
+   // public void setRegimenAlogamiento(RegimenAlogamiento regimenAlogamiento) {
+      //  this.regimenAlogamiento = regimenAlogamiento;
+    //}
 
     public String getIdUsuario() {
         return idUsuario;

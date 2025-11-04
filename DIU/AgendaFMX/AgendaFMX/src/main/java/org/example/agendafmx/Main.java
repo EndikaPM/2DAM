@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -97,17 +98,25 @@ public class Main extends Application {
 
     private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
-    public Main() throws ExceptionPersona {
-        PersonaModel personaModel = new PersonaModel();
-        PersonaRepository personaRepositorio = new PersonaRepositorioImpl();
-        personaModel.setPersonaRepository(personaRepositorio);
-        ArrayList<PersonVO> personaVo = personaModel.ObtenerListaPersona();
+    public Main()  {
+       try {
+           PersonaModel personaModel = new PersonaModel();
+           PersonaRepository personaRepositorio = new PersonaRepositorioImpl();
+           personaModel.setPersonaRepository(personaRepositorio);
+           ArrayList<PersonVO> personaVo = personaModel.ObtenerListaPersona();
 
-        for (PersonVO persona : personaVo) {
-            personData.add(PersonUtil.getPerson(persona));
-        }
+           for (PersonVO persona : personaVo) {
+               personData.add(PersonUtil.getPerson(persona));
+           }
 
-        updateProgressProperty();
+           updateProgressProperty();
+       }catch (ExceptionPersona e){
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setTitle("Error");
+           alert.setHeaderText("Error al conectar con la base de datos");
+           alert.setContentText("No ha sido posible obtener la lista de clientes.");
+           alert.showAndWait();
+       }
     }
 
     public static void main(String[] args) {
