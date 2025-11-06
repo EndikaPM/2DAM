@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tarea1Tarea2">
         <activity
+            android:name=".Controller.Registro"
+            android:exported="false" />
+        <activity
             android:name=".Controller.Activity2"
             android:exported="false" />
         <activity

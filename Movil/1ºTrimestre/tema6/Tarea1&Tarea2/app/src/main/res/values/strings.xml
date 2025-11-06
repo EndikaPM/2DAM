@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Tarea1&amp;Tarea2</string>
     <string name="textDefault">MARCA UNA OPCIÓN</string>
+    <string name="guardar">Guardar</string>
 </resources>

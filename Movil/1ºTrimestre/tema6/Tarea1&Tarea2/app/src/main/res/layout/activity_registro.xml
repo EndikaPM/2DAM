@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Controller.Registro"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/blueGren">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adentrate en el maravilloso mundo \n de la lectura y
+unete a Nuestra Libreria"
+        android:gravity="center"
+        style="@style/registro"/>
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tu Nombre"
+        android:inputType="text"
+        style="@style/registro_campos"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tus Apellidos"
+        android:inputType="text"
+        style="@style/registro_campos"/>/>
+    <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Introduce tu Email"
+    android:inputType="text"
+        style="@style/registro_campos"/>/>
+
+    <EditText
+        android:id="@+id/passwdConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduce una contraseña"
+        android:inputType="textPassword"
+        style="@style/registro_campos"/>
+    <EditText
+        android:id="@+id/passwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="confirma la contraseña"
+        android:inputType="textPassword"
+        style="@style/registro_campos"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/guardar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/guardar"
+        style="@style/boton_guardar_registro"/>
+</LinearLayout>
