@@ -8,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER_NAME">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.ReservaController">
    <children>
       <SplitPane dividerPositions="0.21105527638190955" layoutX="122.0" layoutY="8.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -35,14 +34,14 @@
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Label layoutX="22.0" layoutY="55.0" text="Fecha Entrada" />
-                  <Label layoutX="372.0" layoutY="55.0" text="Fecha salida" />
-                  <DatePicker layoutX="22.0" layoutY="81.0" />
-                  <DatePicker layoutX="372.0" layoutY="74.0" />
-                  <Label layoutX="211.0" layoutY="125.0" text="Tipo de Habitacion" />
-                  <HBox layoutX="367.0" layoutY="267.0" prefHeight="29.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="31.0">
+                  <Label layoutX="22.0" layoutY="55.0" text="Fecha Entrada" AnchorPane.leftAnchor="22.0" />
+                  <Label layoutX="307.0" layoutY="55.0" text="Fecha salida" AnchorPane.rightAnchor="216.0" />
+                  <DatePicker fx:id="data_entry" layoutX="22.0" layoutY="81.0" prefHeight="29.0" prefWidth="245.0" AnchorPane.leftAnchor="22.0" />
+                  <DatePicker fx:id="data_exit" layoutX="307.0" layoutY="81.0" prefHeight="29.0" prefWidth="251.0" AnchorPane.rightAnchor="40.0" />
+                  <Label layoutX="220.0" layoutY="135.0" text="Tipo de Habitacion" />
+                  <HBox layoutX="367.0" layoutY="267.0" prefHeight="29.0" prefWidth="233.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="31.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Button">
+                        <Button mnemonicParsing="false" text="Aceptar">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -50,7 +49,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button">
+                        <Button mnemonicParsing="false" text="Cancelar">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -58,7 +57,7 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Button">
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Volver">
                            <opaqueInsets>
                               <Insets left="10.0" />
                            </opaqueInsets>
@@ -66,28 +65,42 @@
                      </children>
                   </HBox>
                   <CheckBox layoutX="24.0" layoutY="125.0" mnemonicParsing="false" text="Fumador" />
-                  <ChoiceBox layoutX="335.0" layoutY="120.0" prefWidth="150.0" AnchorPane.rightAnchor="113.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
-                  <VBox layoutX="41.0" layoutY="148.0" prefHeight="152.0" prefWidth="136.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="20.0">
+                  <ChoiceBox layoutX="367.0" layoutY="130.0" prefWidth="150.0" AnchorPane.rightAnchor="81.0" />
+                  <VBox layoutX="41.0" layoutY="148.0" prefHeight="112.0" prefWidth="195.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="20.0">
                      <children>
-                        <Label text="Label">
+                        <Label text="Regimen">
                            <VBox.margin>
                               <Insets left="10.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <CheckBox mnemonicParsing="false" text="CheckBox">
+                        <VBox prefHeight="77.0" prefWidth="89.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="Aojamiento y desayuno">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Media pension">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Pension completa" />
+                           </children>
                            <VBox.margin>
-                              <Insets bottom="10.0" top="10.0" />
+                              <Insets left="20.0" />
                            </VBox.margin>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="CheckBox">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="CheckBox" />
+                        </VBox>
                      </children>
                   </VBox>
+                  <VBox layoutX="217.0" layoutY="191.10299682617188">
+                     <children>
+                        <Text layoutX="218.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="En virtud de la ley de sanidad se informa a los clientes" wrappingWidth="328.7049865722656" />
+                        <Text layoutX="217.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="de que solo podran fumar en las habitaciones " />
+                        <Text layoutX="217.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="reservadas para ese fin." />
+                     </children>
+                  </VBox>
+                  <Button layoutX="34.0" layoutY="267.0" mnemonicParsing="false" text="Limpiar" AnchorPane.leftAnchor="30.0" />
                </children>
             </AnchorPane>
         </items>

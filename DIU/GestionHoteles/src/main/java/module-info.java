@@ -9,6 +9,8 @@ module com.example.gestionhoteles {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires javafx.base;
+    requires javafx.graphics;
 
 
     opens com.example.gestionhoteles to javafx.fxml;
