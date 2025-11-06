@@ -13,4 +13,6 @@ module com.example.gestionhoteles {
 
     opens com.example.gestionhoteles to javafx.fxml;
     exports com.example.gestionhoteles;
+    exports com.example.gestionhoteles.Controller;
+    opens com.example.gestionhoteles.Controller to javafx.fxml;
 }
