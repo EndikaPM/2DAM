@@ -10,10 +10,10 @@
     android:gravity="center"
     android:background="@color/blueGren">
     <TextView
+        android:id="@+id/head_sigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adentrate en el maravilloso mundo \n de la lectura y
-unete a Nuestra Libreria"
+        android:text="Adentrate en el maravilloso mundo \n de la lectura y unete a Nuestra Libreria"
         android:gravity="center"
         style="@style/registro"/>
     <EditText
@@ -28,13 +28,13 @@ unete a Nuestra Libreria"
         android:layout_height="wrap_content"
         android:hint="Introduce tus Apellidos"
         android:inputType="text"
-        style="@style/registro_campos"/>/>
+        style="@style/registro_campos"/>
     <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:hint="Introduce tu Email"
     android:inputType="text"
-        style="@style/registro_campos"/>/>
+        style="@style/registro_campos"/>
 
     <EditText
         android:id="@+id/passwdConfirm"

@@ -1,6 +1,8 @@
 package com.example.tarea1tarea2.Controller;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -8,6 +10,7 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,8 +21,7 @@ import java.util.ArrayList;
 
 public class Activity2 extends AppCompatActivity {
     private ListView lista;
-    private RatingBar valora;
-    private RadioButton radioButton_pulsado;
+    ArrayList<Libro> datos;
 
 
     @Override
@@ -29,7 +31,7 @@ public class Activity2 extends AppCompatActivity {
 
         lista = findViewById(R.id.principa_lista_view);
 
-        ArrayList<Libro> datos = new ArrayList<>();
+        datos = new ArrayList<>();
         datos.add(new Libro(R.drawable.ima1, "La mano izquierda de dios", "Thomas Cale ha sido criado en un monasterio donde se entrena a niños para convertirse en guerreros sin piedad. Cuando escapa, descubre un mundo que nunca imaginó y se ve envuelto en una guerra que podría cambiar el destino de la humanidad.", "fecha publicación:\n2010",true));
 
         datos.add(new Libro(R.drawable.ima2, "Las cuatro Postrimeras", "Segunda parte de la trilogía iniciada con 'La mano izquierda de Dios'. Thomas Cale continúa su viaje enfrentándose a enemigos poderosos mientras intenta comprender su destino y el papel que debe jugar en una guerra apocalíptica.","fecha publicación:\n2011" ,false));
@@ -51,7 +53,6 @@ public class Activity2 extends AppCompatActivity {
                     TextView texto_superior_entrada = (TextView) view.findViewById(R.id.texto_titulo);
                     TextView texto_inferior_entrada = (TextView) view.findViewById(R.id.texto_datos);
                     ImageView imagen_entrada = (ImageView) view.findViewById(R.id.imagen);
-                    RadioButton miRadioButon = (RadioButton) view.findViewById(R.id.boton);
                     RatingBar rankin = (RatingBar) view.findViewById(R.id.valoracion);
                     TextView fecha = (TextView) view.findViewById(R.id.fecha);
 
@@ -59,30 +60,51 @@ public class Activity2 extends AppCompatActivity {
                     texto_inferior_entrada.setText(((Libro) entrada).getContenido());
                     imagen_entrada.setImageResource(((Libro) entrada).getImagenId());
                     fecha.setText(((Libro) entrada).getFecha());
-                    
-
-
-                    miRadioButon.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if(radioButton_pulsado != null) radioButton_pulsado.setChecked(false);
-                            radioButton_pulsado = (RadioButton) v;
-
-                            //Lo he hecho pero con trampas
-                        }
-                    });
                 }
             }
         });
-        //Este nunca se ejecuta?????
+
+        registerForContextMenu(lista);
+
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Libro elegido = (Libro) parent.getItemAtPosition(position);
-                CharSequence textoElegido = "Seleccionado: " + elegido.getContenido();
-                //texto.setText(textoElegido);//preguntar a Eva porque en su diapositiva no se usa así
+                String titulo = parent.getItemAtPosition(position).toString();
+                Toast.makeText(Activity2.this, "Hola", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, view, menuInfo);
+
+        menu.setHeaderTitle("Opciones del libro");
+
+        menu.add(0, 1, 0, "Eliminar");
+        menu.add(0, 2, 1, "Editar");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+
+        switch (item.getItemId()) {
+            case 1:
+                Libro libroEliminado = datos.get(position);
+
+                datos.remove(position);
+
+                Toast.makeText(this, "\"" + libroEliminado.getTitulo() + "\" eliminado", Toast.LENGTH_SHORT).show();
+
+                return true;
+
+            case 2:
+                Toast.makeText(this, "Editar: " + datos.get(position).getTitulo(), Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 }

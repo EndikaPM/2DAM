@@ -3,8 +3,11 @@ package com.example.tarea1tarea2.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,18 +34,23 @@ public class Registro extends AppCompatActivity {
         passwd = findViewById(R.id.passwd);
         guardar = findViewById(R.id.guardar);
         passwdCon = findViewById(R.id.passwdConfirm);
+        TextView head = findViewById(R.id.head_sigin);
+        Animation salta = AnimationUtils.loadAnimation(this,R.anim.alfa2);
+        salta.setRepeatMode(Animation.RESTART);
+        salta.setRepeatCount(2);
+        head.setAnimation(salta);
 
 
-            guardar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (passwd.equals(passwdCon)){
-                        finish();
-                    }else{
-                        Toast.makeText(Registro.this, "La contraseña no coinciden", Toast.LENGTH_SHORT).show();
-                    }
+        guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (passwd.getText().toString().equals(passwdCon.getText().toString())){
+                    finish();
+                }else{
+                    Toast.makeText(Registro.this, "La contraseña no coinciden", Toast.LENGTH_SHORT).show();
                 }
-            });
+            }
+        });
     }
 
     @Override
@@ -54,5 +62,4 @@ public class Registro extends AppCompatActivity {
 
         super.finish();
     }
-
 }

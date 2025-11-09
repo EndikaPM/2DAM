@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         usuario.add(new Usuario("Eva", "Eva"));
         usuario.add(new Usuario("Usuario", "Usuario"));
         usuario.add(new Usuario("Root", "root"));
+        usuario.add(new Usuario("", ""));
 
         Button ok = (Button) findViewById(R.id.ok);
         Button singIn = (Button) findViewById(R.id.sign_In);
