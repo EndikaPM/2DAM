@@ -51,6 +51,7 @@ public class Main extends Application {
                 //usuario.updateUsuario(cl);
                 //usuario.deleteUsuario("1234567A");
 
+               
                 ReservaRepository repoReser = new ReservaRepoitoryImple();
                 ModelReserva reserva = new ModelReserva(repoReser);
                 ReservaVO rev = new ReservaVO("1234567A", true,
@@ -97,6 +98,7 @@ public class Main extends Application {
         return primaryStage;
     }
     public Main(){}
+
     private static ObservableList<Usuario> usuarioData = FXCollections.observableArrayList();
     public void showUsuario(){
         try {

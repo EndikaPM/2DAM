@@ -31,6 +31,7 @@ public class Main extends Application {
     private BorderPane rootLayout;
     private SimpleFloatProperty progressBar = new SimpleFloatProperty();
     private final int MAX_PERSON_AGENDA = 50;
+    private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
 
     public SimpleFloatProperty getProgressProperty() {
@@ -95,8 +96,6 @@ public class Main extends Application {
     public Stage getPrimaryStage() {
         return primaryStage;
     }
-
-    private static ObservableList<Person> personData = FXCollections.observableArrayList();
 
     public Main()  {
        try {
