@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.Calendar;
 
 public class AddLibro extends AppCompatActivity {
-    private EditText img;
+    private TextView img;
     private EditText title;
     private EditText des;
     private EditText dataPubli;

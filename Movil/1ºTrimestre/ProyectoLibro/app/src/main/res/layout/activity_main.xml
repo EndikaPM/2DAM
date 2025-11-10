@@ -10,6 +10,12 @@
     android:orientation="vertical"
     android:background="@color/blueGren">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestibook"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -24,14 +30,25 @@
         android:inputType="text"
         android:imeOptions="actionNext"
         style="@style/inicioSesion"/>
-    <EditText
-        android:id="@+id/textPassword"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Intrduce tu contraseña"
-        android:inputType="textPassword"
-        android:imeOptions="actionDone"
-        style="@style/inicioSesion"/>
+        android:orientation="horizontal"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/textPassword"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:hint="Intrduce tu contraseña"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            style="@style/inicioSesionpPass" />
+        <ImageView
+            android:id="@+id/ojo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/outline_multimodal_hand_eye_24"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

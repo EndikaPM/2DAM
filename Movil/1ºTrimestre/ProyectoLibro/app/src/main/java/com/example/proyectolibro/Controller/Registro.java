@@ -23,6 +23,7 @@ public class Registro extends AppCompatActivity {
     private EditText passwd;
     private EditText passwdCon;
     private Button guardar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,7 @@ public class Registro extends AppCompatActivity {
         passwdCon = findViewById(R.id.passwdConfirm);
 
         TextView head = findViewById(R.id.head_sigin);
-        Animation salta = AnimationUtils.loadAnimation(this,R.anim.alfa2);
+        Animation salta = AnimationUtils.loadAnimation(this, R.anim.alfa2);
         salta.setRepeatMode(Animation.RESTART);
         salta.setRepeatCount(2);
         head.setAnimation(salta);
@@ -42,21 +43,21 @@ public class Registro extends AppCompatActivity {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(user.getText() != null || passwd.getText() != null) {
+                if (user.getText().toString().isEmpty() || passwd.getText().toString().isEmpty() || passwdCon.getText().toString().isEmpty()) {
+                    Toast.makeText(Registro.this, "Introduce toos los campos", Toast.LENGTH_LONG).show();
+                } else {
                     if (passwd.getText().toString().equals(passwdCon.getText().toString())) {
                         finish();
                     } else {
                         Toast.makeText(Registro.this, "La contraseña no coinciden", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(Registro.this, "Introduce los campos requeridos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     @Override
-    public void finish(){
+    public void finish() {
         Intent enviarDatos = new Intent();
         enviarDatos.putExtra("usuario", user.getText().toString());
         enviarDatos.putExtra("passwd", passwd.getText().toString());
