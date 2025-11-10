@@ -3,6 +3,7 @@ package com.example.proyectolibro.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,24 +27,21 @@ public class Activity2 extends AppCompatActivity {
     private ListView lista;
     private ArrayList<Libro> datosLibros;
     private LibroAdaptador adaptador;
-    private Button add;
     private int elementoSelecionado;
     private FloatingActionButton botonFlotante;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         lista = findViewById(R.id.principa_lista_view);
-        add = findViewById(R.id.add);
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent addLibro = new Intent(Activity2.this, AddLibro.class);
-                startActivityForResult(addLibro, REQUEST_CODE_ADD);
-            }
-        });
+
+
 
         datosLibros = new ArrayList<>();
         datosLibros.add(new Libro(R.drawable.ima1, "La mano izquierda de dios",
@@ -141,20 +140,8 @@ public class Activity2 extends AppCompatActivity {
 
             Toast.makeText(this, "Libro eliminado: " + libroEliminado.getTitulo(), Toast.LENGTH_SHORT).show();
 
-            return true;
-        }else if (item.getItemId() == R.id.menu_editar){
-            Intent datoEditar = new Intent(Activity2.this, Update.class);
+            adaptador.notifyDataSetChanged();
 
-            int positionEdit = info.position;
-
-            datoEditar.putExtra("indexEdit", positionEdit);
-            datoEditar.putExtra("img", datosLibros.get(positionEdit).getImagen());
-            datoEditar.putExtra("titleEdit", datosLibros.get(positionEdit).getTitulo());
-            datoEditar.putExtra("textEdit", datosLibros.get(positionEdit).getTexto());
-            datoEditar.putExtra("dateEdit", datosLibros.get(positionEdit).getFecha());
-
-            startActivityForResult(datoEditar, REQUEST_CODE_Edit);
-            Toast.makeText(this, "Libro elditado: " + datosLibros.get(positionEdit).getTitulo(), Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onContextItemSelected(item);
@@ -193,6 +180,47 @@ public class Activity2 extends AppCompatActivity {
                     }
                 }
             }
+        }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_add) {
+            // Manda a la pantalla de añadir nuevo juego
+            Intent addLibro = new Intent(Activity2.this, AddLibro.class);
+            startActivityForResult(addLibro, REQUEST_CODE_ADD);
+
+            return true;
+        }
+        else if(item.getItemId() == R.id.modificar){
+            // Manda a la pantalla de editar, pero primero comprueba si se ha selecionado un juego
+            if (elementoSelecionado != -1) {
+                Intent datoEditar = new Intent(Activity2.this, Update.class);
+
+                int positionEdit = elementoSelecionado;
+
+                datoEditar.putExtra("indexEdit", positionEdit);
+                datoEditar.putExtra("img", datosLibros.get(positionEdit).getImagen());
+                datoEditar.putExtra("titleEdit", datosLibros.get(positionEdit).getTitulo());
+                datoEditar.putExtra("textEdit", datosLibros.get(positionEdit).getTexto());
+                datoEditar.putExtra("dateEdit", datosLibros.get(positionEdit).getFecha());
+
+                startActivityForResult(datoEditar, REQUEST_CODE_Edit);
+            }
+            else {
+                Toast.makeText(Activity2.this, "Selecciona un libro primero", Toast.LENGTH_SHORT).show();
+            }
+
+            return true;
+        }
+        else {
+            return super.onOptionsItemSelected(item);
         }
     }
 }
