@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UsuarioCotroller">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UsuarioCotroller">
     <children>
         <SplitPane dividerPositions="0.3635405690200211" layoutX="21.0" layoutY="50.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
@@ -46,7 +47,7 @@
                                 <Label text="Codigo Postal" GridPane.rowIndex="5" />
                                 <Label text="Provincia" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                 <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                <Label fx:id="birthdayLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <Label fx:id="provinciaLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                         <Label text="DNI" />
                         <Label fx:id="dni" text="Label" GridPane.columnIndex="1" />
                                 <Label fx:id="firstNameLabel" text="Label" GridPane.rowIndex="2" />
@@ -57,7 +58,7 @@
                         </GridPane>
                         <HBox layoutX="98.0" layoutY="341.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                             <children>
-                                <Button fx:id="ver_reserva" mnemonicParsing="false" text="Ver reserva">
+                                <Button fx:id="ver_reserva" mnemonicParsing="false" onAction="#handleViewReser" text="Ver reserva">
                                    <HBox.margin>
                                       <Insets right="10.0" />
                                    </HBox.margin>

@@ -1,18 +1,12 @@
 package com.example.gestionhoteles.Model.Repositorio.Implem;
 
-import com.example.gestionhoteles.Model.RegimenAlogamiento;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
-import com.example.gestionhoteles.Model.ReservaVO;
-import com.example.gestionhoteles.Model.TipoHabitaciones;
+import ReservaVO;
 import com.example.gestionhoteles.Util.DateUtil;
-import javafx.scene.control.Alert;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
-
-import static javafx.scene.input.KeyCode.T;
 
 public class ReservaRepoitoryImple implements ReservaRepository {
     private final ConexionJDBC conexion = new ConexionJDBC();

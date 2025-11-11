@@ -1,4 +1,4 @@
-package com.example.gestionhoteles.Model;
+package com.example.gestionhoteles.Model.Usuario;
 
 public class UsuarioVO {
 

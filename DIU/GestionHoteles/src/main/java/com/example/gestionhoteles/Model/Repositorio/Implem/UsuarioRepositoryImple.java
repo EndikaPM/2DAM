@@ -2,7 +2,7 @@ package com.example.gestionhoteles.Model.Repositorio.Implem;
 
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Repositorio.UsuarioRepository;
-import com.example.gestionhoteles.Model.UsuarioVO;
+import com.example.gestionhoteles.Model.Usuario.UsuarioVO;
 
 import java.sql.*;
 import java.util.ArrayList;

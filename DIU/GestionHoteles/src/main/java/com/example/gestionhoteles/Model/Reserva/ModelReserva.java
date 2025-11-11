@@ -1,7 +1,6 @@
-package com.example.gestionhoteles.Model;
+package com.example.gestionhoteles.Model.Reserva;
 
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
-import com.example.gestionhoteles.Model.Repositorio.Implem.ReservaRepoitoryImple;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
 
 import java.util.ArrayList;

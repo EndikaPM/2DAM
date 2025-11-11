@@ -1,4 +1,4 @@
-package com.example.gestionhoteles.Model;
+package com.example.gestionhoteles.Model.Usuario;
 
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Repositorio.UsuarioRepository;

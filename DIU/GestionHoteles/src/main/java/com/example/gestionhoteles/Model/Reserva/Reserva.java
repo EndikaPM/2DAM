@@ -1,4 +1,4 @@
-package com.example.gestionhoteles.Model;
+package com.example.gestionhoteles.Model.Reserva;
 
 import com.example.gestionhoteles.Util.DateUtil;
 import javafx.beans.property.*;

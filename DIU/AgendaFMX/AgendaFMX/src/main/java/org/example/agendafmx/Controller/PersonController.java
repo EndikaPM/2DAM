@@ -143,7 +143,6 @@ public class PersonController {
 
                 int lastId = personaRepositorio.lastId();
                 tempPerson.setIdPorperty(lastId);
-                System.out.println("id A eliminar " + lastId);
                 mainApp.getPersonData().add(tempPerson);
 
                 //actualizar la barra de progreso

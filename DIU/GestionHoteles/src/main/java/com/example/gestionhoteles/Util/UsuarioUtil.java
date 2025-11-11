@@ -1,7 +1,7 @@
 package com.example.gestionhoteles.Util;
 
-import com.example.gestionhoteles.Model.Usuario;
-import com.example.gestionhoteles.Model.UsuarioVO;
+import com.example.gestionhoteles.Model.Usuario.Usuario;
+import com.example.gestionhoteles.Model.Usuario.UsuarioVO;
 
 public class UsuarioUtil {
 
