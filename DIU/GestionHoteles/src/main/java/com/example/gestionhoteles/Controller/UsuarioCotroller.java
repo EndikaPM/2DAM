@@ -93,12 +93,12 @@ public class UsuarioCotroller {
     }
 
     public void handleEditPerson(ActionEvent actionEvent) {
-        Usuario selectedPerson = usuarioTable.getSelectionModel().getSelectedItem();
+        Usuario selectedUsuario = usuarioTable.getSelectionModel().getSelectedItem();
 
-        if (selectedPerson != null) {
-            boolean okClicked = mainApp.showUserEditDialog(selectedPerson, "Editar Persona");
+        if (selectedUsuario != null) {
+            boolean okClicked = mainApp.showUserEditDialog(selectedUsuario, "Editar Persona");
             if (okClicked) {
-                showUsersDetails(selectedPerson);
+                showUsersDetails(selectedUsuario);
             }
 
         } else {
@@ -107,7 +107,7 @@ public class UsuarioCotroller {
     }
 
     public void handleViewReser(ActionEvent actionEvent) {
-        Reserva reserva = new Reserva();
+        Usuario SelectReserva = usuarioTable.getSelectionModel().getSelectedItem();
 
     }
 
