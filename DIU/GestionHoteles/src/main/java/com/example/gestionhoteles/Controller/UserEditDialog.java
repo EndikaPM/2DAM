@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 public class UserEditDialog {
     @FXML
-    private TextField dni;
+    private TextField dni_edit;
     @FXML
     private TextField firstNameField;
     @FXML
@@ -22,7 +22,7 @@ public class UserEditDialog {
     @FXML
     private TextField cityField;
     @FXML
-    private TextField prvincialField;
+    private TextField provinciaField;
 
     private Stage dialogStage;
     private Usuario user;
@@ -40,27 +40,29 @@ public class UserEditDialog {
         this.dialogStage = dialogStage;
     }
 
-    public void setPerson(Usuario user) {
+    public void setUser(Usuario user) {
         this.user = user;
 
-        dni.setText(user.getDni());
+
+        dni_edit.setText(user.getDni());
         firstNameField.setText(user.getNombre());
         lastNameField.setText(user.getApellido());
         streetField.setText(user.getDireccion());
         postalCodeField.setText(Integer.toString(user.getCodigoPostal()));
         cityField.setText(user.getLocalidad());
-        prvincialField.setText(user.getProvincia());
+        provinciaField.setText(user.getProvincia());
     }
 
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setFirstName(firstNameField.getText());
-            person.setLastName(lastNameField.getText());
-            person.setStreet(streetField.getText());
-            person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-            person.setCity(cityField.getText());
-            person.setBirthday(DateUtil.parse(birthdayField.getText()));
+            user.setDni(dni_edit.getText());
+            user.setNombre(firstNameField.getText());
+            user.setApellido(lastNameField.getText());
+            user.setDireccion(streetField.getText());
+            user.setCodigoPostal(Integer.parseInt(postalCodeField.getText()));
+            user.setLocalidad(cityField.getText());
+            user.setProvincia(postalCodeField.getText());
 
             okClicked = true;
             dialogStage.close();
@@ -107,5 +109,9 @@ public class UserEditDialog {
             //Alerta
             return false;
         }
+    }
+
+    public boolean isOkClicked() {
+        return okClicked;
     }
 }

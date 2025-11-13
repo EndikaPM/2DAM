@@ -1,25 +1,55 @@
 package com.example.gestionhoteles;
 
+import com.example.gestionhoteles.Controller.UserEditDialog;
 import com.example.gestionhoteles.Controller.UsuarioCotroller;
+import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
+import com.example.gestionhoteles.Model.Repositorio.Implem.UsuarioRepositoryImple;
+import com.example.gestionhoteles.Model.Repositorio.UsuarioRepository;
+import com.example.gestionhoteles.Model.Reserva.ModelReserva;
+import com.example.gestionhoteles.Model.Usuario.ModelUsuario;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
+import com.example.gestionhoteles.Model.Usuario.UsuarioVO;
+import com.example.gestionhoteles.Util.UsuarioUtil;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private static ObservableList<Usuario> userData = FXCollections.observableArrayList();
+    private UsuarioRepository  usuarioRepository = new UsuarioRepositoryImple();
+    private ModelUsuario usuario;
+    private ModelReserva reserva;
 
-    public Main(){}
+    public Main()  {
+        try {
+            usuario = new ModelUsuario(usuarioRepository);
+            ArrayList<UsuarioVO> usuarioVo = usuario.ObtenerListaUsuario();
+
+            for (UsuarioVO usu : usuarioVo) {
+                userData.add(UsuarioUtil.getUsuario(usu));
+            }
+
+        }catch (ExceptionUsuario e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al conectar con la base de datos");
+            alert.setContentText("No ha sido posible obtener la lista de clientes.");
+            alert.showAndWait();
+        }
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -43,15 +73,16 @@ public class Main extends Application {
         }
     }
 
-
     public void showUsuario(){
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/views/usuario_view.fxml"));
             AnchorPane usuarioVista = (AnchorPane) loader.load();
+
             rootLayout.setCenter(usuarioVista);
+
             UsuarioCotroller controllerUsuario = loader.getController();
-            //controllerUsuario.setMain(this);
+            controllerUsuario.setMain(this);
         }catch (IOException e){
             throw new RuntimeException(e);
         }
@@ -64,5 +95,35 @@ public class Main extends Application {
         return userData;
     }
 
+    public boolean showUserEditDialog(Usuario user, String title) {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/userEdirDialog.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle(title);
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            UserEditDialog controller = loader.getController();
+            controller.setMainApp(this);
+            controller.setDialogStage(dialogStage);
+            controller.setUser(user);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

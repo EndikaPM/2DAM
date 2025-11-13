@@ -1,6 +1,8 @@
 package com.example.gestionhoteles.Model.Repositorio;
 
-import ReservaVO;
+
+
+import com.example.gestionhoteles.Model.Reserva.ReservaVO;
 
 import java.util.ArrayList;
 

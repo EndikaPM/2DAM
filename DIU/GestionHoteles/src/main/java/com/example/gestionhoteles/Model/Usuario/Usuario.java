@@ -30,6 +30,8 @@ public class Usuario {
        this.dni = new SimpleStringProperty(dni);
        this.nombre = new SimpleStringProperty(nombre);
        this.apellido = new SimpleStringProperty(apellido);
+
+       // INICIALIZACIÓN DE EJEMEPLO
        this.direccion = new SimpleStringProperty("C/borrar");
        this.localidad = new SimpleStringProperty("Temoral");
        this.provincia = new SimpleStringProperty("Sevilla");
@@ -40,7 +42,7 @@ public class Usuario {
         return dni.get();
     }
 
-    public SimpleStringProperty dniProperty() {
+    public SimpleStringProperty getDNIProperty() {
         return dni;
     }
 

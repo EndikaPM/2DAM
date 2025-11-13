@@ -35,7 +35,8 @@ public class UsuarioCotroller {
 
     private Main mainApp;
 
-    public UsuarioCotroller() {}
+    public UsuarioCotroller() {
+    }
 
     @FXML
     private void initialize() {
@@ -81,12 +82,12 @@ public class UsuarioCotroller {
 
     public void handleNewPerson(ActionEvent actionEvent) {
         Usuario usuarioTemp = new Usuario();
-        boolean okClicked = mainApp.showUsuarioEditDialog(usuarioTemp, "Añadir Persona");
-        if (okClicked) {
+        boolean okClicked = mainApp.showUserEditDialog(usuarioTemp, "Añadir Persona");
 
+        if (okClicked) {
             usuarioTemp.setDni(dni.getText());
             mainApp.getUserData().add(usuarioTemp);
-        }else  {
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
         }
     }
@@ -95,16 +96,19 @@ public class UsuarioCotroller {
         Usuario selectedPerson = usuarioTable.getSelectionModel().getSelectedItem();
 
         if (selectedPerson != null) {
-            boolean okClicked = mainApp.showUsuarioEditDialog(selectedPerson, "Editar Persona");
+            boolean okClicked = mainApp.showUserEditDialog(selectedPerson, "Editar Persona");
             if (okClicked) {
                 showUsersDetails(selectedPerson);
-
-            }else   {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
             }
+
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
         }
     }
+
     public void handleViewReser(ActionEvent actionEvent) {
         Reserva reserva = new Reserva();
+
     }
+
 }

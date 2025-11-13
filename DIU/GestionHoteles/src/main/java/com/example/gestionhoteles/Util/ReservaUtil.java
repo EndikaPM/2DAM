@@ -1,7 +1,8 @@
 package com.example.gestionhoteles.Util;
 
-import Reserva;
-import ReservaVO;
+
+import com.example.gestionhoteles.Model.Reserva.Reserva;
+import com.example.gestionhoteles.Model.Reserva.ReservaVO;
 
 public class ReservaUtil {
 

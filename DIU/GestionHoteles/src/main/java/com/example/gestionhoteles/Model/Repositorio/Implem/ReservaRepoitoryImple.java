@@ -2,7 +2,7 @@ package com.example.gestionhoteles.Model.Repositorio.Implem;
 
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
-import ReservaVO;
+import com.example.gestionhoteles.Model.Reserva.ReservaVO;
 import com.example.gestionhoteles.Util.DateUtil;
 
 import java.sql.*;

@@ -29,14 +29,14 @@
                 <Label text="Ciudad" GridPane.rowIndex="4" />
                 <Label text="Codigo Postal" GridPane.rowIndex="5" />
                 <Label text="Provincia" GridPane.rowIndex="6" />
+                <Label text="Dni" />
+                <TextField fx:id="dni_edit" GridPane.columnIndex="1" />
                 <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="streetField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                 <TextField fx:id="cityField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <TextField fx:id="birthdayField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Dni" />
-            <TextField fx:id="firstNameField1" GridPane.columnIndex="1" />
+                <TextField fx:id="provinciaField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </children>
         </GridPane>
         <HBox layoutX="346.0" layoutY="-1.0" prefHeight="36.0" prefWidth="220.0" spacing="15.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="34.0">

@@ -40,7 +40,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/usuario/2DAM/DIU/GestionHoteles&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/usuario/2DAM/DIU/AgendaFMX&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -139,6 +139,9 @@
       <workItem from="1762775584798" duration="25000" />
       <workItem from="1762780969776" duration="946000" />
       <workItem from="1762845902981" duration="5356000" />
+      <workItem from="1763018825300" duration="8077000" />
+      <workItem from="1763031783120" duration="1437000" />
+      <workItem from="1763033319569" duration="20000" />
     </task>
     <servers />
   </component>
