@@ -43,7 +43,6 @@ public class UserEditDialog {
     public void setUser(Usuario user) {
         this.user = user;
 
-
         dni_edit.setText(user.getDni());
         firstNameField.setText(user.getNombre());
         lastNameField.setText(user.getApellido());
@@ -77,6 +76,19 @@ public class UserEditDialog {
     private boolean isInputValid() {
         String errorMessage = "";
 
+        if (dni_edit.getText() == null || !dni_edit.getText().trim().isEmpty()) {
+            errorMessage += "No valid dni!";
+        }
+        if (dni_edit.getText().length() == 9 && Character.isLetter(dni_edit.getText().charAt(8))) {
+            //String letras = "TRWAGMYFPDXBNJZSQVHLCKE"
+            int numerosDNI = Integer.parseInt(dni_edit.getText().substring(0, 8));
+            char letraDNI = Character.toUpperCase(dni_edit.getText().charAt(8));
+
+            //calculamos la letra
+            int resultado = numerosDNI % 23;
+
+
+        }
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
         }
@@ -106,7 +118,7 @@ public class UserEditDialog {
         if (errorMessage.length() == 0) {
             return true;
         } else {
-            //Alerta
+            //TODO Alerta
             return false;
         }
     }

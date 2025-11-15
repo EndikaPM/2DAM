@@ -1,6 +1,7 @@
 package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
+import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Reserva.Reserva;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
 import com.example.gestionhoteles.Util.DateUtil;
@@ -83,13 +84,18 @@ public class UsuarioCotroller {
     public void handleNewPerson(ActionEvent actionEvent) {
         Usuario usuarioTemp = new Usuario();
         boolean okClicked = mainApp.showUserEditDialog(usuarioTemp, "Añadir Persona");
-
-        if (okClicked) {
-            usuarioTemp.setDni(dni.getText());
-            mainApp.getUserData().add(usuarioTemp);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+        try {
+            if (okClicked) {
+                mainApp.addUserDb(usuarioTemp);
+                usuarioTemp.setDni(dni.getText());
+                mainApp.getUserData().add(usuarioTemp);
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+            }
+        }catch (ExceptionUsuario e){
+            e.imprimirMensaje();
         }
+
     }
 
     public void handleEditPerson(ActionEvent actionEvent) {
@@ -100,14 +106,17 @@ public class UsuarioCotroller {
             if (okClicked) {
                 showUsersDetails(selectedUsuario);
             }
-
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
         }
     }
 
     public void handleViewReser(ActionEvent actionEvent) {
-        Usuario SelectReserva = usuarioTable.getSelectionModel().getSelectedItem();
+        Usuario selectReserva = usuarioTable.getSelectionModel().getSelectedItem();
+
+        if (selectReserva != null) {
+            boolean okClicked = mainApp.showReserva(selectReserva);
+        }
 
     }
 

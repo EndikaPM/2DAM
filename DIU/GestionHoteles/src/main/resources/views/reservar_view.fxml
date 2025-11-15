@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.ReservaController">
    <children>
       <SplitPane dividerPositions="0.21105527638190955" layoutX="122.0" layoutY="8.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="41.0" prefWidth="598.0" SplitPane.resizableWithParent="false">
                <children>
-                  <Label layoutX="22.0" layoutY="5.0" text="Datos del cliente" underline="true">
+                  <Label layoutX="22.0" layoutY="5.0" text="Datos del cliente" underline="true" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -39,9 +37,9 @@
                   <DatePicker fx:id="data_entry" layoutX="22.0" layoutY="81.0" prefHeight="29.0" prefWidth="245.0" AnchorPane.leftAnchor="22.0" />
                   <DatePicker fx:id="data_exit" layoutX="307.0" layoutY="81.0" prefHeight="29.0" prefWidth="251.0" AnchorPane.rightAnchor="40.0" />
                   <Label layoutX="220.0" layoutY="135.0" text="Tipo de Habitacion" />
-                  <HBox layoutX="367.0" layoutY="267.0" prefHeight="29.0" prefWidth="233.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="31.0">
+                  <HBox layoutX="367.0" layoutY="267.0" prefHeight="29.0" prefWidth="162.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="40.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Aceptar">
+                        <Button fx:id="handleOkReserva" mnemonicParsing="false" onAction="#handleOkReserva" text="Aceptar">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -49,23 +47,18 @@
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" text="Cancelar">
+                        <Button fx:id="handleCancel" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
-                        </Button>
-                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Volver">
-                           <opaqueInsets>
-                              <Insets left="10.0" />
-                           </opaqueInsets>
                         </Button>
                      </children>
                   </HBox>
-                  <CheckBox layoutX="24.0" layoutY="125.0" mnemonicParsing="false" text="Fumador" />
-                  <ChoiceBox layoutX="367.0" layoutY="130.0" prefWidth="150.0" AnchorPane.rightAnchor="81.0" />
+                  <CheckBox fx:id="isFumador" layoutX="24.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleIsSmoker" text="Fumador" />
+                  <ChoiceBox fx:id="typeRoom" layoutX="367.0" layoutY="130.0" prefWidth="150.0" AnchorPane.rightAnchor="81.0" />
                   <VBox layoutX="41.0" layoutY="148.0" prefHeight="112.0" prefWidth="195.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="20.0">
                      <children>
                         <Label text="Regimen">
@@ -75,17 +68,17 @@
                         </Label>
                         <VBox prefHeight="77.0" prefWidth="89.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" text="Aojamiento y desayuno">
+                              <RadioButton fx:id="AlojaYDesayu" mnemonicParsing="false" text="Alojamiento y desayuno">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Media pension">
+                              <RadioButton fx:id="mediaPension" mnemonicParsing="false" text="Media pension">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Pension completa" />
+                              <RadioButton fx:id="personaCompleta" mnemonicParsing="false" text="Pension completa" />
                            </children>
                            <VBox.margin>
                               <Insets left="20.0" />
@@ -99,8 +92,8 @@
                         <Text layoutX="217.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                      </children>
                   </VBox>
-                  <Button layoutX="34.0" layoutY="267.0" mnemonicParsing="false" text="Limpiar" AnchorPane.leftAnchor="30.0" />
-                  <TextArea disable="true" editable="false" layoutX="230.0" layoutY="177.0" prefHeight="68.0" prefWidth="342.0" text="En virtud de la ley de sanidad se informa a los clientes&#10;de que solo podran fumar en las habitaciones &#10;reservadas para ese fin." />
+                  <Button fx:id="handleClear" layoutX="34.0" layoutY="267.0" mnemonicParsing="false" onAction="#handleClear" text="Limpiar" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="30.0" />
+                  <TextArea fx:id="textIsFumador" disable="true" editable="false" layoutX="230.0" layoutY="177.0" prefHeight="77.0" prefWidth="354.0" text="En virtud de la ley de sanidad se informa a los clientes&#10;de que solo podran fumar en las habitaciones &#10;reservadas para ese fin." />
                </children>
             </AnchorPane>
         </items>
