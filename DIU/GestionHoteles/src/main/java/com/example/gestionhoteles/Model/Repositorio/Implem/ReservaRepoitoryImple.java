@@ -37,7 +37,7 @@ public class ReservaRepoitoryImple implements ReservaRepository {
                 String idUser = rs.getString("id_usuario");
                 int id = rs.getInt("id");
 
-                this.reserva = new ReservaVO(idUser, isFum, temResHabit, temTipoHabi,numHabit,diaSalia,diaLlegada);
+                this.reserva = new ReservaVO(idUser, isFum, temResHabit, temTipoHabi,numHabit,diaLlegada,diaSalia);
                 this.reserva.setId(id);
                 this.listaReservas.add(reserva);
             }

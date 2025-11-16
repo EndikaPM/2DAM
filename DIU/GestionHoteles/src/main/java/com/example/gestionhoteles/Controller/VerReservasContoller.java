@@ -1,6 +1,13 @@
 package com.example.gestionhoteles.Controller;
 
+import com.example.gestionhoteles.Main;
+import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
+import com.example.gestionhoteles.Model.Repositorio.Implem.ReservaRepoitoryImple;
+import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
+import com.example.gestionhoteles.Model.Reserva.ModelReserva;
 import com.example.gestionhoteles.Model.Reserva.Reserva;
+import com.example.gestionhoteles.Model.Reserva.ReservaVO;
+import com.example.gestionhoteles.Model.Usuario.Usuario;
 import com.example.gestionhoteles.Util.DateUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,14 +16,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.util.ArrayList;
+
 public class VerReservasContoller {
+    @FXML
+    private TableView<Reserva> reservaTable;
     @FXML
     private TextField dni_find;
 
     @FXML
     private TableColumn<Reserva, String> dniColumnLabel;
     @FXML
-    private TableColumn<Reserva, String> tipoColumnLabel;
+    private TableColumn<Reserva, String> nombreColumnLabel;
 
     @FXML
     private TableView<Reserva> tableViewReservas;
@@ -36,13 +47,15 @@ public class VerReservasContoller {
     @FXML
     private TableColumn<Reserva, String> codigoPostalColumn;
 
-    private ObservableList<Reserva> reservasList = FXCollections.observableArrayList();
+    //TODO preguntar a jacobo como lo manejo de forma adecuada
+
+    private Main mainApp;
 
     @FXML
     public void initialize(){
         // Initialize the person table with the two columns.
         dniColumnLabel.setCellValueFactory(cellData -> cellData.getValue().getDniClienteProperty());
-        tipoColumnLabel.setCellValueFactory(cellData -> cellData.getValue().getRegimenAlojamientoProperty());
+        nombreColumnLabel.setCellValueFactory(cellData -> cellData.getValue().getRegimenAlojamientoProperty());
         // Clear person details.
         showReservasDetails(null);
         // Listen for selection changes and show the person details when changed.
@@ -50,25 +63,13 @@ public class VerReservasContoller {
                 (observable, oldValue, newValue) -> showReservasDetails(newValue));
     }
 
-    private void showReservasDetails(Reserva reserva) {
-        if (reserva != null) {
-            // Fill the labels with info from the person object.
-            dniColumn.setText(reserva.getDniCliente());
-            fechaLlegadaColumn.setText(reserva.getFechaLlegada().toString());
-            fechaSalidaColumn.setText(reserva.getFechaSalida().toString());
-            tipoHabitacion.setText(reserva.getTipoHabitacion());
-            String esFumador = reserva.getIsFumador() ? "Es Fumador" : "No es Fumador";
-            fumador.setText(esFumador);
-            regimenAlojamiento.setText(reserva.getRegimenAlojamiento());
-        } else {
-            // Person is null, remove all the text.
-            dniColumn.setText("");
-            fechaLlegadaColumn.setText("");
-            fechaSalidaColumn.setText("");
-            tipoHabitacion.setText("");
-            fumador.setText("");
-            regimenAlojamiento.setText("");
-        }
+    public void setMain(Main mainApp) {
+        this.mainApp = mainApp;
+        // Add observable list data to the table
+        reservaTable.setItems(mainApp.getReservaData());
     }
 
+    private void showReservasDetails(Reserva reserva){}
+    @FXML
+    public void handlerFindDni(){}
 }

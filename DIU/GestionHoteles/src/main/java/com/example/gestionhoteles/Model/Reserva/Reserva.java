@@ -15,11 +15,20 @@ public class Reserva {
     private final StringProperty regimenAlojamiento;
     private final StringProperty dni_cliente;
 
-    public Reserva() {
+    /*public Reserva() {
         this(null, null, null, null, null,
                 null, null, null);
+    }*/
+    public Reserva() {
+        this.id = new SimpleIntegerProperty(0);
+        this.fechaLlegada = new SimpleObjectProperty<>(null);
+        this.fechaSalida = new SimpleObjectProperty<>(null);
+        this.numHabitaciones = new SimpleIntegerProperty(0);
+        this.tipoHabitacion = new SimpleStringProperty("");
+        this.fumador = new SimpleBooleanProperty(false);
+        this.regimenAlojamiento = new SimpleStringProperty("");
+        this.dni_cliente = new SimpleStringProperty("");
     }
-
     public Reserva(Integer id, String fechaLlegada, String fechaSalida, Integer numHabitaciones, String tipoHabitacion,
                    Boolean fumador, String regimenAlojamiento, String dni_cliente) {
         this.id = new SimpleIntegerProperty(id);

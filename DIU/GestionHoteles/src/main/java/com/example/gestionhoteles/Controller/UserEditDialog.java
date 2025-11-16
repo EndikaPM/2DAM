@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import static com.example.gestionhoteles.Main.checkDni;
+
 public class UserEditDialog {
     @FXML
     private TextField dni_edit;
@@ -79,16 +81,7 @@ public class UserEditDialog {
         if (dni_edit.getText() == null || !dni_edit.getText().trim().isEmpty()) {
             errorMessage += "No valid dni!";
         }
-        if (dni_edit.getText().length() == 9 && Character.isLetter(dni_edit.getText().charAt(8))) {
-            //String letras = "TRWAGMYFPDXBNJZSQVHLCKE"
-            int numerosDNI = Integer.parseInt(dni_edit.getText().substring(0, 8));
-            char letraDNI = Character.toUpperCase(dni_edit.getText().charAt(8));
-
-            //calculamos la letra
-            int resultado = numerosDNI % 23;
-
-
-        }
+        if (!checkDni(dni_edit.getText())) {errorMessage += "No valid dni!";}
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
         }

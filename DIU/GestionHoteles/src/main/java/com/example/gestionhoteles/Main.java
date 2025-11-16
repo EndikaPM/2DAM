@@ -3,6 +3,7 @@ package com.example.gestionhoteles;
 import com.example.gestionhoteles.Controller.ReservaController;
 import com.example.gestionhoteles.Controller.UserEditDialog;
 import com.example.gestionhoteles.Controller.UsuarioCotroller;
+import com.example.gestionhoteles.Controller.VerReservasContoller;
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.Implem.ReservaRepoitoryImple;
@@ -69,6 +70,19 @@ public class Main extends Application {
         usuario.addUsuario(UsuarioUtil.getUsuario(otherUser));
     }
 
+    public static boolean checkDni(String dni){
+        if (dni.length() ==  9 && Character.isLetter(dni.charAt(8))) {return true;}
+            String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            int numerosDNI = Integer.parseInt(dni.substring(0, 8));
+            char letraDNI = Character.toUpperCase(dni.charAt(8));
+
+            //calculamos la letra atraves de el indice con su orden adecuado
+            char letraCalculado = letras.charAt(numerosDNI % 23);
+
+            //comparams l¡si los dos char son el mismo
+            return (letraDNI == letraCalculado);
+    }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
@@ -111,6 +125,9 @@ public class Main extends Application {
     }
     public static ObservableList<Usuario> getUserData() {
         return userData;
+    }
+    public static ObservableList<Reserva> getReservaData() {
+        return reservaData;
     }
 
     public boolean showUserEditDialog(Usuario user, String title) {
@@ -174,6 +191,22 @@ public class Main extends Application {
             return false;
         }
 
+    }
+
+    public void showVerReservas() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/ver_reservas_view.fxml"));
+            AnchorPane reservasVista = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(reservasVista);
+
+            VerReservasContoller controllerReservas = loader.getController();
+            controllerReservas.setMain(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
