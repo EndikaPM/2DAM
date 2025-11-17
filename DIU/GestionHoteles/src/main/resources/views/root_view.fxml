@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="433.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.RootController">
+<BorderPane prefHeight="433.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.RootController">
     <top>
         <MenuBar BorderPane.alignment="CENTER">
             <menus>
-                <Menu mnemonicParsing="false" text="Home">
+                <Menu mnemonicParsing="false" text="Aplicación">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Estadisticas" />
-                  <MenuItem mnemonicParsing="false" text="Habitaciones" />
-                  <MenuItem mnemonicParsing="false" text="Exit" />
+                        <MenuItem mnemonicParsing="false" onAction="#showStats" text="Estadisticas" />
+                  <MenuItem mnemonicParsing="false" onAction="#showStatsRoom" text="Habitaciones" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Exit" />
                     </items>
                 </Menu>
-            <Menu mnemonicParsing="false" text="Reservas">
+            <Menu mnemonicParsing="false" text="Gestión">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Ver las reservas" />
+                  <MenuItem mnemonicParsing="false" onAction="#showVerReserva" text="Ver las reservas" />
                </items>
             </Menu>
             </menus>

@@ -1,9 +1,6 @@
 package com.example.gestionhoteles;
 
-import com.example.gestionhoteles.Controller.ReservaController;
-import com.example.gestionhoteles.Controller.UserEditDialog;
-import com.example.gestionhoteles.Controller.UsuarioCotroller;
-import com.example.gestionhoteles.Controller.VerReservasContoller;
+import com.example.gestionhoteles.Controller.*;
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.Implem.ReservaRepoitoryImple;
@@ -44,7 +41,7 @@ public class Main extends Application {
     private ModelReserva reserva = new ModelReserva(reservaRepository);
 
     public Main()  {
-        try { //TODO pregntar a Jacabo
+        try {
             ArrayList<UsuarioVO> usuarioVo = usuario.ObtenerListaUsuario();
 
             for (UsuarioVO usu : usuarioVo) {
@@ -97,6 +94,8 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/views/root_view.fxml"));
             rootLayout = (BorderPane) loader.load();
+            RootController controller = loader.getController();
+            controller.setMain(this);
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -196,7 +195,7 @@ public class Main extends Application {
     public void showVerReservas() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/views/ver_reservas_view.fxml"));
+            loader.setLocation(getClass().getResource("/views/ver_reserva_view.fxml"));
             AnchorPane reservasVista = (AnchorPane) loader.load();
 
             rootLayout.setCenter(reservasVista);

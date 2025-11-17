@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.sql.SQLOutput;
+
 import static com.example.gestionhoteles.Main.checkDni;
 
 public class UserEditDialog {
@@ -65,6 +67,7 @@ public class UserEditDialog {
             user.setLocalidad(cityField.getText());
             user.setProvincia(postalCodeField.getText());
 
+            System.out.println("No entro en el ok del Edir");
             okClicked = true;
             dialogStage.close();
         }
@@ -81,7 +84,7 @@ public class UserEditDialog {
         if (dni_edit.getText() == null || !dni_edit.getText().trim().isEmpty()) {
             errorMessage += "No valid dni!";
         }
-        if (!checkDni(dni_edit.getText())) {errorMessage += "No valid dni!";}
+       // if (!checkDni(dni_edit.getText())) {errorMessage += "No valid dni!";}
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
         }
@@ -92,7 +95,7 @@ public class UserEditDialog {
             errorMessage += "No valid street!\n";
         }
 
-        if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
+        if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
             errorMessage += "No valid postal code!\n";
         } else {
             // try to parse the postal code into an int.
@@ -117,6 +120,7 @@ public class UserEditDialog {
     }
 
     public boolean isOkClicked() {
+        System.out.println("isOkClicked entra");
         return okClicked;
     }
 }

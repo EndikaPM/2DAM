@@ -87,8 +87,10 @@ public class UsuarioCotroller {
         try {
             if (okClicked) {
                 mainApp.addUserDb(usuarioTemp);
+                System.out.println("Paso por new person");
                 usuarioTemp.setDni(dni.getText());
                 mainApp.getUserData().add(usuarioTemp);
+                System.out.println("Paso por new person");
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
             }

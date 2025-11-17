@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.habitacionesViewController">
+   <children>
+      <VBox layoutX="208.0" layoutY="14.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="200.0" prefWidth="600.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <Label fx:id="tituDoble" alignment="CENTER" text="Label" />
+                        <ImageView fx:id="imagenDoble" fitHeight="150.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
+                        <ProgressIndicator prefHeight="32.0" prefWidth="307.0" progress="0.0" />
+                     </children>
+                  </VBox>
+                  <VBox fx:id="tituloDobleIndividual" prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Label" />
+                        <ImageView fx:id="imagenDobleIndividual" fitHeight="150.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
+                        <ProgressIndicator progress="0.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="200.0" prefWidth="600.0">
+               <children>
+                  <VBox fx:id="tituloJuniorSuit" prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <Label text="Label" />
+                        <ImageView fx:id="imagenJuniorSuite" fitHeight="150.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true" />
+                        <ProgressIndicator progress="0.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="300.0">
+                     <children>
+                        <Label fx:id="tituloSuite" text="Label" />
+                        <ImageView fx:id="imagenSuite" fitHeight="150.0" fitWidth="296.0" pickOnBounds="true" preserveRatio="true" />
+                        <ProgressIndicator progress="0.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

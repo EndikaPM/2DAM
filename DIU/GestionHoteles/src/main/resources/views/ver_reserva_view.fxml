@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="481.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.VerReservasContoller">
    <children>
-      <SplitPane dividerPositions="0.24687144482366324" layoutX="14.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.16723549488054607" layoutX="14.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
@@ -25,26 +23,48 @@
                               <Button fx:id="findDni" mnemonicParsing="false" onAction="#handlerFindDni" text="Buscar" />
                            </children>
                         </HBox>
-                        <TableView fx:id="reservaTable" layoutY="78.0">
-                          <columns>
-                              <TableColumn fx:id="dniColumnLabel" prefWidth="96.0" text="DNI" />
-                              <TableColumn fx:id="nombreColumnLabel" prefWidth="114.0" text="Nombre" />
-                          </columns>
-                        </TableView>
+                        <GridPane prefHeight="373.0" prefWidth="143.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="65.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="78.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="DNI" />
+                              <Label text="Llegada" GridPane.rowIndex="1" />
+                              <Label text="Salida" GridPane.rowIndex="2" />
+                              <Label text="T.Habita" GridPane.rowIndex="3" />
+                              <Label text="Fumadoir" GridPane.rowIndex="4" />
+                              <Label prefHeight="16.0" prefWidth="69.0" text="Regimen Alojamiento" GridPane.rowIndex="5" />
+                              <Label fx:id="labelDni" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="LabelLlegada" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="LabelSalida" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="LabelTHabitacion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="LAbelFumador" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="LabelREgimen" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
                      </children>
                   </VBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="689.0">
                <children>
                    <TableView fx:id="tableViewReservas" layoutX="8.0" layoutY="7.0" prefHeight="479.0" prefWidth="658.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                        <columns>
                            <TableColumn fx:id="dniColumn" prefWidth="72.0" text="DNI" />
                            <TableColumn fx:id="fechaLlegadaColumn" prefWidth="98.0" text="Feche llegada" />
                            <TableColumn fx:id="fechaSalidaColumn" prefWidth="86.0" text="Fecha salida" />
-                           <TableColumn fx:id="tipoHabitacion" prefWidth="162.0" text="Tipo habitacion" />
-                           <TableColumn fx:id="fumador" prefWidth="65.0" text="Fumador" />
-                           <TableColumn fx:id="regimenAlojamiento" prefWidth="171.0" text="Regimen Alojamiento" />
+                           <TableColumn fx:id="tipoHabitacion" prefWidth="188.0" text="Tipo habitacion" />
+                           <TableColumn fx:id="fumador" prefWidth="69.0" text="Fumador" />
+                           <TableColumn fx:id="regimenAlojamiento" prefWidth="211.0" text="Regimen Alojamiento" />
                        </columns>
                    </TableView>
                </children>

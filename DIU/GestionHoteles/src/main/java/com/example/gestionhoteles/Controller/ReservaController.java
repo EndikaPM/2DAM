@@ -94,7 +94,7 @@ public class ReservaController {
             reserva.setTipoHabitacion(typeRoom.getValue());
             reserva.setIsFumador(isFumador.isSelected());
             reserva.setRegimenAlojamiento(toggleGroup.getSelectedToggle().getUserData().toString());
-
+            System.out.println("PAso por el ok");
             okClicked = true;
             dialogStage.close();
         }
