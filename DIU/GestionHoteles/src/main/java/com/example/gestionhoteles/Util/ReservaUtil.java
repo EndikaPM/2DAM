@@ -22,8 +22,8 @@ public class ReservaUtil {
     public static Reserva getReserva(ReservaVO reservaVO){
         Reserva reserva = new Reserva();
         reserva.setId(reservaVO.getId());
-        reserva.setFechaLlegada(DateUtil.format(reservaVO.getFechaEntrada()));
-        reserva.setFechaSalida(DateUtil.format(reservaVO.getFechaSalida()));
+        reserva.setFechaLlegada(reservaVO.getFechaEntrada());
+        reserva.setFechaSalida(reservaVO.getFechaSalida());
         reserva.setDniCliente(reservaVO.getIdUsuario());
         reserva.setIsFumador( reservaVO.getIsFumador());
         reserva.setNumHabitaciones(reservaVO.getNumHabitaciones());

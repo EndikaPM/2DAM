@@ -4,6 +4,7 @@ import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
 import com.example.gestionhoteles.Model.Reserva.ReservaVO;
 import com.example.gestionhoteles.Util.DateUtil;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -119,6 +120,37 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             return lastMonedaId;
         } catch (SQLException var5) {
             throw new ExeptionReserva("No se ha podido realizar la busqueda del ID");
+        }
+    }
+
+    public ArrayList<ReservaVO> obtenerFiltroDniReservas(String otherDni) throws ExeptionReserva{
+        try{
+            Connection conex = this.conexion.conectarBD();
+            this.listaReservas = new ArrayList<>();
+            this.statm = conex.createStatement();
+            this.sentencia = "SELECT * FROM reserva WHERE dni == otherDni";
+            ResultSet rs = this.statm.executeQuery(this.sentencia);
+
+            while (rs.next()){
+                String diaLlegada = DateUtil.format(rs.getDate("dia_llegada").toLocalDate());
+                String diaSalia = DateUtil.format(rs.getDate("dia_salida").toLocalDate());
+                int numHabit = rs.getInt("num_habitaciones");
+                String temTipoHabi = rs.getString("tipo_habitacion");
+                //TipoHabitaciones tipoHabit = TipoHabitaciones.valueOf(temTipoHabi.toUpperCase());
+                boolean isFum = rs.getBoolean("is_fumador");
+                String temResHabit = rs.getString("Regimen_alojamiento");
+                //RegimenAlogamiento regHabit = RegimenAlogamiento.valueOf(temResHabit);
+                String idUser = rs.getString("id_usuario");
+                int id = rs.getInt("id");
+
+                this.reserva = new ReservaVO(idUser, isFum, temResHabit, temTipoHabi,numHabit,diaLlegada,diaSalia);
+                this.reserva.setId(id);
+                this.listaReservas.add(reserva);
+            }
+            this.conexion.desconectarBD(conex);
+            return this.listaReservas;
+        } catch (SQLException e) {
+            throw new ExeptionReserva("Error al obtener lista de personas"+e.getMessage());
         }
     }
 }

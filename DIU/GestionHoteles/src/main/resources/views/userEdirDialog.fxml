@@ -30,7 +30,7 @@
                 <Label text="Codigo Postal" GridPane.rowIndex="5" />
                 <Label text="Provincia" GridPane.rowIndex="6" />
                 <Label text="Dni" />
-                <TextField fx:id="dni_edit" GridPane.columnIndex="1" />
+                <TextField fx:id="dni_edit" disable="true" GridPane.columnIndex="1" />
                 <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="streetField" GridPane.columnIndex="1" GridPane.rowIndex="3" />

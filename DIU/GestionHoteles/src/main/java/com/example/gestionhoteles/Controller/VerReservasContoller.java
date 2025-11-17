@@ -9,6 +9,7 @@ import com.example.gestionhoteles.Model.Reserva.Reserva;
 import com.example.gestionhoteles.Model.Reserva.ReservaVO;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
 import com.example.gestionhoteles.Util.DateUtil;
+import com.example.gestionhoteles.Util.ReservaUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -38,17 +39,17 @@ public class VerReservasContoller {
     private TableColumn<Reserva, String> regimenAlojamiento;
     
     @FXML
-    private Label labelDni;
+    private javafx.scene.control.Label labelDni;
     @FXML
-    private Label LabelLlegada;
+    private javafx.scene.control.Label LabelLlegada;
     @FXML
-    private Label LabelSalida;
+    private javafx.scene.control.Label LabelSalida;
     @FXML
-    private Label LabelTHabitacion;
+    private javafx.scene.control.Label LabelTHabitacion;
     @FXML
-    private Label LAbelFumador;
+    private javafx.scene.control.Label LAbelFumador;
     @FXML
-    private Label LabelREgimen;
+    private javafx.scene.control.Label LabelREgimen;
     
     @FXML
     private TableColumn<Reserva, String> codigoPostalColumn;
@@ -80,7 +81,27 @@ public class VerReservasContoller {
         tableViewReservas.setItems(mainApp.getReservaData());
     }
 
-    private void showReservasDetails(Reserva reserva){}
+    private void showReservasDetails(Reserva rese){
+        if (rese != null) {
+            // Fill the labels with info from the person object.
+            labelDni.setText(rese.getDniCliente());
+            LabelLlegada.setText(rese.getFechaLlegada().toString());
+            LabelSalida.setText(rese.getFechaSalida().toString());
+            LabelTHabitacion.setText(rese.getTipoHabitacion().toString());
+            LAbelFumador.setText(rese.getIsFumador()? "Fumador" : "No fumador");
+            LabelREgimen.setText(rese.getRegimenAlojamiento().toString());
+        } else {
+            // Person is null, remove all the text.
+            labelDni.setText("");
+            LabelLlegada.setText("");
+            LabelSalida.setText("");
+            LabelTHabitacion.setText("");
+            LAbelFumador.setText("");
+            LabelREgimen.setText("");
+        }
+    }
     @FXML
-    public void handlerFindDni(){}
+    public void handlerFindDni() throws ExeptionReserva {
+        tableViewReservas.setItems(mainApp.filterReserva(dni_find.getText()));
+    }
 }

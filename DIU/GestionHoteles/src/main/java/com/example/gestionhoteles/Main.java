@@ -67,6 +67,24 @@ public class Main extends Application {
         usuario.addUsuario(UsuarioUtil.getUsuario(otherUser));
     }
 
+    public void updateUserDb(Usuario otherUser) throws ExceptionUsuario {
+        usuario.updateUsuario(UsuarioUtil.getUsuario(otherUser));
+    }
+
+    public void addReservaDb(Reserva reserva) throws ExeptionReserva {
+        this.reserva.addReserva(ReservaUtil.getReserva(reserva));
+    }
+
+    public ObservableList<Reserva> filterReserva(String otherDni) throws ExeptionReserva {
+        ArrayList<ReservaVO> resVO = reserva.ObtenerListaReservas();
+        ObservableList<Reserva> listFiltro = FXCollections.observableArrayList();
+
+        for (ReservaVO reserv : resVO) {
+            listFiltro.add(ReservaUtil.getReserva(reserv));
+        }
+       return listFiltro;
+    }
+
     public static boolean checkDni(String dni){
         if (dni.length() ==  9 && Character.isLetter(dni.charAt(8))) {return true;}
             String letras = "TRWAGMYFPDXBNJZSQVHLCKE";

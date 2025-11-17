@@ -2,6 +2,7 @@ package com.example.gestionhoteles.Model.Reserva;
 
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
@@ -29,5 +30,8 @@ public class ModelReserva {
 
     public int lastId() throws ExeptionReserva{
         return reservaRepositorio.lastId();
+    }
+    public ArrayList<ReservaVO> obtenerFiltroDniReservas(String otherDni) throws ExeptionReserva{
+        return reservaRepositorio.obtenerFiltroDniReservas(otherDni);
     }
 }

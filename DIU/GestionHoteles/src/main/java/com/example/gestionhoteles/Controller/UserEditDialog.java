@@ -31,6 +31,7 @@ public class UserEditDialog {
     private Stage dialogStage;
     private Usuario user;
     private boolean okClicked = false;
+    private boolean isNewUser = false;
     private Main mainApp;
 
     public void setMainApp(Main mainApp) {
@@ -54,20 +55,32 @@ public class UserEditDialog {
         postalCodeField.setText(Integer.toString(user.getCodigoPostal()));
         cityField.setText(user.getLocalidad());
         provinciaField.setText(user.getProvincia());
+
+        // Si el DNI está vacío, es un usuario nuevo
+        if (user.getDni() == null || user.getDni().isEmpty()) {
+            isNewUser = true;
+            dni_edit.setDisable(false); // Habilitar para nuevo usuario
+        } else {
+            isNewUser = false;
+            dni_edit.setDisable(true); // Deshabilitar para edición
+        }
     }
 
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            user.setDni(dni_edit.getText());
+            // Solo actualizar el DNI si es un usuario nuevo
+            if (isNewUser) {
+                user.setDni(dni_edit.getText());
+            }
+            // Si NO es nuevo, el DNI ya existe en el objeto user, no lo toques
             user.setNombre(firstNameField.getText());
             user.setApellido(lastNameField.getText());
             user.setDireccion(streetField.getText());
             user.setCodigoPostal(Integer.parseInt(postalCodeField.getText()));
             user.setLocalidad(cityField.getText());
-            user.setProvincia(postalCodeField.getText());
+            user.setProvincia(provinciaField.getText());
 
-            System.out.println("No entro en el ok del Edir");
             okClicked = true;
             dialogStage.close();
         }
@@ -80,11 +93,12 @@ public class UserEditDialog {
 
     private boolean isInputValid() {
         String errorMessage = "";
-
-        if (dni_edit.getText() == null || !dni_edit.getText().trim().isEmpty()) {
-            errorMessage += "No valid dni!";
+        if (isNewUser) {
+            if (dni_edit.getText() == null || dni_edit.getText().trim().isEmpty()) {
+                errorMessage += "No valid dni!";
+            }
+           if (!checkDni(dni_edit.getText())) {errorMessage += "No valid dni!";}
         }
-       // if (!checkDni(dni_edit.getText())) {errorMessage += "No valid dni!";}
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
         }

@@ -1,6 +1,7 @@
 package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
+import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Reserva.Reserva;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
 import javafx.fxml.FXML;
@@ -33,10 +34,11 @@ public class ReservaController {
 
     private Stage dialogStage;
     private Usuario user;
-    private Reserva reserva;
+    private Reserva reserva; // El objeto Reserva que vamos a crear
     private boolean okClicked = false;
     private Main mainApp;
-    ToggleGroup toggleGroup;
+    private ToggleGroup toggleGroup;
+    private RadioButton selected;
 
 
     @FXML
@@ -48,13 +50,13 @@ public class ReservaController {
         mediaPension.setToggleGroup(toggleGroup);
         personaCompleta.setToggleGroup(toggleGroup);
 
-        typeRoom.getItems().addAll("Doble de uso individual",
-                                    "Doble", "Junior suite", "Suite");
+        typeRoom.getItems().addAll("doble_uso_individual",
+                                    "doble", "junior_suite", "suite");
 
         // Listener para cambios en la selección
         toggleGroup.selectedToggleProperty().addListener((observable, oldVal, newVal) -> {
             if (newVal != null) {
-                RadioButton selected = (RadioButton) newVal;
+                selected = (RadioButton) newVal;
                 System.out.println(selected.getText() + " esta seleccionado");
             }
         });
@@ -79,24 +81,44 @@ public class ReservaController {
 
     public void setReserva(Usuario reservaDni) {
         this.user  = reservaDni;
+        name.setText(user.getNombre());
+        surname.setText(user.getApellido());
+        //añadimos una nueva reserva
+        this.reserva = new Reserva(); //creamos la reserva
 
-        name.setText(reservaDni.getNombre());
-        surname.setText(reservaDni.getApellido());
+        //Cogo el dni de usuario directamente
         dni.setText(reservaDni.getDni());
+        dni.setDisable(true);
+
     }
 
     @FXML
     private void handleOkReserva() {
         if (isInputValid()){
-            reserva.setDniCliente(dni.getText());
-            reserva.setFechaLlegada(data_entry.getAccessibleText());
-            reserva.setFechaSalida(data_exit.getAccessibleText());
+            reserva.setDniCliente(user.getDni());//Solucionar el usuario es nulo sus MUERTOS A CABALLO
+            System.out.println("Fecha entrada: " + data_entry.getValue());
+            reserva.setFechaLlegada(data_entry.getValue());// en la clase Reserva He tocado el metodo setFechaLlegada
+            System.out.println("Fecha salida: " + data_exit.getValue());
+            reserva.setFechaSalida(data_exit.getValue());// en la clase Reserva He tocado el metodo setFechaSalida
             reserva.setTipoHabitacion(typeRoom.getValue());
             reserva.setIsFumador(isFumador.isSelected());
-            reserva.setRegimenAlojamiento(toggleGroup.getSelectedToggle().getUserData().toString());
-            System.out.println("PAso por el ok");
-            okClicked = true;
-            dialogStage.close();
+            reserva.setRegimenAlojamiento(selected.getText());
+
+            try {
+                //Guardar la reserva en la base de datos
+                mainApp.addReservaDb(reserva);
+                //Agregar a la lista observable
+                mainApp.getReservaData().add(reserva);
+
+                okClicked = true;
+                dialogStage.close();
+            } catch (ExeptionReserva e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Error al crear reserva");
+                System.out.println(e.getMessage());
+                alert.showAndWait();
+            }
         }
     }
 
@@ -141,7 +163,10 @@ public class ReservaController {
         if (errorMessage.length() == 0) {
             return true;
         } else {
-            //Alerta
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("CAMPOS NO VALIDOS");
+            alert.showAndWait();
             return false;
         }
     }

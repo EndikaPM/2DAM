@@ -58,7 +58,9 @@ public class Reserva {
         return fechaLlegada;
     }
 
-    public void setFechaLlegada(String fechaLlegada) { this.fechaLlegada.set(DateUtil.parse(fechaLlegada)); }
+    public void setFechaLlegada(LocalDate fechaLlegada) {
+        this.fechaLlegada.set(fechaLlegada);
+    }
 
     public LocalDate getFechaSalida() {
         return fechaSalida.get();
@@ -68,7 +70,7 @@ public class Reserva {
         return fechaSalida;
     }
 
-    public void setFechaSalida(String fechaSalida){ this.fechaSalida.set(DateUtil.parse(fechaSalida)); }
+    public void setFechaSalida(LocalDate fechaSalida){ this.fechaSalida.set(fechaSalida); }
 
     public int getNumHabitaciones() {
         return numHabitaciones.get();

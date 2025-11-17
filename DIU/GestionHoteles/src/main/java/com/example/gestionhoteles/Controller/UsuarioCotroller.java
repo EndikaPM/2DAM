@@ -106,10 +106,24 @@ public class UsuarioCotroller {
         if (selectedUsuario != null) {
             boolean okClicked = mainApp.showUserEditDialog(selectedUsuario, "Editar Persona");
             if (okClicked) {
-                showUsersDetails(selectedUsuario);
+                try {
+
+                    mainApp.updateUserDb(selectedUsuario);
+                    showUsersDetails(selectedUsuario);
+
+                } catch (ExceptionUsuario e) {
+                    e.imprimirMensaje();
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Error al actualizar usuario");
+                    alert.setContentText(e.getMessage());
+                    alert.showAndWait();
+                }
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Selecciona un usuario para editar");
+            alert.showAndWait();
         }
     }
 

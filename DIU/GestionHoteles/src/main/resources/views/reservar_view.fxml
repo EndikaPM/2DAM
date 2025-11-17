@@ -68,17 +68,17 @@
                         </Label>
                         <VBox prefHeight="77.0" prefWidth="89.0">
                            <children>
-                              <RadioButton fx:id="AlojaYDesayu" mnemonicParsing="false" text="Alojamiento y desayuno">
+                              <RadioButton fx:id="AlojaYDesayu" mnemonicParsing="false" text="alojamiento_desayuno">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton fx:id="mediaPension" mnemonicParsing="false" text="Media pension">
+                              <RadioButton fx:id="mediaPension" mnemonicParsing="false" text="media_pension">
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </RadioButton>
-                              <RadioButton fx:id="personaCompleta" mnemonicParsing="false" text="Pension completa" />
+                              <RadioButton fx:id="personaCompleta" mnemonicParsing="false" text="pension_completa" />
                            </children>
                            <VBox.margin>
                               <Insets left="20.0" />
