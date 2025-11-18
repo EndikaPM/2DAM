@@ -95,7 +95,7 @@ public class ReservaController {
     @FXML
     private void handleOkReserva() {
         if (isInputValid()){
-            reserva.setDniCliente(user.getDni());//Solucionar el usuario es nulo sus MUERTOS A CABALLO
+            reserva.setDniCliente(user.getDni());
             System.out.println("Fecha entrada: " + data_entry.getValue());
             reserva.setFechaLlegada(data_entry.getValue());// en la clase Reserva He tocado el metodo setFechaLlegada
             System.out.println("Fecha salida: " + data_exit.getValue());

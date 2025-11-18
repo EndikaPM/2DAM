@@ -226,4 +226,20 @@ public class Main extends Application {
         }
     }
 
+    public void showStatsRoom() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/view_stats_room.fxml"));
+            AnchorPane roomVista = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(roomVista);
+
+            HabitacionesViewController controllerHabitacion = loader.getController();
+            controllerHabitacion.setMain(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

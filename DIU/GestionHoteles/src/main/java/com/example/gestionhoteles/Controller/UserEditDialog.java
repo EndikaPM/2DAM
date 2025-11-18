@@ -69,20 +69,22 @@ public class UserEditDialog {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            // Solo actualizar el DNI si es un usuario nuevo
-            if (isNewUser) {
-                user.setDni(dni_edit.getText());
-            }
-            // Si NO es nuevo, el DNI ya existe en el objeto user, no lo toques
-            user.setNombre(firstNameField.getText());
-            user.setApellido(lastNameField.getText());
-            user.setDireccion(streetField.getText());
-            user.setCodigoPostal(Integer.parseInt(postalCodeField.getText()));
-            user.setLocalidad(cityField.getText());
-            user.setProvincia(provinciaField.getText());
+            if (!checkDni(dni_edit.getText())) {
+                // Solo actualizar el DNI si es un usuario nuevo
+                if (isNewUser) {
+                    user.setDni(dni_edit.getText());
+                }
+                // Si NO es nuevo, el DNI ya existe en el objeto user, no lo toques
+                user.setNombre(firstNameField.getText());
+                user.setApellido(lastNameField.getText());
+                user.setDireccion(streetField.getText());
+                user.setCodigoPostal(Integer.parseInt(postalCodeField.getText()));
+                user.setLocalidad(cityField.getText());
+                user.setProvincia(provinciaField.getText());
 
-            okClicked = true;
-            dialogStage.close();
+                okClicked = true;
+                dialogStage.close();
+            }
         }
     }
 

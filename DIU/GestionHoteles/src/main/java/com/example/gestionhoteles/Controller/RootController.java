@@ -20,7 +20,7 @@ public class RootController {
         mainapp.showVerReservas();
     }
     @FXML
-    private void showStatsRoom(){}
+    private void showStatsRoom(){mainapp.showStatsRoom();}
     @FXML
     private void showStats(){}
     @FXML
