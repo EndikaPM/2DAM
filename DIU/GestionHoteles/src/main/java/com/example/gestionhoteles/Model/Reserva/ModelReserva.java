@@ -24,14 +24,14 @@ public class ModelReserva {
     public void updateReserva(ReservaVO rVO) throws ExeptionReserva{
         reservaRepositorio.updateReserva(rVO);
     }
-    public void deleteReserva(String dni) throws ExeptionReserva{
-        reservaRepositorio.deleteReserva(dni);
+    public void deleteReserva(int id) throws ExeptionReserva{
+        reservaRepositorio.deleteReserva(id);
     }
 
     public int lastId() throws ExeptionReserva{
         return reservaRepositorio.lastId();
     }
-    public ArrayList<ReservaVO> obtenerFiltroDniReservas(String otherDni) throws ExeptionReserva{
+    public ArrayList<ReservaVO> obtenerListaFiltrada(String otherDni) throws ExeptionReserva{
         return reservaRepositorio.obtenerFiltroDniReservas(otherDni);
     }
 }

@@ -63,20 +63,16 @@ public class Main extends Application {
         }
     }
 
-    public void addUserDb(Usuario otherUser) throws ExceptionUsuario {
-        usuario.addUsuario(UsuarioUtil.getUsuario(otherUser));
+    public ModelReserva getReserva() {
+        return reserva;
     }
 
-    public void updateUserDb(Usuario otherUser) throws ExceptionUsuario {
-        usuario.updateUsuario(UsuarioUtil.getUsuario(otherUser));
-    }
-
-    public void addReservaDb(Reserva reserva) throws ExeptionReserva {
-        this.reserva.addReserva(ReservaUtil.getReserva(reserva));
+    public ModelUsuario getUsuario() {
+        return usuario;
     }
 
     public ObservableList<Reserva> filterReserva(String otherDni) throws ExeptionReserva {
-        ArrayList<ReservaVO> resVO = reserva.ObtenerListaReservas();
+        ArrayList<ReservaVO> resVO = reserva.obtenerListaFiltrada(otherDni);
         ObservableList<Reserva> listFiltro = FXCollections.observableArrayList();
 
         for (ReservaVO reserv : resVO) {

@@ -40,6 +40,7 @@ public class Reserva {
         this.regimenAlojamiento = new SimpleStringProperty(regimenAlojamiento);
         this.dni_cliente = new SimpleStringProperty(dni_cliente);
     }
+
     public int getId() {
         return id.get();
     }

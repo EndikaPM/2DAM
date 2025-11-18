@@ -77,12 +77,12 @@ public class ReservaRepoitoryImple implements ReservaRepository {
     }
 
     @Override
-    public void deleteReserva(String reservaDni) throws ExeptionReserva {
+    public void deleteReserva(int reservaId) throws ExeptionReserva {
         try {
             Connection conn = this.conexion.conectarBD();
             this.statm = conn.createStatement();
             Statement comando = conn.createStatement();
-            String sql = String.format("DELETE FROM reserva WHERE dni = %d", reservaDni);
+            String sql = String.format("DELETE FROM reserva WHERE id = %d", reservaId);
             comando.executeUpdate(sql);
             this.conexion.desconectarBD(conn);
         } catch (SQLException var5) {
@@ -128,7 +128,7 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             Connection conex = this.conexion.conectarBD();
             this.listaReservas = new ArrayList<>();
             this.statm = conex.createStatement();
-            this.sentencia = "SELECT * FROM reserva WHERE dni == otherDni";
+            this.sentencia = String.format("SELECT * FROM reserva WHERE id_usuario = '%s'", otherDni);
             ResultSet rs = this.statm.executeQuery(this.sentencia);
 
             while (rs.next()){
@@ -136,10 +136,8 @@ public class ReservaRepoitoryImple implements ReservaRepository {
                 String diaSalia = DateUtil.format(rs.getDate("dia_salida").toLocalDate());
                 int numHabit = rs.getInt("num_habitaciones");
                 String temTipoHabi = rs.getString("tipo_habitacion");
-                //TipoHabitaciones tipoHabit = TipoHabitaciones.valueOf(temTipoHabi.toUpperCase());
                 boolean isFum = rs.getBoolean("is_fumador");
                 String temResHabit = rs.getString("Regimen_alojamiento");
-                //RegimenAlogamiento regHabit = RegimenAlogamiento.valueOf(temResHabit);
                 String idUser = rs.getString("id_usuario");
                 int id = rs.getInt("id");
 
@@ -151,6 +149,37 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             return this.listaReservas;
         } catch (SQLException e) {
             throw new ExeptionReserva("Error al obtener lista de personas"+e.getMessage());
+        }
+    }
+
+    @Override
+    public Double[] porcentajeReserRoom() throws ExeptionReserva {
+        try {
+            Connection conn = this.conexion.conectarBD();
+            this.statm = conn.createStatement();
+            Double percentByRoomType [] = new Double [4]; // Almacenará el porcenntaje de oucpación por roomType
+            int indice = 0;
+            String roomType [] = {"doble", "doble_uso_individual", "junior_suite", "suite"};
+
+            for(String r : roomType){
+                this.sentencia = "SELECT COUNT(*) as total FROM reserva WHERE tipoHabitacion = " + r;
+                ResultSet rs = this.statm.executeQuery(this.sentencia);
+
+                while (rs.next()) {
+                    percentByRoomType[indice] = rs.getInt("total");
+                }
+
+                // Calcula el porcentaje de ocupación por tipo habitación
+                percentByRoomType[indice] = percentByRoomType[indice] * 1.2; // 120 habitaciones
+
+                indice++;
+            }
+
+            this.conexion.desconectarBD(conn);
+
+            return percentByRoomType;
+        } catch (SQLException e) {
+            throw new ExeptionReserva("No se ha podido obtener la lista de reservas");
         }
     }
 }

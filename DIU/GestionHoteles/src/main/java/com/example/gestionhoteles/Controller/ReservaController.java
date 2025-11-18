@@ -4,6 +4,7 @@ import com.example.gestionhoteles.Main;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Reserva.Reserva;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
+import com.example.gestionhoteles.Util.ReservaUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -65,9 +66,11 @@ public class ReservaController {
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
     }
+
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
+
     @FXML
     private void handleIsSmoker(){
         // En caso de que sea fumador se muestra el mensaje
@@ -93,7 +96,7 @@ public class ReservaController {
     }
 
     @FXML
-    private void handleOkReserva() {
+    private void handleOkReserva(){
         if (isInputValid()){
             reserva.setDniCliente(user.getDni());
             System.out.println("Fecha entrada: " + data_entry.getValue());
@@ -104,9 +107,13 @@ public class ReservaController {
             reserva.setIsFumador(isFumador.isSelected());
             reserva.setRegimenAlojamiento(selected.getText());
 
+
             try {
+                reserva.setId(mainApp.getReserva().lastId());
+
                 //Guardar la reserva en la base de datos
-                mainApp.addReservaDb(reserva);
+                mainApp.getReserva().addReserva(ReservaUtil.getReserva(reserva));
+
                 //Agregar a la lista observable
                 mainApp.getReservaData().add(reserva);
 

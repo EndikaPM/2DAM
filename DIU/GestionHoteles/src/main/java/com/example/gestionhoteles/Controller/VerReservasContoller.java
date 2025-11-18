@@ -101,7 +101,21 @@ public class VerReservasContoller {
         }
     }
     @FXML
-    public void handlerFindDni() throws ExeptionReserva {
+    private void handlerFindDni() throws ExeptionReserva {
         tableViewReservas.setItems(mainApp.filterReserva(dni_find.getText()));
     }
+
+    @FXML
+    private void cleanFilter(){
+        tableViewReservas.setItems(mainApp.getReservaData());
+    }
+    @FXML
+    private void handleDelete() throws ExeptionReserva {
+        Reserva rese = tableViewReservas.getSelectionModel().getSelectedItem();
+        mainApp.getReservaData().remove(rese);
+        System.out.println("Eliminado reserva: " + rese.getId());
+        mainApp.getReserva().deleteReserva(rese.getId());
+    }
+    @FXML
+    private void handleEdit(){}
 }

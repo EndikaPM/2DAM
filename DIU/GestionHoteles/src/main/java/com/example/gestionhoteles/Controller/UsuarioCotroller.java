@@ -4,7 +4,9 @@ import com.example.gestionhoteles.Main;
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Reserva.Reserva;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
+import com.example.gestionhoteles.Model.Usuario.UsuarioVO;
 import com.example.gestionhoteles.Util.DateUtil;
+import com.example.gestionhoteles.Util.UsuarioUtil;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -86,7 +88,8 @@ public class UsuarioCotroller {
         boolean okClicked = mainApp.showUserEditDialog(usuarioTemp, "Añadir Persona");
         try {
             if (okClicked) {
-                mainApp.addUserDb(usuarioTemp);
+                mainApp.getUsuario().addUsuario(UsuarioUtil.getUsuario(usuarioTemp));
+                //mainApp.addUserDb(usuarioTemp);
                 System.out.println("Paso por new person");
                 usuarioTemp.setDni(dni.getText());
                 mainApp.getUserData().add(usuarioTemp);
@@ -108,7 +111,8 @@ public class UsuarioCotroller {
             if (okClicked) {
                 try {
 
-                    mainApp.updateUserDb(selectedUsuario);
+                    mainApp.getUsuario().updateUsuario(UsuarioUtil.getUsuario(selectedUsuario));
+                    //mainApp.updateUserDb(selectedUsuario);
                     showUsersDetails(selectedUsuario);
 
                 } catch (ExceptionUsuario e) {

@@ -10,6 +10,7 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Aplicación">
                     <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showGoHome" text="Inicio" />
                         <MenuItem mnemonicParsing="false" onAction="#showStats" text="Estadisticas" />
                   <MenuItem mnemonicParsing="false" onAction="#showStatsRoom" text="Habitaciones" />
                   <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Exit" />

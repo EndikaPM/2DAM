@@ -14,6 +14,11 @@ public class HabitacionesViewController {
 
     private Main mainapp;
 
+    @FXML
+    public void initialize() {
+
+    }
+
     public void setMain (Main mainapp) {
         this.mainapp = mainapp;
     }
@@ -26,4 +31,5 @@ public class HabitacionesViewController {
     public void nextJuniorSuit(ActionEvent actionEvent) {}
     public void backSuit(ActionEvent actionEvent) {}
     public void nextSuite(ActionEvent actionEvent) {}
+
 }

@@ -27,4 +27,8 @@ public class RootController {
     private void handleClose(){
         Platform.exit(); // Cierra la aplicación
     }
+    @FXML
+    private void showGoHome(){
+        mainapp.showUsuario();
+    }
 }
