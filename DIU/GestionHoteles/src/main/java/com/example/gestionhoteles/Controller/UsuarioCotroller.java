@@ -140,4 +140,13 @@ public class UsuarioCotroller {
 
     }
 
+    @FXML
+    public void handlevierReservaClientes(){
+        Usuario selectUsuario = usuarioTable.getSelectionModel().getSelectedItem();
+
+        if (selectUsuario != null) {
+            mainApp.showReservasClientesDialog(selectUsuario);
+        }
+    }
+
 }

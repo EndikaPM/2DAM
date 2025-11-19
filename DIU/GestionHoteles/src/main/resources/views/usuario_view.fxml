@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UsuarioCotroller">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UsuarioCotroller">
     <children>
         <SplitPane dividerPositions="0.3635405690200211" layoutX="21.0" layoutY="50.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
@@ -63,14 +64,19 @@
                                       <Insets right="10.0" />
                                    </HBox.margin>
                                 </Button>
+                        <Button fx:id="verReservasCliente" mnemonicParsing="false" onAction="#handlevierReservaClientes" text="Ver Reservas Cliente">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Button>
                                 <Button fx:id="addUser" layoutX="217.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleNewPerson" text="Añadir">
                                     <HBox.margin>
                                         <Insets right="10.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button fx:id="editUser" layoutX="287.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleEditPerson" text="Editar">
+                                <Button layoutX="287.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleEditPerson" text="Editar">
                                     <HBox.margin>
-                                        <Insets right="10.0" />
+                                        <Insets />
                                     </HBox.margin>
                                 </Button>
                             </children>

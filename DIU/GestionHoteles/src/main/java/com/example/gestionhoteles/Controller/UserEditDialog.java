@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLOutput;
 
-import static com.example.gestionhoteles.Main.checkDni;
+//import static com.example.gestionhoteles.Main.checkDni;
 
 public class UserEditDialog {
     @FXML
@@ -69,7 +69,7 @@ public class UserEditDialog {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            if (!checkDni(dni_edit.getText())) {
+            if (checkDni()) {
                 // Solo actualizar el DNI si es un usuario nuevo
                 if (isNewUser) {
                     user.setDni(dni_edit.getText());
@@ -88,6 +88,36 @@ public class UserEditDialog {
         }
     }
 
+    public boolean checkDni() {
+        String dni = dni_edit.getText().trim().toUpperCase(); // Garantiza que la última letra sea mayúscula
+
+        // En caso de que no tenga 9 caractéres, no es válido
+        if (dni.length() != 9) {
+            return false;
+        }
+
+        // Para asegurar que el formato esté bien, se divide la parte númerica de la letra
+        String numberPart = dni.substring(0, 8);
+        char dniLetter = dni.charAt(8);
+
+        // Comprueba que la letra es realmente una letra
+        if (!Character.isLetter(dniLetter)) {
+            return false;
+        }
+
+        // Comprueba que los primeros 8 son dígitos
+        if (!numberPart.matches("\\d{8}")) {
+            return false;
+        }
+
+        // Asegura que los números del DNI correspondan a su letra
+        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+        int dniNum = Integer.parseInt(numberPart);
+        char correctLetter = letters.charAt(dniNum % 23);
+
+        return dniLetter == correctLetter;
+    }
+
     @FXML
     private void handleCancel() {
         dialogStage.close();
@@ -99,7 +129,7 @@ public class UserEditDialog {
             if (dni_edit.getText() == null || dni_edit.getText().trim().isEmpty()) {
                 errorMessage += "No valid dni!";
             }
-           if (!checkDni(dni_edit.getText())) {errorMessage += "No valid dni!";}
+           if (!checkDni()) {errorMessage += "No valid dni!";}
         }
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
@@ -134,6 +164,7 @@ public class UserEditDialog {
             return false;
         }
     }
+
 
     public boolean isOkClicked() {
         System.out.println("isOkClicked entra");

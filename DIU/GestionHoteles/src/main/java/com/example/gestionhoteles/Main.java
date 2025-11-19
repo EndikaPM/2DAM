@@ -81,7 +81,7 @@ public class Main extends Application {
        return listFiltro;
     }
 
-    public static boolean checkDni(String dni){
+    /*public static boolean checkDni(String dni){
         if (dni.length() ==  9 && Character.isLetter(dni.charAt(8))) {return true;}
             String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
             int numerosDNI = Integer.parseInt(dni.substring(0, 8));
@@ -92,7 +92,7 @@ public class Main extends Application {
 
             //comparams l¡si los dos char son el mismo
             return (letraDNI == letraCalculado);
-    }
+    }*/
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -291,6 +291,33 @@ public class Main extends Application {
             controllerStadistic.setMainApp(this);
 
         } catch (ExeptionReserva | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showReservasClientesDialog(Usuario usua) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/cliente_view_reserva_dialog.fxml"));
+            AnchorPane clienteViewReserva = (AnchorPane) loader.load();
+
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Ver Reserva cliente");
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(clienteViewReserva);
+            dialogStage.setScene(scene);
+
+            clienteViewReservaDialog controllerReserva = loader.getController();
+            controllerReserva.setMainApp(this);
+            controllerReserva.setDialogStage(dialogStage);
+            controllerReserva.setUsuario(usua);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
