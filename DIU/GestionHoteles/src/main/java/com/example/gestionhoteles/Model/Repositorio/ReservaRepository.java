@@ -17,4 +17,5 @@ public interface ReservaRepository {
 
     ArrayList<ReservaVO> obtenerFiltroDniReservas(String dni) throws ExeptionReserva;
     Double[] porcentajeReserRoom() throws ExeptionReserva;
+    int [] roomOcupationMonth() throws ExeptionReserva;
 }

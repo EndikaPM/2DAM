@@ -22,7 +22,7 @@ public class RootController {
     @FXML
     private void showStatsRoom(){mainapp.showStatsRoom();}
     @FXML
-    private void showStats(){}
+    private void showStats(){mainapp.showMonthStadistic();}
     @FXML
     private void handleClose(){
         Platform.exit(); // Cierra la aplicación

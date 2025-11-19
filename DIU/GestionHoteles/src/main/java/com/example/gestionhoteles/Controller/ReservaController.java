@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+
 public class ReservaController {
     @FXML
     private CheckBox isFumador;
@@ -40,6 +42,7 @@ public class ReservaController {
     private Main mainApp;
     private ToggleGroup toggleGroup;
     private RadioButton selected;
+    private boolean isEditMode = false;
 
 
     @FXML
@@ -95,39 +98,86 @@ public class ReservaController {
 
     }
 
+    public void setReservaParaEditar(Reserva reservaExistente, Usuario usuario) {
+            this.isEditMode = true;
+            this.reserva = reservaExistente;
+            this.user = usuario;
+
+
+            //añado los datos del usuario
+            name.setText(user.getNombre());
+            surname.setText(user.getApellido());
+            dni.setText(user.getDni());
+            dni.setDisable(true);
+
+            //añado la reserva
+            data_entry.setValue(reservaExistente.getFechaLlegada());
+            data_exit.setValue(reservaExistente.getFechaSalida());
+            typeRoom.setValue(reservaExistente.getTipoHabitacion());
+            isFumador.setSelected(reservaExistente.getIsFumador());
+            // Seleccionar el régimen correspondiente
+            String regimen = reservaExistente.getRegimenAlojamiento();
+            if (regimen.equals("alojamiento_desayuno")) {
+                AlojaYDesayu.setSelected(true);
+            } else if (regimen.equals("media_pension")) {
+                mediaPension.setSelected(true);
+            } else if (regimen.equals("pension_completa")) {
+                personaCompleta.setSelected(true);
+            }
+
+
+            RadioButton selectedRadio = (RadioButton) toggleGroup.getSelectedToggle();
+    }
+
     @FXML
     private void handleOkReserva(){
-        if (isInputValid()){
-            reserva.setDniCliente(user.getDni());
-            System.out.println("Fecha entrada: " + data_entry.getValue());
-            reserva.setFechaLlegada(data_entry.getValue());// en la clase Reserva He tocado el metodo setFechaLlegada
-            System.out.println("Fecha salida: " + data_exit.getValue());
-            reserva.setFechaSalida(data_exit.getValue());// en la clase Reserva He tocado el metodo setFechaSalida
-            reserva.setTipoHabitacion(typeRoom.getValue());
-            reserva.setIsFumador(isFumador.isSelected());
-            reserva.setRegimenAlojamiento(selected.getText());
+            if (isInputValid()) {
+
+                reserva.setDniCliente(user.getDni());
+                System.out.println("Fecha entrada: " + data_entry.getValue());
+                reserva.setFechaLlegada(data_entry.getValue());// en la clase Reserva He tocado el metodo setFechaLlegada
+                System.out.println("Fecha salida: " + data_exit.getValue());
+                reserva.setFechaSalida(data_exit.getValue());// en la clase Reserva He tocado el metodo setFechaSalida
+                reserva.setTipoHabitacion(typeRoom.getValue());
+                reserva.setIsFumador(isFumador.isSelected());
+                reserva.setRegimenAlojamiento(selected.getText());
+                reserva.setNumHabitaciones(1);
 
 
-            try {
-                reserva.setId(mainApp.getReserva().lastId());
+                try {
+                    if (isEditMode) {
+                        // Actualizar reserva existente
+                        mainApp.getReserva().updateReserva(ReservaUtil.getReserva(reserva));
 
-                //Guardar la reserva en la base de datos
-                mainApp.getReserva().addReserva(ReservaUtil.getReserva(reserva));
+                        // Actualizar en la lista observable
+                        int index = mainApp.getReservaData().indexOf(reserva);
+                        if (index >= 0) {
+                            mainApp.getReservaData().set(index, reserva);
+                        }
+                    } else {
+                        int ultimoID = mainApp.getReserva().lastId();
+                        reserva.setId(++ultimoID);
 
-                //Agregar a la lista observable
-                mainApp.getReservaData().add(reserva);
+                        //Guardar la reserva en la base de datos
+                        mainApp.getReserva().addReserva(ReservaUtil.getReserva(reserva));
 
-                okClicked = true;
-                dialogStage.close();
-            } catch (ExeptionReserva e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Error al crear reserva");
-                System.out.println(e.getMessage());
-                alert.showAndWait();
+                        //Agregar a la lista observable
+                        mainApp.getReservaData().add(reserva);
+                    }
+
+                    okClicked = true;
+                    dialogStage.close();
+                } catch (ExeptionReserva e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText("Error al crear reserva");
+                    System.out.println(e.getMessage());
+                    alert.showAndWait();
+                }
             }
-        }
     }
+
+
 
     @FXML
     private void handleCancel() {

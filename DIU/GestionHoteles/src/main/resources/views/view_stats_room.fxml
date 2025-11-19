@@ -22,17 +22,14 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonDobleRoomLeft" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backdoble" text="&lt;" textAlignment="CENTER" />
-                              <ImageView fx:id="imagenDoble" fitHeight="128.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/habitacionesDoble.jpg" />
-                                 </image></ImageView>
+                              <ImageView fx:id="imagenDoble" fitHeight="128.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"/>
                               <Button fx:id="botonDobleRoomRigh" mnemonicParsing="false" onAction="#nextDoble" text="&gt;" />
                            </children>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <ProgressIndicator prefHeight="46.0" prefWidth="349.0" progress="0.0" />
+                        <ProgressIndicator fx:id="progressDoble" prefHeight="46.0" prefWidth="349.0" progress="0.0" />
                      </children>
                      <HBox.margin>
                         <Insets right="25.0" />
@@ -47,14 +44,11 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonDobleIndiviLeft" mnemonicParsing="false" onAction="#backDobleInvidial" text="&lt;" />
-                              <ImageView fx:id="imagenDobleIndividual" fitHeight="135.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/habitacionDobleNoIndividual.jpg" />
-                                 </image></ImageView>
+                              <ImageView fx:id="imagenDobleIndividual" fitHeight="135.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"/>
                               <Button fx:id="botonDobleIndiviRigh" mnemonicParsing="false" onAction="#nextDobleIndi" text="&gt;" />
                            </children>
                         </HBox>
-                        <ProgressIndicator progress="0.0" />
+                        <ProgressIndicator fx:id="progressDobleIndividual" prefHeight="47.0" prefWidth="319.0" progress="0.0" />
                      </children>
                   </VBox>
                </children>
@@ -70,14 +64,11 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonJuniorSuitLeft" mnemonicParsing="false" onAction="#backJuniorSuit" text="&lt;" />
-                              <ImageView fx:id="imagenJuniorSuite" fitHeight="118.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/juniorSuite.jpg" />
-                                 </image></ImageView>
+                              <ImageView fx:id="imagenJuniorSuite" fitHeight="118.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true"/>
                               <Button fx:id="botonJuniorSuitright" mnemonicParsing="false" onAction="#nextJuniorSuit" text="&gt;" />
                            </children>
                         </HBox>
-                        <ProgressIndicator progress="0.0" />
+                        <ProgressIndicator fx:id="progresJuniorSuit" progress="0.0" />
                      </children>
                      <HBox.margin>
                         <Insets right="25.0" />
@@ -92,14 +83,11 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonSuitLeft" mnemonicParsing="false" onAction="#backSuit" text="&lt;" />
-                              <ImageView fx:id="imagenSuite" fitHeight="121.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/suite.jpeg" />
-                                 </image></ImageView>
+                              <ImageView fx:id="imagenSuite" fitHeight="121.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true"/>
                               <Button fx:id="botonSuitRight" mnemonicParsing="false" onAction="#nextSuite" text="&gt;" />
                            </children>
                         </HBox>
-                        <ProgressIndicator progress="0.0" />
+                        <ProgressIndicator fx:id="progressSuit" progress="0.0" />
                      </children>
                   </VBox>
                </children>

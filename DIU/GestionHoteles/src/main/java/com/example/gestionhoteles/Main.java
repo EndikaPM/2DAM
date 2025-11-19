@@ -206,6 +206,47 @@ public class Main extends Application {
 
     }
 
+    public boolean showReservaEditDialog(Reserva reservaEdit){
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/reservar_view.fxml"));
+            AnchorPane reservaView = (AnchorPane) loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Editar Reserva");
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(reservaView);
+            dialogStage.setScene(scene);
+
+            Usuario usuario = null;
+            try {
+                UsuarioVO vo = this.usuario.buscarUsuarioPorDni(reservaEdit.getDniCliente());
+                if (vo != null) {
+                    usuario = UsuarioUtil.getUsuario(vo);
+                } else {
+                    System.out.println("No se encontró el usuario en BD");
+                }
+            } catch (ExceptionUsuario e) {
+                e.printStackTrace();
+            }
+
+            ReservaController controllerReserva = loader.getController();
+            controllerReserva.setMainApp(this);
+            controllerReserva.setDialogStage(dialogStage);
+            controllerReserva.setReservaParaEditar(reservaEdit, usuario);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+
+            return controllerReserva.isOkClicked();
+        }catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public void showVerReservas() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -233,7 +274,23 @@ public class Main extends Application {
             HabitacionesViewController controllerHabitacion = loader.getController();
             controllerHabitacion.setMain(this);
 
-        } catch (IOException e) {
+        } catch (IOException | ExeptionReserva e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showMonthStadistic() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/months_statistics.fxml"));
+            AnchorPane stadisticView = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(stadisticView);
+
+            MonthsStadisticsController controllerStadistic = loader.getController();
+            controllerStadistic.setMainApp(this);
+
+        } catch (ExeptionReserva | IOException e) {
             e.printStackTrace();
         }
     }

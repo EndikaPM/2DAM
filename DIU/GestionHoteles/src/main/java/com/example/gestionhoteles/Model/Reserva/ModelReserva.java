@@ -34,4 +34,10 @@ public class ModelReserva {
     public ArrayList<ReservaVO> obtenerListaFiltrada(String otherDni) throws ExeptionReserva{
         return reservaRepositorio.obtenerFiltroDniReservas(otherDni);
     }
+    public Double [] porcentajeReserRoom() throws ExeptionReserva {
+        return reservaRepositorio.porcentajeReserRoom();
+    }
+    public int[] roomOcupationMonth() throws ExeptionReserva{
+        return reservaRepositorio.roomOcupationMonth();
+    }
 }

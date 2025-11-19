@@ -13,11 +13,9 @@ import com.example.gestionhoteles.Util.ReservaUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class VerReservasContoller {
@@ -116,6 +114,33 @@ public class VerReservasContoller {
         System.out.println("Eliminado reserva: " + rese.getId());
         mainApp.getReserva().deleteReserva(rese.getId());
     }
+
     @FXML
-    private void handleEdit(){}
+    private void handleEdit() {
+        Reserva reservaSeleccionada = tableViewReservas.getSelectionModel().getSelectedItem();
+
+        if (!(reservaSeleccionada.getFechaLlegada().isBefore(LocalDate.now()))) {
+            if (reservaSeleccionada != null) {
+                boolean okClicked = mainApp.showReservaEditDialog(reservaSeleccionada);
+
+                if (okClicked) {
+                    // Refrescar la tabla para mostrar los cambios
+                    tableViewReservas.refresh();
+                    showReservasDetails(reservaSeleccionada);
+                }
+            } else {
+                // Mostrar alerta si no hay ninguna reserva seleccionada
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("No hay selección");
+                alert.setHeaderText("No hay reserva seleccionada");
+                alert.setContentText("Por favor seleccione una reserva de la tabla.");
+                alert.showAndWait();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No es posible Editar");
+            alert.setContentText("Reserva seleccionada no se puede editar porque\n la fecha es menor a a actual");
+            alert.showAndWait();
+        }
+    }
 }

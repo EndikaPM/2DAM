@@ -13,6 +13,7 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
     private String sentencia;
     private ArrayList<UsuarioVO> listaUsuario;
     private UsuarioVO usuario;
+    private Statement statm2;
 
     @Override
     public ArrayList<UsuarioVO> ObtenerListaUsuario() throws ExceptionUsuario {
@@ -101,6 +102,65 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
         } catch (Exception e) {
             System.out.println("Error aqui "+e.getMessage());
             throw new ExceptionUsuario("No se ha podido realizar la modificiación");
+        }
+    }
+
+    public UsuarioVO obtenerUsuarioReserva(String dni) throws ExceptionUsuario {
+        UsuarioVO usuario = null;
+
+        try {
+            Connection conex = this.conexion.conectarBD();
+            this.statm2 = conex.createStatement();
+            this.sentencia = String.format("SELECT * FROM usuario WHERE dni = '%s'", dni);
+            ResultSet rs = this.statm2.executeQuery(this.sentencia);
+
+            while (rs.next()){
+                String dniUsuario = rs.getString("dni");
+                String nombreUsuario = rs.getString("nombre");
+                String apellidoUsuario = rs.getString("apellido");
+                String direccionUsuario = rs.getString("direccion");
+                String localidadeUsuario = rs.getString("localida");
+                String provincia = rs.getString("provincia");
+                Integer codigoPostal = Integer.parseInt(rs.getString("codigo_postal"));
+                usuario = new UsuarioVO(dniUsuario,nombreUsuario,apellidoUsuario,direccionUsuario,localidadeUsuario,provincia,codigoPostal);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuario;
+    }
+
+    @Override
+    public UsuarioVO buscarPorDni(String dni) throws ExceptionUsuario {
+        try {
+            Connection conn = conexion.conectarBD();
+            String sql = "SELECT * FROM usuario WHERE dni = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, dni);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                UsuarioVO usuario = new UsuarioVO(
+                        rs.getString("dni"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("direccion"),
+                        rs.getString("localida"),
+                        rs.getString("provincia"),
+                        rs.getInt("codigo_postal")
+                );
+
+                conexion.desconectarBD(conn);
+                return usuario;
+            }
+
+            conexion.desconectarBD(conn);
+            return null;
+
+        } catch (SQLException e) {
+            throw new ExceptionUsuario("Error buscando usuario por DNI");
         }
     }
 
