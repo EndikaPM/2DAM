@@ -1,5 +1,6 @@
 package com.example.proyectolibro.Controller;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -135,12 +136,19 @@ public class Activity2 extends AppCompatActivity {
             int positionElimi = info.position;
 
             Libro libroEliminado = datosLibros.get(positionElimi);
+            new AlertDialog.Builder(this).setTitle("Eliminar")
+                    .setMessage("¿Estas seguro que deseas eliminar el libro?")
+                    .setPositiveButton("Aceptar",(dialog, which) -> {
+                        datosLibros.remove(positionElimi);
 
-            datosLibros.remove(positionElimi);
+                        Toast.makeText(this, "Libro eliminado: " + libroEliminado.getTitulo(), Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(this, "Libro eliminado: " + libroEliminado.getTitulo(), Toast.LENGTH_SHORT).show();
 
-            adaptador.notifyDataSetChanged();
+                        adaptador.notifyDataSetChanged();
+                    }).setNegativeButton("Cancelar",(dialog, which) -> {
+                        Toast.makeText(this, "Accion cancelada.",Toast.LENGTH_SHORT).show();
+                    }).show();
+
 
             return true;
         }

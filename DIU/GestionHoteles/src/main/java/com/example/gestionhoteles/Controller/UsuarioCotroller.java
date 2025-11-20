@@ -89,16 +89,17 @@ public class UsuarioCotroller {
         try {
             if (okClicked) {
                 mainApp.getUsuario().addUsuario(UsuarioUtil.getUsuario(usuarioTemp));
-                //mainApp.addUserDb(usuarioTemp);
-                System.out.println("Paso por new person");
-                usuarioTemp.setDni(dni.getText());
                 mainApp.getUserData().add(usuarioTemp);
-                System.out.println("Paso por new person");
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
+
             }
         }catch (ExceptionUsuario e){
             e.imprimirMensaje();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Error dni no valido");
+            alert.showAndWait();
         }
 
     }
@@ -119,7 +120,7 @@ public class UsuarioCotroller {
                     e.imprimirMensaje();
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
-                    alert.setHeaderText("Error al actualizar usuario");
+                    alert.setHeaderText("Error al actualizar usuario selecione un usuario antes");
                     alert.setContentText(e.getMessage());
                     alert.showAndWait();
                 }
@@ -136,6 +137,12 @@ public class UsuarioCotroller {
 
         if (selectReserva != null) {
             boolean okClicked = mainApp.showReserva(selectReserva);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al cargar cliente");
+            alert.setContentText("No es posible realizar una reserva\n sin seleccionar un cliente.");
+            alert.showAndWait();
         }
 
     }
@@ -146,6 +153,12 @@ public class UsuarioCotroller {
 
         if (selectUsuario != null) {
             mainApp.showReservasClientesDialog(selectUsuario);
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error al cargar cliente");
+            alert.setContentText("No es posible sin seleccionar un cliente.");
+            alert.showAndWait();
         }
     }
 

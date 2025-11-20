@@ -42,27 +42,27 @@ public class HabitacionesViewController {
 
     // Usa la misma ruta base que el FXML (@../images/)
     private final String[] imagenesDoble = {
-            "images/habitacionesDoble.jpg",
-            "images/habitacionesDoble2.jpg",
-            "images/habitacionesDoble3.jpg"
+            "/images/habitacionesDoble.jpg",
+            "/images/habitacionesDoble2.jpg",
+            "/images/habitacionesDoble3.jpg"
     };
 
     private final String[] imagenesDobleIndividual = {
-            "images/habitacionDobleNoIndividual.jpg",
-            "images/habitacionDobleNoIndividual2.jpg",
-            "images/habitacionDobleNoIndividual3.jpg"
+            "/images/habitacionDobleNoIndividual.jpg",
+            "/images/habitacionDobleNoIndividual2.jpg",
+            "/images/habitacionDobleNoIndividual3.jpeg"
     };
 
     private final String[] imagenesJuniorSuite = {
-            "images/juniorSuite.jpg",
-            "images/juniorSuite2.jpg",
-            "images/juniorSuite3.jpg"
+            "/images/juniorSuite.jpg",
+            "/images/juniorSuite2.jpg",
+            "/images/juniorSuite3.jpg"
     };
 
     private final String[] imagenesSuite = {
-            "images/suite.jpeg",
-            "images/suite2.jpg",
-            "images/suite3.jpg"
+            "/images/suite.jpeg",
+            "/images/suite2.jpg",
+            "/images/suite3.jpg"
     };
 
     @FXML

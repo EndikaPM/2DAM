@@ -81,19 +81,6 @@ public class Main extends Application {
        return listFiltro;
     }
 
-    /*public static boolean checkDni(String dni){
-        if (dni.length() ==  9 && Character.isLetter(dni.charAt(8))) {return true;}
-            String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-            int numerosDNI = Integer.parseInt(dni.substring(0, 8));
-            char letraDNI = Character.toUpperCase(dni.charAt(8));
-
-            //calculamos la letra atraves de el indice con su orden adecuado
-            char letraCalculado = letras.charAt(numerosDNI % 23);
-
-            //comparams l¡si los dos char son el mismo
-            return (letraDNI == letraCalculado);
-    }*/
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
@@ -201,6 +188,11 @@ public class Main extends Application {
             return cotrolleReserva.isOkClicked();
         }catch (IOException e){
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("sELECCIONE UN CLIENTE");
+            alert.setContentText("No SE PUEDE DIDITAR SI NO SELCCIONA UN CLIENTE .");
+            alert.showAndWait();
             return false;
         }
 
@@ -318,6 +310,7 @@ public class Main extends Application {
             dialogStage.showAndWait();
 
         } catch (IOException e) {
+
             e.printStackTrace();
         }
     }

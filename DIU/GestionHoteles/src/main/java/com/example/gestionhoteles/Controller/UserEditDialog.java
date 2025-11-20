@@ -48,22 +48,31 @@ public class UserEditDialog {
     public void setUser(Usuario user) {
         this.user = user;
 
-        dni_edit.setText(user.getDni());
-        firstNameField.setText(user.getNombre());
-        lastNameField.setText(user.getApellido());
-        streetField.setText(user.getDireccion());
-        postalCodeField.setText(Integer.toString(user.getCodigoPostal()));
-        cityField.setText(user.getLocalidad());
-        provinciaField.setText(user.getProvincia());
+        if(user.getDni() == null || user.getDni().isEmpty()){
+            dni_edit.setText("");
+            dni_edit.setDisable(false); // Permite introducir el DNI
+            firstNameField.setText("");
+            lastNameField.setText("");
+            streetField.setText(user.getDireccion());
+            postalCodeField.setText(Integer.toString(user.getCodigoPostal()));
+            cityField.setText(user.getLocalidad());
+            provinciaField.setText(user.getProvincia());
 
-        // Si el DNI está vacío, es un usuario nuevo
-        if (user.getDni() == null || user.getDni().isEmpty()) {
             isNewUser = true;
-            dni_edit.setDisable(false); // Habilitar para nuevo usuario
-        } else {
-            isNewUser = false;
-            dni_edit.setDisable(true); // Deshabilitar para edición
         }
+        else{ // El usuario no es nuevo
+            dni_edit.setText(user.getDni());
+            dni_edit.setDisable(true); // Deshabilita la edición del DNI
+            firstNameField.setText(user.getNombre());
+            lastNameField.setText(user.getApellido());
+            streetField.setText(user.getDireccion());
+            postalCodeField.setText(Integer.toString(user.getCodigoPostal()));
+            cityField.setText(user.getLocalidad());
+            provinciaField.setText(user.getProvincia());
+
+            isNewUser = false;
+        }
+
     }
 
     @FXML
@@ -125,12 +134,8 @@ public class UserEditDialog {
 
     private boolean isInputValid() {
         String errorMessage = "";
-        if (isNewUser) {
-            if (dni_edit.getText() == null || dni_edit.getText().trim().isEmpty()) {
-                errorMessage += "No valid dni!";
-            }
-           if (!checkDni()) {errorMessage += "No valid dni!";}
-        }
+
+        if (!checkDni()) {errorMessage += "No valid dni!";}
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
             errorMessage += "No valid first name!\n";
         }
@@ -143,7 +148,8 @@ public class UserEditDialog {
 
         if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
             errorMessage += "No valid postal code!\n";
-        } else {
+        }
+        else {
             // try to parse the postal code into an int.
             try {
                 Integer.parseInt(postalCodeField.getText());
@@ -156,15 +162,17 @@ public class UserEditDialog {
             errorMessage += "No valid city!\n";
         }
 
-
         if (errorMessage.length() == 0) {
             return true;
         } else {
-            //TODO Alerta
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Los campos no validos");
+            alert.setContentText(errorMessage);
+            alert.showAndWait();
             return false;
         }
     }
-
 
     public boolean isOkClicked() {
         System.out.println("isOkClicked entra");

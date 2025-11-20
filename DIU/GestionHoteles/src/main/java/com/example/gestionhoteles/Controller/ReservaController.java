@@ -200,11 +200,12 @@ public class ReservaController {
 
     private boolean isInputValid() {
         String errorMessage = "";
-        if (data_entry.getValue() == null) {
+        if (data_entry.getValue() == null || data_entry.getValue().isAfter(LocalDate.now())) {
             errorMessage += "Fecha de entrada no válida!\n";
         }
 
-        if (data_exit.getValue() == null) {
+
+        if (data_exit.getValue() == null || data_exit.getValue().isBefore(LocalDate.now())) {
             errorMessage += "Fecha de salida no válida!\n";
         }
 
@@ -223,6 +224,7 @@ public class ReservaController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("CAMPOS NO VALIDOS");
+            alert.setContentText(errorMessage);
             alert.showAndWait();
             return false;
         }
