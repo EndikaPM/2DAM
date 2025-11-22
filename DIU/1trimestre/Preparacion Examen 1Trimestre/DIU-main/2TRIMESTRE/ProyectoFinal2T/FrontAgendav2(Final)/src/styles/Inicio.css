@@ -1,0 +1,160 @@
+/* Ajuste adicional para hacer la tabla aún más pequeña */
+.modern-table th, .modern-table td {
+  padding: 8px 12px; /* Reducir aún más el padding de las celdas */
+  text-align: left;
+  font-size: 12px; /* Reducir aún más el tamaño de la fuente */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400; /* Peso de fuente más liviano */
+  color: white !important; /* Letras blancas en las celdas */
+}
+
+.modern-table th {
+  font-size: 14px; /* Reducir el tamaño de la fuente del encabezado */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modern-table tbody {
+  background-color: #125b96; /* Fondo oscuro para todas las filas */
+}
+
+.modern-table td {
+  color: white !important; /* Letras blancas en las celdas */
+  border-bottom: 1px solid #125b96; /* Línea sutil entre las filas */
+}
+
+.modern-table {
+  width: 100%;
+  border-radius: 8px; /* Bordes más pequeños */
+  border: none;
+  background-color: #333; /* Fondo oscuro para las filas */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Sombra más ligera */
+}
+
+.modern-table thead {
+  background-color: #011b2f ; /* Fondo azul oscuro para el encabezado */
+  color: white !important; /* Texto blanco en el encabezado */
+}
+
+/* Reduce el tamaño general de la tabla */
+.modern-table thead, .modern-table tbody {
+  font-size: 12px; /* Reducir el tamaño de la fuente de todo el cuerpo de la tabla */
+}
+
+/* Estilos para el botón de seleccionar tutoriales */
+.btn-seleccionar-tutoriales {
+  background-color: #125b96;
+  border-color: #125b96;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-seleccionar-tutoriales:hover {
+  background-color: #0f4c75; /* Cambia el color al pasar el ratón */
+}
+
+/* Eliminar efectos hover en la tabla */
+.modern-table tr:hover {
+  background-color: inherit; /* No cambiar el fondo al pasar el ratón */
+  transform: none; /* No hay transformaciones */
+  box-shadow: none; /* Eliminar sombra */
+}
+
+
+
+/* Estilos para el botón de búsqueda */
+.search-btn {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Eliminar borde */
+  padding: 0; /* Eliminar padding */
+  width: auto; /* No necesita un tamaño fijo */
+  height: auto; /* No necesita un tamaño fijo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none; /* Elimina el contorno en algunos navegadores al hacer clic */
+  margin-left: 10px; /* Añadir espacio entre el input y el botón */
+}
+
+.search-btn .search-icon {
+  width: 24px; /* Ajusta el tamaño del ícono */
+  height: 24px; /* Ajusta el tamaño del ícono */
+  object-fit: contain;
+}
+
+.search-btn:hover {
+  background-color: transparent; /* No hay cambio de fondo al pasar el ratón */
+  box-shadow: none; /* Elimina cualquier sombra */
+}
+
+
+/* Estilo común para los botones Cerrar y Volver */
+.btn-volver-cerrar {
+  width: 100%; /* Para que ocupen el mismo tamaño dentro del contenedor */
+  height: 40px; /* O cualquier valor de altura que prefieras */
+  font-size: 14px; /* Asegura que el tamaño del texto sea consistente */
+  text-align: center; /* Centra el texto */
+  padding: 10px 20px; /* Ajusta el padding si es necesario */
+}
+.contactos-title {
+  color: white;
+  background-color: rgba(1, 27, 47, 0.7); /* Fondo completamente transparente */
+  padding: 5px 10px;
+  border-radius: 18px;
+  font-size: 1.5rem; /* Tamaño adaptable */
+  font-weight: bold;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  display: inline-block; /* Hace que el fondo solo cubra el texto */
+  width: 100%; /* Se adapta al tamaño de su contenedor */
+  text-align: center; /* Centra el texto */
+}
+
+
+.A{
+  background-color:#0b283f;
+}
+
+.N{
+  background-color: #0b283f;
+}
+
+/* Contenedor de la barra de progreso */
+.progress-container {
+  display: flex;
+  justify-content: center; /* Centra la barra de progreso en la pantalla */
+  margin-bottom: 20px; /* Espaciado abajo */
+}
+
+/* Barra de progreso */
+.progress-bar {
+  height: 20px; /* Hacerla más gruesa (aumentar grosor) */
+}
+
+/* Barra de progreso con un color fijo, por ejemplo, verde */
+.progress-bar-1 {
+  background-color: #4caf50; /* El color verde será el mismo siempre */
+}
+
+/* Estilo del texto sobre la barra de progreso */
+.progress-bar-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 14px; /* Tamaño del texto */
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Sombra de texto */
+}
+
+/* Asegurar que la barra esté en su contenedor y tenga espacio adecuado */
+.progress-bar-wrapper {
+  position: relative;
+  width: 100%; /* Ocupa el 100% del contenedor */
+  padding: 0 15px; /* Asegura que no se pegue a los bordes */
+}

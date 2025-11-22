@@ -1,0 +1,71 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0; /* Asegúrate de quitar el margen para centrar correctamente */
+  background-color: #f7f7f7; /* Optional: establece un fondo para que se vea bonito */
+}
+
+.calculator {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: auto;  /* Center horizontally within its container */
+}
+
+.display {
+  width: 100%;
+  height: 60px;
+  text-align: right;
+  font-size: 1.8rem;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center; /* Optional: Ensures all rows align neatly */
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  font-size: 1.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button.orange {
+  background-color: #ffbb56;
+  color: white;
+}
+
+.button.equal {
+  background-color: #ffbb56;
+  color: white;
+  height: 60px;
+}
+
+.button.clear {
+  background-color: #ff5555;
+  color: white;
+}

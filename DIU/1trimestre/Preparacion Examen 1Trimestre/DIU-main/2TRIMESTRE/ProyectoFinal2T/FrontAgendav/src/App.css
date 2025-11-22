@@ -1,0 +1,14 @@
+/* Cambiar el fondo de toda la página */
+body {
+  background-color: #043161 !important; /* Azul con !important para asegurar que se aplica */
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+/* Si deseas que el fondo sea una imagen o gradiente, usa esto */
+body {
+  background: #043161 !important; /* Color de fondo azul */
+  background-size: cover;
+  background-position: center;
+}

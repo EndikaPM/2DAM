@@ -1,0 +1,46 @@
+.login-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+  padding: 20px;
+  height: auto;
+  margin-top: -50px;
+  background: #125b96; /* Nuevo color de fondo */
+}
+
+.login-form {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(18, 91, 150, 0.8); /* Color con transparencia */
+  color: white; /* Texto en blanco */
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del texto */
+h2, .form-label {
+  color: white;
+}
+
+/* Estilos de los campos de entrada */
+.input-field {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Botón */
+.login-button {
+  background-color: #011b2f;
+}
+
+.login-button:hover {
+  background-color: #2e59d9;
+}

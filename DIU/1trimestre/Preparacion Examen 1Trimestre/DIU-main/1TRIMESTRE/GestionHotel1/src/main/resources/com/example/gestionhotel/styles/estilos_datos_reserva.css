@@ -1,0 +1,99 @@
+AnchorPane {
+    -fx-background-color: #005288;
+}
+
+.button {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-text-fill: white;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.date-picker {
+    -fx-background-color: #003366;
+    -fx-font-size: 14px;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+}
+
+.date-picker .popup {
+    -fx-background-color: #003366;
+}
+
+.date-picker .calendar-popup {
+    -fx-background-color: #003366;
+}
+
+.date-picker .day-cell {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+}
+
+.date-picker .day-cell:hover {
+    -fx-background-color: #005288;
+}
+
+.date-picker .day-cell.selected {
+    -fx-background-color: #005288;
+    -fx-text-fill: white;
+}
+
+.date-picker .label {
+    -fx-text-fill: black;
+}
+
+.spinner .text-field {
+    -fx-text-fill: white;
+    -fx-background-color: #003366;
+}
+
+.spinner .increment-button, .spinner .decrement-button {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-border-color: #005288;
+}
+
+.spinner .list-cell {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+}
+
+.spinner .list-cell, .combo-box .list-cell {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+}
+
+.spinner .list-cell:hover {
+    -fx-background-color: #003366;
+}
+
+.spinner .list-cell:hover, .combo-box .list-cell:hover {
+    -fx-background-color: #005288;
+    -fx-text-fill: white;
+}
+
+.combo-box {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+}
+
+.radio-button {
+    -fx-text-fill: white;
+}
+
+* {
+    -fx-text-fill: white;
+}

@@ -1,0 +1,68 @@
+AnchorPane {
+    -fx-background-color: #003366;
+}
+
+SplitPane{
+    -fx-background-color: #005288;
+}
+
+GridPane Label {
+    -fx-text-fill: white;
+}
+
+Label{
+    -fx-text-fill: white;
+    -fx-font-size: 10pt;
+}
+
+GridPane Text {
+    -fx-fill: white;
+}
+
+GridPane TextField {
+    -fx-text-fill: white;
+}
+
+.table-view {
+    -fx-background-color: #005288;
+    -fx-control-inner-background: #005288;
+    -fx-base: #005288;
+}
+
+.button {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #005288;
+}
+
+.button:pressed {
+    -fx-background-color: #0a4a77;
+}
+
+.table-view .cell {
+    -fx-background-color: #005288;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-font-size: 14pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: white;
+    -fx-pref-width: 1px;
+}
+
+.vbox {
+    -fx-background-color: #003366;
+}

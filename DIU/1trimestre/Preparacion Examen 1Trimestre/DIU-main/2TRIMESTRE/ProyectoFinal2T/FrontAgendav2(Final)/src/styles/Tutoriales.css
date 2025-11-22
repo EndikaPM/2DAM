@@ -1,0 +1,147 @@
+/* Estilos generales y tipografía */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor del buscador */
+.search-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-input {
+  border: 2px solid #007bff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.search-btn {
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+}
+
+/* Tabla moderna minimalista */
+.modern-table {
+  background-color: #ffffff;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.modern-table thead {
+  background-color: #0d3e5f !important;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.table-row {
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Detalle del tutorial */
+.detail-row {
+  background-color: #0d3e5f !important;
+}
+
+.detail-content {
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.detail-row:hover {
+  background-color: #08273b !important;
+}
+
+.detail-row {
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para el Modal */
+.custom-modal .modal-content {
+  background-color: rgba(1, 27, 47, 0.9) !important; /* Fondo oscuro con algo de transparencia */
+  color: white !important; /* Texto blanco */
+  border-radius: 15px !important; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+}
+
+.custom-modal .modal-header {
+  border-bottom: none !important; /* Sin borde inferior */
+  color: white !important; /* Título en blanco */
+}
+
+.custom-modal .modal-body {
+  padding: 20px; /* Espaciado interno en el cuerpo del modal */
+}
+
+.custom-modal .modal-footer {
+  border-top: none !important; /* Sin borde superior */
+}
+
+/* Centrado del Modal en la pantalla */
+.custom-modal .modal-dialog {
+  position: absolute !important; /* Usa posición absoluta para centrar */
+  top: 50% !important; /* Centrado vertical */
+  left: 50% !important; /* Centrado horizontal */
+  transform: translate(-50%, -50%) !important; /* Ajuste fino para centrar exactamente */
+  margin: 0 !important; /* Eliminar márgenes adicionales */
+  max-width: 500px !important; /* Tamaño máximo del modal */
+}
+
+.custom-modal .modal-dialog .modal-content {
+  background-color: rgba(1, 27, 47) !important; /* Fondo oscuro con transparencia */
+}
+
+/* Para asegurar que el botón de cerrar sea visible */
+.custom-modal .modal-header .close {
+  color: white !important;
+}
+
+.detail-item {
+  margin-bottom: 10px;
+}
+
+.tutorial-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px; /* Ajuste de la imagen */
+  object-fit: cover;
+}
+
+
+.tutorial-image {
+  width: 100%;
+  height: auto;
+  max-height: 150px; /* Establece una altura máxima */
+  object-fit: cover;
+}
+
+
+/* Estilos para el botón de búsqueda */
+.search-btn {
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Eliminar borde */
+  padding: 0; /* Eliminar padding */
+  width: auto; /* No necesita un tamaño fijo */
+  height: auto; /* No necesita un tamaño fijo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none; /* Elimina el contorno en algunos navegadores al hacer clic */
+  margin-left: 10px; /* Añadir espacio entre el input y el botón */
+}
+
+.c{
+ color: white;
+}

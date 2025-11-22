@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles/estilos_datos.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhotel.controller.DiseñoRaizController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" onAction="#buscarDNI" text="Buscar por DNI">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#buscarDNI" text="DNI" />
+               </items>
+            </Menu>
+
+            <Menu mnemonicParsing="false" text="Habitaciones">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#dobleIndividual" text="Doble de uso individual" />
+                  <MenuItem mnemonicParsing="false" onAction="#doble" text="Doble" />
+                  <MenuItem mnemonicParsing="false" onAction="#juniorSuite" text="Junior Suite" />
+                  <MenuItem mnemonicParsing="false" onAction="#suite" text="Suite" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Estadisticas">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#estadisticas" text="Mostrar" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="WebView">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#webView" text="Mostrar" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

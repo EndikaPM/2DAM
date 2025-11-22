@@ -4,13 +4,18 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
@@ -31,11 +36,22 @@ public class Activity2 extends AppCompatActivity {
     private int elementoSelecionado;
     private FloatingActionButton botonFlotante;
     private Toolbar toolbar;
+    private LayoutInflater inflaterToast;
+    private View layoutToast;
+    private ImageView imageToast;
+    private TextView textToast;
+    private Toast toastEliminar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
+        inflaterToast = getLayoutInflater();
+        layoutToast = inflaterToast.inflate(R.layout.custom_toast, (ViewGroup) findViewById(R.id.persnality_toast));
+        imageToast = (ImageView) layoutToast.findViewById(R.id.imagen_toast);
+        textToast = (TextView) layoutToast.findViewById(R.id.text_toast);
+        toastEliminar = new Toast(this);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -136,17 +152,26 @@ public class Activity2 extends AppCompatActivity {
             int positionElimi = info.position;
 
             Libro libroEliminado = datosLibros.get(positionElimi);
-            new AlertDialog.Builder(this).setTitle("Eliminar")
+            new AlertDialog.Builder(this).setTitle("¡¡Eliminar!!")
                     .setMessage("¿Estas seguro que deseas eliminar el libro?")
                     .setPositiveButton("Aceptar",(dialog, which) -> {
                         datosLibros.remove(positionElimi);
 
-                        Toast.makeText(this, "Libro eliminado: " + libroEliminado.getTitulo(), Toast.LENGTH_SHORT).show();
-
+                         toastEliminar.setDuration(Toast.LENGTH_LONG);
+                         toastEliminar.setGravity(Gravity.CENTER, 0,0);
+                         textToast.setText("Libro eliminado: " + libroEliminado.getTitulo());
+                         toastEliminar.setView(layoutToast);
+                         toastEliminar.show();
+                        //Toast.makeText(this, "Libro eliminado: " + libroEliminado.getTitulo(), Toast.LENGTH_SHORT).show();
 
                         adaptador.notifyDataSetChanged();
                     }).setNegativeButton("Cancelar",(dialog, which) -> {
-                        Toast.makeText(this, "Accion cancelada.",Toast.LENGTH_SHORT).show();
+                        toastEliminar.setDuration(Toast.LENGTH_LONG);
+                        toastEliminar.setGravity(Gravity.CENTER, 0,0);
+                        textToast.setText("¡¡Accion Cancelada!! ");
+                        toastEliminar.setView(layoutToast);
+                        toastEliminar.show();
+                        //Toast.makeText(this, "Accion cancelada.",Toast.LENGTH_SHORT).show();
                     }).show();
 
 

@@ -1,0 +1,47 @@
+AnchorPane {
+    -fx-background-color: #005288;
+}
+
+GridPane{
+    -fx-background-color:  #005288;
+}
+
+.button {
+    -fx-background-color: #003366;
+    -fx-text-fill: white;
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.label {
+    -fx-font-size: 2pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.text-field {
+    -fx-text-fill: black;
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 5;
+}
+
+.progress-bar {
+    -fx-accent: #005288;
+}
+
+.progress-indicator {
+    -fx-accent: #005288;
+}
