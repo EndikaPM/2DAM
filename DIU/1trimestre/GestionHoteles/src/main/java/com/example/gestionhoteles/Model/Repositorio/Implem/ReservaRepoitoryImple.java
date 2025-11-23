@@ -9,14 +9,34 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+/**
+ * Implementación del repositorio de reservas para la gestión de hoteles.
+ * Esta clase maneja todas las operaciones CRUD relacionadas con las reservas
+ * en la base de datos, así como estadísticas y reportes de ocupación.
+ *
+ * @author Endika Perez
+ * @version 1.0
+ */
 public class ReservaRepoitoryImple implements ReservaRepository {
+    /** Conexión a la base de datos */
     private final ConexionJDBC conexion = new ConexionJDBC();
+    /** Statement para consultas SQL */
     private Statement statm;
+    /** Sentencia SQL a ejecutar */
     private String sentencia;
+    /** Statement preparado para consultas parametrizadas */
     PreparedStatement ps;
+    /** Lista de reservas obtenidas de la base de datos */
     private ArrayList<ReservaVO> listaReservas;
+    /** Reserva individual */
     private ReservaVO reserva;
+
+    /**
+     * Obtiene la lista completa de reservas desde la base de datos.
+     *
+     * @return ArrayList con todas las reservas registradas
+     * @throws ExeptionReserva si ocurre un error al acceder a la base de datos
+     */
 
     @Override
     public ArrayList<ReservaVO> ObtenerListaReservas() throws ExeptionReserva {
@@ -39,7 +59,7 @@ public class ReservaRepoitoryImple implements ReservaRepository {
                 String idUser = rs.getString("id_usuario");
                 int id = rs.getInt("id");
 
-                this.reserva = new ReservaVO(idUser, isFum, temResHabit, temTipoHabi,numHabit,diaLlegada,diaSalia);
+                this.reserva = new ReservaVO(idUser, isFum, temResHabit, temTipoHabi,numHabit,diaSalia,diaLlegada);
                 this.reserva.setId(id);
                 this.listaReservas.add(reserva);
             }
@@ -49,6 +69,13 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             throw new ExeptionReserva("Error al obtener lista de personas"+e.getMessage());
         }
     }
+
+    /**
+     * Añade una nueva reserva a la base de datos.
+     *
+     * @param rVO objeto ReservaVO con los datos de la reserva a añadir
+     * @throws ExeptionReserva si ocurre un error durante la inserción
+     */
 
     @Override
     public void addReserva(ReservaVO rVO) throws ExeptionReserva {
@@ -77,6 +104,13 @@ public class ReservaRepoitoryImple implements ReservaRepository {
         }
     }
 
+    /**
+     * Elimina una reserva de la base de datos mediante su ID.
+     *
+     * @param reservaId ID de la reserva a eliminar
+     * @throws ExeptionReserva si no se puede realizar la eliminación
+     */
+
     @Override
     public void deleteReserva(int reservaId) throws ExeptionReserva {
         try {
@@ -90,6 +124,14 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             throw new ExeptionReserva("No se ha podido realizar la eliminación");
         }
     }
+
+    /**
+     * Actualiza los datos de una reserva existente en la base de datos.
+     * El ID de la reserva se utiliza como identificador.
+     *
+     * @param reserVO objeto ReservaVO con los nuevos datos de la reserva
+     * @throws ExeptionReserva si no se puede realizar la modificación o si no se encuentra la reserva
+     */
 
     @Override
     public void updateReserva(ReservaVO reserVO) throws ExeptionReserva {
@@ -143,6 +185,14 @@ public class ReservaRepoitoryImple implements ReservaRepository {
         }
     }
 
+    /**
+     * Obtiene el ID de la última reserva registrada en la base de datos.
+     * Útil para generar nuevos IDs incrementales.
+     *
+     * @return int con el último ID de reserva utilizado
+     * @throws ExeptionReserva si no se puede realizar la búsqueda del ID
+     */
+
     @Override
     public int lastId() throws ExeptionReserva {
         int lastMonedaId = 0;
@@ -159,6 +209,14 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             throw new ExeptionReserva("No se ha podido realizar la busqueda del ID");
         }
     }
+
+    /**
+     * Obtiene todas las reservas asociadas a un usuario específico mediante su DNI.
+     *
+     * @param otherDni DNI del usuario del cual se desean obtener las reservas
+     * @return ArrayList con todas las reservas del usuario especificado
+     * @throws ExeptionReserva si ocurre un error al acceder a la base de datos
+     */
 
     public ArrayList<ReservaVO> obtenerFiltroDniReservas(String otherDni) throws ExeptionReserva{
         try{
@@ -190,6 +248,18 @@ public class ReservaRepoitoryImple implements ReservaRepository {
     }
 
 
+    /**
+     * Calcula el porcentaje de ocupación para cada tipo de habitación.
+     * Considera el total de habitaciones disponibles por tipo:
+     * - Doble: 20 habitaciones
+     * - Doble uso individual: 80 habitaciones
+     * - Junior Suite: 15 habitaciones
+     * - Suite: 5 habitaciones
+     *
+     * @return Array de Double con los porcentajes de ocupación para cada tipo de habitación
+     *         en el orden: [doble, doble_uso_individual, junior_suite, suite]
+     * @throws ExeptionReserva si no se puede obtener la información de reservas
+     */
 
     @Override
     public Double[] porcentajeReserRoom() throws ExeptionReserva {
@@ -235,6 +305,14 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             }
     }
 
+    /**
+     * Calcula el número de reservas realizadas para cada mes del año.
+     * Cuenta las reservas en función del mes de llegada (dia_llegada).
+     *
+     * @return Array de int con 12 posiciones, donde cada posición [0-11] representa
+     *         el número de reservas para cada mes [Enero-Diciembre]
+     * @throws ExeptionReserva si ocurre un error al obtener la ocupación por mes
+     */
 
     public int[] roomOcupationMonth() throws ExeptionReserva {
         int[] meses = new int[12];

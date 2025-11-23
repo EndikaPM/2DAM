@@ -1,0 +1,9 @@
+module:com.example.gestionhoteles
+com.example.gestionhoteles
+com.example.gestionhoteles.Controller
+com.example.gestionhoteles.Model
+com.example.gestionhoteles.Model.Repositorio
+com.example.gestionhoteles.Model.Repositorio.Implem
+com.example.gestionhoteles.Model.Reserva
+com.example.gestionhoteles.Model.Usuario
+com.example.gestionhoteles.Util

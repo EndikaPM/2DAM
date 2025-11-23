@@ -7,14 +7,36 @@ import com.example.gestionhoteles.Model.Usuario.UsuarioVO;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Implementación del repositorio de usuarios para la gestión de hoteles.
+ * Esta clase maneja todas las operaciones CRUD relacionadas con los usuarios
+ * en la base de datos.
+ *
+ * @author Endika Perez
+ * @version 1.0
+ */
+
 public class UsuarioRepositoryImple implements UsuarioRepository {
+    /** Conexión a la base de datos */
     private final ConexionJDBC conexion = new ConexionJDBC();
+    /** Statement preparado para consultas parametrizadas */
     private PreparedStatement statm;
+    /** Sentencia SQL a ejecutar */
     private String sentencia;
+    /** Lista de usuarios obtenidos de la base de datos */
     private ArrayList<UsuarioVO> listaUsuario;
+    /** Usuario individual */
     private UsuarioVO usuario;
+    /** Statement para consultas no parametrizadas */
     private Statement statm2;
 
+
+    /**
+     * Obtiene la lista completa de usuarios desde la base de datos.
+     *
+     * @return ArrayList con todos los usuarios registrados
+     * @throws ExceptionUsuario si ocurre un error al acceder a la base de datos
+     */
     @Override
     public ArrayList<UsuarioVO> ObtenerListaUsuario() throws ExceptionUsuario {
         try{
@@ -42,7 +64,12 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
             throw new ExceptionUsuario("Error al obtener lista de personas"+e.getMessage());
         }
     }
-
+    /**
+     * Añade un nuevo usuario a la base de datos.
+     *
+     * @param u objeto UsuarioVO con los datos del usuario a añadir
+     * @throws ExceptionUsuario si ocurre un error durante la inserción
+     */
     @Override
     public void addUsuario(UsuarioVO u) throws ExceptionUsuario {
         try{
@@ -66,6 +93,12 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
         }
     }
 
+    /**
+     * Elimina un usuario de la base de datos mediante su DNI.
+     *
+     * @param dniUsuario DNI del usuario a eliminar
+     * @throws ExceptionUsuario si no se puede realizar la eliminación
+     */
     @Override
     public void deleteUsuario(String dniUsuario) throws ExceptionUsuario {
         try {
@@ -81,7 +114,13 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
             throw new ExceptionUsuario("No se ha podido realizar la eliminación");
         }
     }
-
+    /**
+     * Actualiza los datos de un usuario existente en la base de datos.
+     * El DNI se utiliza como identificador y no puede ser modificado.
+     *
+     * @param userVO objeto UsuarioVO con los nuevos datos del usuario
+     * @throws ExceptionUsuario si no se puede realizar la modificación
+     */
     @Override
     public void updateUsuario(UsuarioVO userVO) throws ExceptionUsuario {
         try {
@@ -104,7 +143,13 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
             throw new ExceptionUsuario("No se ha podido realizar la modificiación");
         }
     }
-
+    /**
+     * Obtiene un usuario específico por su DNI, usado principalmente para reservas.
+     *
+     * @param dni DNI del usuario a buscar
+     * @return UsuarioVO con los datos del usuario encontrado, o null si no existe
+     * @throws ExceptionUsuario si ocurre un error durante la búsqueda
+     */
     public UsuarioVO obtenerUsuarioReserva(String dni) throws ExceptionUsuario {
         UsuarioVO usuario = null;
 
@@ -130,7 +175,13 @@ public class UsuarioRepositoryImple implements UsuarioRepository {
         }
         return usuario;
     }
-
+    /**
+     * Busca un usuario en la base de datos utilizando su DNI.
+     *
+     * @param dni DNI del usuario a buscar
+     * @return UsuarioVO con los datos del usuario, o null si no se encuentra
+     * @throws ExceptionUsuario si ocurre un error durante la búsqueda
+     */
     @Override
     public UsuarioVO buscarPorDni(String dni) throws ExceptionUsuario {
         try {

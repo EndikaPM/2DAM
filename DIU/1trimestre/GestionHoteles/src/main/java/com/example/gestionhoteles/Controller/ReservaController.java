@@ -92,7 +92,7 @@ public class ReservaController {
         //añadimos una nueva reserva
         this.reserva = new Reserva(); //creamos la reserva
 
-        //Cogo el dni de usuario directamente
+        //Cojo el dni de usuario directamente
         dni.setText(reservaDni.getDni());
         dni.setDisable(true);
 
@@ -200,13 +200,18 @@ public class ReservaController {
 
     private boolean isInputValid() {
         String errorMessage = "";
-        if (data_entry.getValue() == null || data_entry.getValue().isAfter(LocalDate.now())) {
-            errorMessage += "Fecha de entrada no válida!\n";
+
+        LocalDate entrada = data_entry.getValue();
+        LocalDate salida = data_exit.getValue();
+        LocalDate hoy = LocalDate.now();
+
+        if (entrada == null || entrada.isBefore(hoy)) {
+            errorMessage += "La fecha de entrada debe ser hoy\n o una fecha posterior.\n";
         }
 
 
-        if (data_exit.getValue() == null || data_exit.getValue().isBefore(LocalDate.now())) {
-            errorMessage += "Fecha de salida no válida!\n";
+        if (salida == null || entrada == null || salida.isBefore(entrada)) {
+            errorMessage += "La fecha de salida debe ser igual o posterior\n a la fecha de entrada.\n";
         }
 
         if (typeRoom.getValue() == null) {

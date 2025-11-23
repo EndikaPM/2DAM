@@ -2,12 +2,8 @@ package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
 import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
-import com.example.gestionhoteles.Model.Reserva.Reserva;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
-import com.example.gestionhoteles.Model.Usuario.UsuarioVO;
-import com.example.gestionhoteles.Util.DateUtil;
 import com.example.gestionhoteles.Util.UsuarioUtil;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

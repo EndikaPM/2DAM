@@ -2,7 +2,6 @@ package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
-import com.example.gestionhoteles.Model.Reserva.Reserva;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

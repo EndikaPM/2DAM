@@ -34,8 +34,8 @@
                   </Label>
                   <Label layoutX="22.0" layoutY="55.0" text="Fecha Entrada" AnchorPane.leftAnchor="30.0" />
                   <Label layoutX="307.0" layoutY="55.0" text="Fecha salida" AnchorPane.rightAnchor="200.0" />
-                  <DatePicker fx:id="data_entry" layoutX="320.0" layoutY="81.0" prefHeight="29.0" prefWidth="245.0" AnchorPane.rightAnchor="33.0" />
-                  <DatePicker fx:id="data_exit" layoutX="38.0" layoutY="81.0" prefHeight="29.0" prefWidth="251.0" AnchorPane.leftAnchor="30.0" />
+                  <DatePicker fx:id="data_entry" layoutX="22.0" layoutY="82.0" prefHeight="29.0" prefWidth="245.0" AnchorPane.leftAnchor="30.0" />
+                  <DatePicker fx:id="data_exit" layoutX="317.0" layoutY="82.0" prefHeight="29.0" prefWidth="251.0" AnchorPane.rightAnchor="30.0" />
                   <Label layoutX="220.0" layoutY="135.0" text="Tipo de Habitacion" />
                   <HBox layoutX="367.0" layoutY="267.0" prefHeight="29.0" prefWidth="162.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="40.0">
                      <children>

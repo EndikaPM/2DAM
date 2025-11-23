@@ -19,6 +19,7 @@
             <Menu mnemonicParsing="false" text="Gestión">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#showVerReserva" text="Ver las reservas" />
+                  <MenuItem mnemonicParsing="false" onAction="#showWebView" text="Ver JavaDoc" />
                </items>
             </Menu>
             </menus>

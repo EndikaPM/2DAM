@@ -1,7 +1,6 @@
 package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
-import com.example.gestionhoteles.Model.Reserva.Reserva;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 
@@ -27,6 +26,8 @@ public class RootController {
     private void handleClose(){
         Platform.exit(); // Cierra la aplicación
     }
+    @FXML
+    private void showWebView(){mainapp.verWebView();}
     @FXML
     private void showGoHome(){
         mainapp.showUsuario();

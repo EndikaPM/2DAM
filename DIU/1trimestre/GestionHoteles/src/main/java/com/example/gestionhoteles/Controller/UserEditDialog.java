@@ -2,13 +2,10 @@ package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
 import com.example.gestionhoteles.Model.Usuario.Usuario;
-import com.example.gestionhoteles.Util.DateUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.sql.SQLOutput;
 
 //import static com.example.gestionhoteles.Main.checkDni;
 
@@ -81,7 +78,7 @@ public class UserEditDialog {
             if (checkDni()) {
                 // Solo actualizar el DNI si es un usuario nuevo
                 if (isNewUser) {
-                    user.setDni(dni_edit.getText());
+                    user.setDni(dni_edit.getText().toUpperCase());
                 }
                 // Si NO es nuevo, el DNI ya existe en el objeto user, no lo toques
                 user.setNombre(firstNameField.getText());

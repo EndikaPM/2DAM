@@ -315,4 +315,17 @@ public class Main extends Application {
         }
     }
 
+    public void verWebView(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/web_view.fxml"));
+            AnchorPane verWebView = (AnchorPane) loader.load();
+
+            rootLayout.setCenter(verWebView);
+
+            WebViewController controllerWebView = loader.getController();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
 }

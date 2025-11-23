@@ -2,21 +2,11 @@ package com.example.gestionhoteles.Controller;
 
 import com.example.gestionhoteles.Main;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
-import com.example.gestionhoteles.Model.Repositorio.Implem.ReservaRepoitoryImple;
-import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
-import com.example.gestionhoteles.Model.Reserva.ModelReserva;
 import com.example.gestionhoteles.Model.Reserva.Reserva;
-import com.example.gestionhoteles.Model.Reserva.ReservaVO;
-import com.example.gestionhoteles.Model.Usuario.Usuario;
-import com.example.gestionhoteles.Util.DateUtil;
-import com.example.gestionhoteles.Util.ReservaUtil;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class VerReservasContoller {
     @FXML
@@ -35,7 +25,7 @@ public class VerReservasContoller {
     private TableColumn<Reserva, String> fumador;
     @FXML
     private TableColumn<Reserva, String> regimenAlojamiento;
-    
+
     @FXML
     private javafx.scene.control.Label labelDni;
     @FXML
@@ -48,16 +38,15 @@ public class VerReservasContoller {
     private javafx.scene.control.Label LAbelFumador;
     @FXML
     private javafx.scene.control.Label LabelREgimen;
-    
+
     @FXML
     private TableColumn<Reserva, String> codigoPostalColumn;
-
 
 
     private Main mainApp;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         // Initialize the person table with the two columns.
         dniColumn.setCellValueFactory(cellData -> cellData.getValue().getDniClienteProperty());
         fechaLlegadaColumn.setCellValueFactory(cellData -> cellData.getValue().getFechaLlegadaProperty().asString());
@@ -79,14 +68,14 @@ public class VerReservasContoller {
         tableViewReservas.setItems(mainApp.getReservaData());
     }
 
-    private void showReservasDetails(Reserva rese){
+    private void showReservasDetails(Reserva rese) {
         if (rese != null) {
             // Fill the labels with info from the person object.
             labelDni.setText(rese.getDniCliente());
             LabelLlegada.setText(rese.getFechaLlegada().toString());
             LabelSalida.setText(rese.getFechaSalida().toString());
             LabelTHabitacion.setText(rese.getTipoHabitacion().toString());
-            LAbelFumador.setText(rese.getIsFumador()? "Fumador" : "No fumador");
+            LAbelFumador.setText(rese.getIsFumador() ? "Fumador" : "No fumador");
             LabelREgimen.setText(rese.getRegimenAlojamiento().toString());
         } else {
             // Person is null, remove all the text.
@@ -98,15 +87,17 @@ public class VerReservasContoller {
             LabelREgimen.setText("");
         }
     }
+
     @FXML
     private void handlerFindDni() throws ExeptionReserva {
         tableViewReservas.setItems(mainApp.filterReserva(dni_find.getText()));
     }
 
     @FXML
-    private void cleanFilter(){
+    private void cleanFilter() {
         tableViewReservas.setItems(mainApp.getReservaData());
     }
+
     @FXML
     private void handleDelete() throws ExeptionReserva {
         Reserva rese = tableViewReservas.getSelectionModel().getSelectedItem();
@@ -118,25 +109,25 @@ public class VerReservasContoller {
     @FXML
     private void handleEdit() {
         Reserva reservaSeleccionada = tableViewReservas.getSelectionModel().getSelectedItem();
-
+        if (reservaSeleccionada == null) {
+            // Mostrar alerta si no hay ninguna reserva seleccionada
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("No hay selección");
+            alert.setHeaderText("No hay reserva seleccionada");
+            alert.setContentText("Por favor seleccione una reserva de la tabla.");
+            alert.showAndWait();
+            return;
+        }
         if (!(reservaSeleccionada.getFechaLlegada().isBefore(LocalDate.now()))) {
-            if (reservaSeleccionada != null) {
-                boolean okClicked = mainApp.showReservaEditDialog(reservaSeleccionada);
 
-                if (okClicked) {
-                    // Refrescar la tabla para mostrar los cambios
-                    tableViewReservas.refresh();
-                    showReservasDetails(reservaSeleccionada);
-                }
-            } else {
-                // Mostrar alerta si no hay ninguna reserva seleccionada
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("No hay selección");
-                alert.setHeaderText("No hay reserva seleccionada");
-                alert.setContentText("Por favor seleccione una reserva de la tabla.");
-                alert.showAndWait();
+            boolean okClicked = mainApp.showReservaEditDialog(reservaSeleccionada);
+
+            if (okClicked) {
+                // Refrescar la tabla para mostrar los cambios
+                tableViewReservas.refresh();
+                showReservasDetails(reservaSeleccionada);
             }
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No es posible Editar");
             alert.setContentText("Reserva seleccionada no se puede editar porque\n la fecha es menor a a actual");
