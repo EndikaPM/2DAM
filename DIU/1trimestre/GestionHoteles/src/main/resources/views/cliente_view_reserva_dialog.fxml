@@ -7,25 +7,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.clienteViewReservaDialog">
+<AnchorPane styleClass="background" stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.clienteViewReservaDialog">
    <children>
-      <SplitPane dividerPositions="0.7889447236180904" layoutX="220.0" layoutY="36.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.7889447236180904" layoutX="220.0" layoutY="36.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background" stylesheets="@../Css/TemaCss.css">
                <children>
-                  <TableView fx:id="tableViewReservas" layoutX="68.0" layoutY="55.0" prefHeight="310.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableViewReservas" layoutX="68.0" layoutY="55.0" prefHeight="310.0" prefWidth="598.0" styleClass="background" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="columDni" prefWidth="75.0" text="Dni" />
-                      <TableColumn fx:id="columFechaSalida" prefWidth="113.0" text="Fecha Llegada" />
-                        <TableColumn fx:id="columFechaLLegada" prefWidth="113.0" text="Fecha salida" />
-                        <TableColumn fx:id="ColumTipoHabit" prefWidth="113.0" text="tipo Habitacion" />
-                        <TableColumn fx:id="ColumIsFumador" prefWidth="69.0" text="fumador" />
-                        <TableColumn fx:id="ColumRegimen" prefWidth="165.0" text="Regimen de alijamiento" />
+                      <TableColumn fx:id="columDni" prefWidth="93.0" text="Dni" />
+                      <TableColumn fx:id="columFechaSalida" prefWidth="163.0" text="Fecha Llegada" />
+                        <TableColumn fx:id="columFechaLLegada" prefWidth="150.0" text="Fecha salida" />
+                        <TableColumn fx:id="ColumTipoHabit" prefWidth="176.0" text="tipo Habitacion" />
+                        <TableColumn fx:id="ColumIsFumador" prefWidth="105.0" text="fumador" />
+                        <TableColumn fx:id="ColumRegimen" prefWidth="258.0" text="Regimen de alijamiento" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" stylesheets="@../Css/TemaCss.css">
                <children>
                   <HBox layoutX="48.0" layoutY="16.0" prefHeight="80.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -47,9 +47,9 @@
                               <Insets right="55.0" />
                            </padding>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#closeDialog" prefHeight="29.0" prefWidth="80.0" text="cerrar">
+                        <Button mnemonicParsing="false" onAction="#closeDialog" prefHeight="36.0" prefWidth="102.0" text="cerrar">
                            <HBox.margin>
-                              <Insets left="100.0" />
+                              <Insets left="150.0" />
                            </HBox.margin>
                         </Button>
                      </children>
@@ -58,6 +58,10 @@
                      </padding>
                   </HBox>
                </children>
+               <styleClass>
+                  <String fx:value="background" />
+                  <String fx:value="label-bright" />
+               </styleClass>
             </AnchorPane>
         </items>
       </SplitPane>

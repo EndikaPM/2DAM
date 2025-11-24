@@ -95,6 +95,12 @@ public class VerReservasContoller {
 
     @FXML
     private void cleanFilter() {
+        labelDni.setText("");
+        LabelLlegada.setText("");
+        LabelSalida.setText("");
+        LabelTHabitacion.setText("");
+        LAbelFumador.setText("");
+        LabelREgimen.setText("");
         tableViewReservas.setItems(mainApp.getReservaData());
     }
 

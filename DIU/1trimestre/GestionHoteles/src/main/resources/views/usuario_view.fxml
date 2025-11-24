@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UsuarioCotroller">
+<AnchorPane stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UsuarioCotroller">
     <children>
-        <SplitPane dividerPositions="0.3635405690200211" layoutX="21.0" layoutY="50.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane dividerPositions="0.3635405690200211" layoutX="21.0" layoutY="50.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../Css/TemaCss.css">
                     <children>
-                        <TableView fx:id="usuarioTable" layoutX="25.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="usuarioTable" layoutX="25.0" layoutY="51.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
                                 <TableColumn fx:id="firstNameColumn" maxWidth="1000.0" prefWidth="75.0" text="Nombre" />
                                 <TableColumn fx:id="lastNameColumn" maxWidth="1000.0" prefWidth="75.0" text="Apellido" />
@@ -19,13 +20,22 @@
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
+                     <styleClass>
+                        <String fx:value="label-bright" />
+                        <String fx:value="background" />
+                     </styleClass>
                         </TableView>
                     </children>
+               <styleClass>
+                  <String fx:value="background" />
+                  <String fx:value="label-header" />
+                  <String fx:value="label-bright" />
+               </styleClass>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
                     <children>
                         <Label layoutX="7.0" layoutY="5.0" styleClass="label-header" text="Detalles Persona" />
-                        <GridPane layoutX="7.0" layoutY="76.0" prefHeight="237.0" prefWidth="526.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="76.0">
+                        <GridPane layoutX="7.0" layoutY="76.0" prefHeight="237.0" prefWidth="526.0" stylesheets="@../Css/TemaCss.css" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="76.0">
                             <columnConstraints>
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="162.0" />
                                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="10.0" prefWidth="196.0" />
@@ -41,21 +51,29 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Label text="Nombre:" GridPane.rowIndex="2" />
-                                <Label text="Apellido:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                <Label text="Direccion:" GridPane.rowIndex="4" />
-                                <Label text="Ciudad:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                <Label text="Codigo Postal:" GridPane.rowIndex="6" />
-                                <Label text="Provincia:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Nombre:" underline="true" GridPane.rowIndex="2" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Apellido:" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Direccion:" underline="true" GridPane.rowIndex="4" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Ciudad:" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Codigo Postal:" underline="true" GridPane.rowIndex="6" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Provincia:" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                 <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                 <Label fx:id="provinciaLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                <Label text="DNI:" />
+                                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="DNI:" textFill="#1724e1" underline="true">
+                           <font>
+                              <Font name="System Bold" size="39.0" />
+                           </font></Label>
                                 <Label fx:id="dni" text="Label" GridPane.columnIndex="1" />
                                 <Label fx:id="firstNameLabel" text="Label" GridPane.rowIndex="3" />
                                 <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                 <Label fx:id="streetLabel" text="Label" GridPane.rowIndex="5" />
                                 <Label fx:id="postalCodeLabel" text="Label" GridPane.rowIndex="7" />
                             </children>
+                     <styleClass>
+                        <String fx:value="background" />
+                        <String fx:value="label-header" />
+                        <String fx:value="label-bright" />
+                     </styleClass>
                         </GridPane>
                         <HBox layoutX="98.0" layoutY="341.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                             <children>
@@ -84,6 +102,16 @@
                     </children>
                 </AnchorPane>
             </items>
+         <styleClass>
+            <String fx:value="background" />
+            <String fx:value="label-header" />
+            <String fx:value="label-bright" />
+         </styleClass>
         </SplitPane>
     </children>
+   <styleClass>
+      <String fx:value="background" />
+      <String fx:value="label-bright" />
+      <String fx:value="label-header" />
+   </styleClass>
 </AnchorPane>

@@ -6,9 +6,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UserEditDialog">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.UserEditDialog">
     <children>
-        <GridPane layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="570.0" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+        <GridPane layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="570.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="183.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="389.0" minWidth="10.0" prefWidth="389.0" />
@@ -38,12 +38,21 @@
                 <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                 <TextField fx:id="provinciaField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </children>
+         <styleClass>
+            <String fx:value="background" />
+            <String fx:value="label-header" />
+            <String fx:value="label-bright" />
+         </styleClass>
         </GridPane>
-        <HBox layoutX="346.0" layoutY="-1.0" prefHeight="36.0" prefWidth="220.0" spacing="15.0" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="34.0">
+        <HBox layoutX="346.0" layoutY="-1.0" prefHeight="36.0" prefWidth="220.0" spacing="15.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="34.0">
             <children>
                 <Button layoutX="359.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="36.0" prefWidth="109.0" text="OK" />
                 <Button layoutX="441.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="36.0" prefWidth="114.0" text="Cancel" />
             </children>
         </HBox>
     </children>
+   <styleClass>
+      <String fx:value="background" />
+      <String fx:value="label-bright" />
+   </styleClass>
 </AnchorPane>

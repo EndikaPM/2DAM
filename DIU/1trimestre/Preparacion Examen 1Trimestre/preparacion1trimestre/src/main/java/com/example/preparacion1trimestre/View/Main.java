@@ -40,7 +40,7 @@ public class Main extends Application {
     public ModeloArticulo getModeloArticulo() {return this.modeloArticulo;}
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage)  {
         this.primaryStage = stage;
         this.primaryStage.setTitle("Gestor de Catalogos");
 

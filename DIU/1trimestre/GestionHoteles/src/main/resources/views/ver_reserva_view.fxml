@@ -6,13 +6,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="481.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.VerReservasContoller">
+<AnchorPane stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.VerReservasContoller">
    <children>
-      <SplitPane dividerPositions="0.2502844141069397" layoutX="14.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.2502844141069397" layoutX="14.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../Css/TemaCss.css">
                <children>
-                  <VBox layoutY="9.0" prefHeight="409.0" prefWidth="221.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox layoutY="9.0" prefHeight="409.0" prefWidth="221.0" styleClass="background" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <HBox alignment="CENTER" layoutX="7.0" layoutY="9.0" prefHeight="29.0" prefWidth="149.0">
                            <children>
@@ -38,12 +38,12 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="DNI" />
-                              <Label text="Llegada" GridPane.rowIndex="1" />
-                              <Label text="Salida" GridPane.rowIndex="2" />
-                              <Label text="T.Habita" GridPane.rowIndex="3" />
-                              <Label text="Fumadoir" GridPane.rowIndex="4" />
-                              <Label prefHeight="16.0" prefWidth="69.0" text="Regimen Alojamiento" GridPane.rowIndex="5" />
+                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="DNI" underline="true" />
+                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Llegada" GridPane.rowIndex="1" />
+                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Salida" GridPane.rowIndex="2" />
+                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="T.Habita" GridPane.rowIndex="3" />
+                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Fumadoir" GridPane.rowIndex="4" />
+                              <Label prefHeight="16.0" prefWidth="69.0" styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Regimen Alojamiento" GridPane.rowIndex="5" />
                               <Label fx:id="labelDni" text="Label" GridPane.columnIndex="1" />
                               <Label fx:id="LabelLlegada" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label fx:id="LabelSalida" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -66,10 +66,14 @@
                      </children>
                   </HBox>
                </children>
+               <styleClass>
+                  <String fx:value="label-header" />
+                  <String fx:value="background" />
+               </styleClass>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="689.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="689.0" stylesheets="@../Css/TemaCss.css">
                <children>
-                   <TableView fx:id="tableViewReservas" layoutX="8.0" layoutY="7.0" prefHeight="479.0" prefWidth="658.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   <TableView fx:id="tableViewReservas" layoutX="8.0" layoutY="7.0" prefHeight="479.0" prefWidth="658.0" styleClass="background" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                        <columns>
                            <TableColumn fx:id="dniColumn" prefWidth="86.0" text="DNI" />
                            <TableColumn fx:id="fechaLlegadaColumn" prefWidth="102.0" text="Feche Llegada" />
@@ -80,8 +84,21 @@
                        </columns>
                    </TableView>
                </children>
+               <styleClass>
+                  <String fx:value="background" />
+                  <String fx:value="label-bright" />
+               </styleClass>
             </AnchorPane>
         </items>
+         <styleClass>
+            <String fx:value="label-header" />
+            <String fx:value="label-header" />
+            <String fx:value="background" />
+         </styleClass>
       </SplitPane>
    </children>
+   <styleClass>
+      <String fx:value="label-bright" />
+      <String fx:value="background" />
+   </styleClass>
 </AnchorPane>

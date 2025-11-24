@@ -1,5 +1,6 @@
 package com.example.gestionhoteles.Model.Repositorio.Implem;
 
+import com.example.gestionhoteles.Model.Repositorio.ExceptionUsuario;
 import com.example.gestionhoteles.Model.Repositorio.ExeptionReserva;
 import com.example.gestionhoteles.Model.Repositorio.ReservaRepository;
 import com.example.gestionhoteles.Model.Reserva.ReservaVO;
@@ -8,6 +9,7 @@ import com.example.gestionhoteles.Util.DateUtil;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 /**
  * Implementación del repositorio de reservas para la gestión de hoteles.
@@ -83,9 +85,9 @@ public class ReservaRepoitoryImple implements ReservaRepository {
             String sql = "INSERT INTO reserva (dia_llegada, dia_salida, num_habitaciones, tipo_habitacion, is_fumador, Regimen_alojamiento, id_usuario, id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             ps = conexion.conectarBD().prepareStatement(sql);
 
-            Date dateEntrada = Date.valueOf(rVO.getFechaEntrada());
+            Date dateEntrada = Date.valueOf(rVO.getFechaEntrada().plusDays(1));
             ps.setDate(1, dateEntrada);
-            Date dateSalida = Date.valueOf(rVO.getFechaSalida());
+            Date dateSalida = Date.valueOf(rVO.getFechaSalida().plusDays(1));
             ps.setDate(2, dateSalida);
             ps.setInt(3, rVO.getNumHabitaciones());
             //String tipohabita = rVO.getTipoHAbitaciones().toString();

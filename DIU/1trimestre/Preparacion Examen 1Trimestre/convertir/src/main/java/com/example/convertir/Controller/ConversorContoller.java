@@ -5,6 +5,7 @@ import Modelo.MonedaVO;
 import com.example.convertir.Model.Moneda;
 import com.example.convertir.Model.MonedaModelo;
 import com.example.convertir.Util.MonedaUtil;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -40,7 +41,7 @@ public class ConversorContoller {
         return multiplicador;
     }
 
-   public void calcular(){
+   public void calcular() throws ExcepcionMoneda {
         euros.setOnKeyPressed(event -> {
             if(event.getCode() == KeyCode.ENTER){
 
@@ -52,6 +53,12 @@ public class ConversorContoller {
                 }
             }
         });
+   }
+
+   public void calcularBoton(ActionEvent event) throws ExcepcionMoneda {
+           dolar.setText(String.valueOf(monedaModel.calular(Integer.parseInt(euros.getText()),
+                   optenerMultiplicado())));
+
    }
 
 }

@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.convertir.Controller.ConversorContoller">
    <children>
       <GridPane layoutX="90.0" layoutY="136.0" prefHeight="128.0" prefWidth="494.0" AnchorPane.bottomAnchor="136.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="136.0">
@@ -43,5 +42,6 @@
             <TextField fx:id="dolar" disable="true" editable="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <Button layoutX="266.0" layoutY="310.0" mnemonicParsing="false" onAction="#calcularBoton" text="Button" />
    </children>
 </AnchorPane>

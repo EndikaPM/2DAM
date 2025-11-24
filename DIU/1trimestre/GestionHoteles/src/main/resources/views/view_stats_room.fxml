@@ -7,11 +7,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.HabitacionesViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.HabitacionesViewController">
    <children>
-      <VBox layoutX="208.0" layoutY="14.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      <VBox layoutX="208.0" layoutY="14.0" styleClass="background" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0">
+            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css">
                <children>
                   <VBox prefHeight="200.0" prefWidth="300.0">
                      <children>
@@ -22,7 +22,7 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonDobleRoomLeft" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backdoble" text="&lt;" textAlignment="CENTER" />
-                              <ImageView fx:id="imagenDoble" fitHeight="128.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"/>
+                              <ImageView fx:id="imagenDoble" fitHeight="128.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
                               <Button fx:id="botonDobleRoomRigh" mnemonicParsing="false" onAction="#nextDoble" text="&gt;" />
                            </children>
                            <VBox.margin>
@@ -44,18 +44,22 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonDobleIndiviLeft" mnemonicParsing="false" onAction="#backDobleInvidial" text="&lt;" />
-                              <ImageView fx:id="imagenDobleIndividual" fitHeight="135.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true"/>
+                              <ImageView fx:id="imagenDobleIndividual" fitHeight="135.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
                               <Button fx:id="botonDobleIndiviRigh" mnemonicParsing="false" onAction="#nextDobleIndi" text="&gt;" />
                            </children>
                         </HBox>
-                        <ProgressIndicator fx:id="progressDobleIndividual" prefHeight="47.0" prefWidth="319.0" progress="0.0" />
+                        <ProgressIndicator fx:id="progressDobleIndividual" prefHeight="42.0" prefWidth="411.0" progress="0.0" />
                      </children>
                   </VBox>
                </children>
+               <styleClass>
+                  <String fx:value="background" />
+                  <String fx:value="label-bright" />
+               </styleClass>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0">
+            <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" styleClass="background" stylesheets="@../Css/TemaCss.css">
                <children>
-                  <VBox fx:id="tituloJuniorSuit" prefHeight="200.0" prefWidth="300.0">
+                  <VBox fx:id="tituloJuniorSuit" prefHeight="200.0" prefWidth="300.0" stylesheets="@../Css/TemaCss.css">
                      <children>
                         <Label text="Junior Suit" underline="true">
                            <font>
@@ -64,7 +68,7 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonJuniorSuitLeft" mnemonicParsing="false" onAction="#backJuniorSuit" text="&lt;" />
-                              <ImageView fx:id="imagenJuniorSuite" fitHeight="118.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true"/>
+                              <ImageView fx:id="imagenJuniorSuite" fitHeight="118.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true" />
                               <Button fx:id="botonJuniorSuitright" mnemonicParsing="false" onAction="#nextJuniorSuit" text="&gt;" />
                            </children>
                         </HBox>
@@ -73,8 +77,12 @@
                      <HBox.margin>
                         <Insets right="25.0" />
                      </HBox.margin>
+                     <styleClass>
+                        <String fx:value="background" />
+                        <String fx:value="label-bright" />
+                     </styleClass>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="300.0">
+                  <VBox prefHeight="200.0" prefWidth="300.0" styleClass="label-bright" stylesheets="@../Css/TemaCss.css">
                      <children>
                         <Label fx:id="tituloSuite" text="Suit" underline="true">
                            <font>
@@ -83,7 +91,7 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="botonSuitLeft" mnemonicParsing="false" onAction="#backSuit" text="&lt;" />
-                              <ImageView fx:id="imagenSuite" fitHeight="121.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true"/>
+                              <ImageView fx:id="imagenSuite" fitHeight="121.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
                               <Button fx:id="botonSuitRight" mnemonicParsing="false" onAction="#nextSuite" text="&gt;" />
                            </children>
                         </HBox>
@@ -95,4 +103,8 @@
          </children>
       </VBox>
    </children>
+   <styleClass>
+      <String fx:value="label-header" />
+      <String fx:value="background" />
+   </styleClass>
 </AnchorPane>

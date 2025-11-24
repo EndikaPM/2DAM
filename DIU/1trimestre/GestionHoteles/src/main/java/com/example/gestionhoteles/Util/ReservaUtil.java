@@ -16,6 +16,7 @@ public class ReservaUtil {
         reservaVo.setNumHabitaciones(reserva.getNumHabitaciones());
         reservaVo.setTipoHAbitaciones(reserva.getTipoHabitacion());
         reservaVo.setRegimenAlogamiento(reserva.getRegimenAlojamiento());
+        System.out.println("Fecha en reservaUtil; " +  reserva.getFechaLlegada()+ "|"+ reserva.getFechaSalida());
         return reservaVo;
     }
 

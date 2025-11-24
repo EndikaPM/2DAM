@@ -1,0 +1,6 @@
+.bold-label {
+    -fx-font-family: "Segoe UI Black";
+    -fx-font-size: 13pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4c11ba;
+}
