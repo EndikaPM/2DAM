@@ -8,7 +8,7 @@
 
 <AnchorPane stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.VerReservasContoller">
    <children>
-      <SplitPane dividerPositions="0.2502844141069397" layoutX="14.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.45166666666666666" layoutX="14.0" layoutY="40.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../Css/TemaCss.css">
                <children>
@@ -26,8 +26,8 @@
                         </HBox>
                         <GridPane prefHeight="373.0" prefWidth="143.0">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="65.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="78.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="89.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="0.0" prefWidth="49.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,27 +42,27 @@
                               <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Llegada" GridPane.rowIndex="1" />
                               <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Salida" GridPane.rowIndex="2" />
                               <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="T.Habita" GridPane.rowIndex="3" />
-                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Fumadoir" GridPane.rowIndex="4" />
-                              <Label prefHeight="16.0" prefWidth="69.0" styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Regimen Alojamiento" GridPane.rowIndex="5" />
-                              <Label fx:id="labelDni" text="Label" GridPane.columnIndex="1" />
-                              <Label fx:id="LabelLlegada" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label fx:id="LabelSalida" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label fx:id="LabelTHabitacion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label fx:id="LAbelFumador" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label fx:id="LabelREgimen" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Fumador" GridPane.rowIndex="4" />
+                              <Label prefHeight="25.0" prefWidth="93.0" styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Regimen" GridPane.rowIndex="5" />
+                              <Label fx:id="labelDni" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="LabelLlegada" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="LabelSalida" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="LabelTHabitacion" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="LAbelFumador" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="LabelREgimen" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                            </children>
                         </GridPane>
                      </children>
                   </VBox>
                   <HBox layoutX="8.0" layoutY="402.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="8.0">
                      <children>
-                        <Button layoutX="8.0" layoutY="402.0" mnemonicParsing="false" onAction="#cleanFilter" text="Limpiar" />
-                        <Button layoutX="86.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleDelete" text="Eliminar">
+                        <Button layoutX="8.0" layoutY="402.0" mnemonicParsing="false" onAction="#cleanFilter" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Limpiar" />
+                        <Button layoutX="86.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleDelete" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Eliminar">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
                         </Button>
-                        <Button layoutX="161.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleEdit" text="Editar" />
+                        <Button layoutX="161.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleEdit" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Editar" />
                      </children>
                   </HBox>
                </children>

@@ -1,0 +1,7 @@
+.round-button {
+    -fx-background-color: #1E90FF;
+    -fx-text-fill: white;
+    -fx-background-radius: 30;
+    -fx-padding: 10 20;
+    -fx-font-weight: bold;
+}

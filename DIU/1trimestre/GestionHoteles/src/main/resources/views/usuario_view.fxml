@@ -57,17 +57,17 @@
                                 <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Ciudad:" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                 <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Codigo Postal:" underline="true" GridPane.rowIndex="6" />
                                 <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Provincia:" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                <Label fx:id="provinciaLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                <Label fx:id="cityLabel" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                <Label fx:id="provinciaLabel" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                 <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="DNI:" textFill="#1724e1" underline="true">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font></Label>
-                                <Label fx:id="dni" text="Label" GridPane.columnIndex="1" />
-                                <Label fx:id="firstNameLabel" text="Label" GridPane.rowIndex="3" />
-                                <Label fx:id="lastNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                <Label fx:id="streetLabel" text="Label" GridPane.rowIndex="5" />
-                                <Label fx:id="postalCodeLabel" text="Label" GridPane.rowIndex="7" />
+                                <Label fx:id="dni" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" />
+                                <Label fx:id="firstNameLabel" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.rowIndex="3" />
+                                <Label fx:id="lastNameLabel" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                <Label fx:id="streetLabel" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.rowIndex="5" />
+                                <Label fx:id="postalCodeLabel" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label" GridPane.rowIndex="7" />
                             </children>
                      <styleClass>
                         <String fx:value="background" />
@@ -77,22 +77,22 @@
                         </GridPane>
                         <HBox layoutX="98.0" layoutY="341.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                             <children>
-                                <Button fx:id="ver_reserva" mnemonicParsing="false" onAction="#handleViewReser" text="Reservar">
+                                <Button fx:id="ver_reserva" mnemonicParsing="false" onAction="#handleViewReser" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Reservar">
                                    <HBox.margin>
                                       <Insets right="10.0" />
                                    </HBox.margin>
                                 </Button>
-                        <Button fx:id="verReservasCliente" mnemonicParsing="false" onAction="#handlevierReservaClientes" text="Ver Reservas Cliente">
+                        <Button fx:id="verReservasCliente" mnemonicParsing="false" onAction="#handlevierReservaClientes" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Ver Reservas Cliente">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
                         </Button>
-                                <Button fx:id="addUser" layoutX="217.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleNewPerson" text="Añadir">
+                                <Button fx:id="addUser" layoutX="217.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleNewPerson" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Añadir">
                                     <HBox.margin>
                                         <Insets right="10.0" />
                                     </HBox.margin>
                                 </Button>
-                                <Button layoutX="287.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleEditPerson" text="Editar">
+                                <Button layoutX="287.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleEditPerson" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Editar">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>

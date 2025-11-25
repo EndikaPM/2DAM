@@ -7,27 +7,33 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.HabitacionesViewController">
+<AnchorPane stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.HabitacionesViewController">
    <children>
       <VBox layoutX="208.0" layoutY="14.0" styleClass="background" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
          <children>
             <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" stylesheets="@../Css/TemaCss.css">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="300.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0">
                      <children>
-                        <Label fx:id="tituDoble" alignment="CENTER" text="Doble" underline="true">
+                        <Label fx:id="tituDoble" alignment="CENTER" styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Doble" underline="true">
                            <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font></Label>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="botonDobleRoomLeft" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backdoble" text="&lt;" textAlignment="CENTER" />
+                              <Button fx:id="botonDobleRoomLeft" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backdoble" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&lt;" textAlignment="CENTER" />
                               <ImageView fx:id="imagenDoble" fitHeight="128.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button fx:id="botonDobleRoomRigh" mnemonicParsing="false" onAction="#nextDoble" text="&gt;" />
+                              <Button fx:id="botonDobleRoomRigh" mnemonicParsing="false" onAction="#nextDoble" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&gt;" />
                            </children>
                            <VBox.margin>
-                              <Insets />
+                              <Insets right="10.0" />
                            </VBox.margin>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
                         </HBox>
                         <ProgressIndicator fx:id="progressDoble" prefHeight="46.0" prefWidth="349.0" progress="0.0" />
                      </children>
@@ -35,18 +41,21 @@
                         <Insets right="25.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox fx:id="tituloDobleIndividual" prefHeight="200.0" prefWidth="300.0">
+                  <VBox fx:id="tituloDobleIndividual" alignment="CENTER" prefHeight="200.0" prefWidth="300.0">
                      <children>
-                        <Label text="Doble Individual" underline="true">
+                        <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Doble Individual" underline="true">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font></Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="botonDobleIndiviLeft" mnemonicParsing="false" onAction="#backDobleInvidial" text="&lt;" />
+                              <Button fx:id="botonDobleIndiviLeft" mnemonicParsing="false" onAction="#backDobleInvidial" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&lt;" />
                               <ImageView fx:id="imagenDobleIndividual" fitHeight="135.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button fx:id="botonDobleIndiviRigh" mnemonicParsing="false" onAction="#nextDobleIndi" text="&gt;" />
+                              <Button fx:id="botonDobleIndiviRigh" mnemonicParsing="false" onAction="#nextDobleIndi" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&gt;" />
                            </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </HBox>
                         <ProgressIndicator fx:id="progressDobleIndividual" prefHeight="42.0" prefWidth="411.0" progress="0.0" />
                      </children>
@@ -59,17 +68,17 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" styleClass="background" stylesheets="@../Css/TemaCss.css">
                <children>
-                  <VBox fx:id="tituloJuniorSuit" prefHeight="200.0" prefWidth="300.0" stylesheets="@../Css/TemaCss.css">
+                  <VBox fx:id="tituloJuniorSuit" alignment="CENTER" prefHeight="200.0" prefWidth="300.0" stylesheets="@../Css/TemaCss.css">
                      <children>
-                        <Label text="Junior Suit" underline="true">
+                        <Label alignment="CENTER" styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Junior Suit" underline="true">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font></Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="botonJuniorSuitLeft" mnemonicParsing="false" onAction="#backJuniorSuit" text="&lt;" />
+                              <Button fx:id="botonJuniorSuitLeft" mnemonicParsing="false" onAction="#backJuniorSuit" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&lt;" />
                               <ImageView fx:id="imagenJuniorSuite" fitHeight="118.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button fx:id="botonJuniorSuitright" mnemonicParsing="false" onAction="#nextJuniorSuit" text="&gt;" />
+                              <Button fx:id="botonJuniorSuitright" mnemonicParsing="false" onAction="#nextJuniorSuit" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&gt;" />
                            </children>
                         </HBox>
                         <ProgressIndicator fx:id="progresJuniorSuit" progress="0.0" />
@@ -81,22 +90,31 @@
                         <String fx:value="background" />
                         <String fx:value="label-bright" />
                      </styleClass>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="300.0" styleClass="label-bright" stylesheets="@../Css/TemaCss.css">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0" styleClass="label-bright" stylesheets="@../Css/TemaCss.css">
                      <children>
-                        <Label fx:id="tituloSuite" text="Suit" underline="true">
+                        <Label fx:id="tituloSuite" styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Suit" underline="true">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font></Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="botonSuitLeft" mnemonicParsing="false" onAction="#backSuit" text="&lt;" />
+                              <Button fx:id="botonSuitLeft" mnemonicParsing="false" onAction="#backSuit" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&lt;" />
                               <ImageView fx:id="imagenSuite" fitHeight="121.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button fx:id="botonSuitRight" mnemonicParsing="false" onAction="#nextSuite" text="&gt;" />
+                              <Button fx:id="botonSuitRight" mnemonicParsing="false" onAction="#nextSuite" opacity="0.8" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="&gt;" />
                            </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
                         </HBox>
                         <ProgressIndicator fx:id="progressSuit" progress="0.0" />
                      </children>
+                     <opaqueInsets>
+                        <Insets top="20.0" />
+                     </opaqueInsets>
                   </VBox>
                </children>
             </HBox>

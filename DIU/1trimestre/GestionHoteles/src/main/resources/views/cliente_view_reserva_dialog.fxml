@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -29,28 +30,32 @@
                <children>
                   <HBox layoutX="48.0" layoutY="16.0" prefHeight="80.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label text="DNI:" />
-                        <Label fx:id="LableDNIDetalles" text="Label">
+                        <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="DNI:" />
+                        <Label fx:id="LableDNIDetalles" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label">
                            <padding>
                               <Insets right="20.0" />
                            </padding>
                         </Label>
-                        <Label text="Facha de llegada" />
-                        <Label fx:id="LableNombreDetalles" text="Label">
+                        <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Facha de llegada" />
+                        <Label fx:id="LableNombreDetalles" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label">
                            <padding>
                               <Insets right="20.0" />
                            </padding>
                         </Label>
-                        <Label text="Fecha de salida" />
-                        <Label fx:id="LableApellidoDetalles" text="Label">
+                        <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Fecha de salida" />
+                        <Label fx:id="LableApellidoDetalles" styleClass="label-class" stylesheets="@../Css/Enunciados.css" text="Label">
                            <padding>
                               <Insets right="55.0" />
                            </padding>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#closeDialog" prefHeight="36.0" prefWidth="102.0" text="cerrar">
+                        <Button mnemonicParsing="false" onAction="#closeDialog" prefHeight="45.0" prefWidth="131.0" styleClass="round-button" text="cerrar">
                            <HBox.margin>
-                              <Insets left="150.0" />
+                              <Insets />
                            </HBox.margin>
+                           <stylesheets>
+                              <URL value="@../Css/TemaCss.css" />
+                              <URL value="@../Css/botonesChicox.css" />
+                           </stylesheets>
                         </Button>
                      </children>
                      <padding>

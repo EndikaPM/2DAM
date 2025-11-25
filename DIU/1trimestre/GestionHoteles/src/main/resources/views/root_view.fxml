@@ -6,7 +6,7 @@
 
 <BorderPane prefHeight="600.0" prefWidth="1000.0" styleClass="background" stylesheets="@../Css/TemaCss.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionhoteles.Controller.RootController">
     <top>
-        <MenuBar BorderPane.alignment="CENTER">
+        <MenuBar stylesheets="@../Css/TemaCss.css" BorderPane.alignment="CENTER">
             <menus>
                 <Menu mnemonicParsing="false" text="Aplicación">
                     <items>
@@ -23,6 +23,10 @@
                </items>
             </Menu>
             </menus>
+         <styleClass>
+            <String fx:value="label-bright" />
+            <String fx:value="label-header" />
+         </styleClass>
         </MenuBar>
     </top>
 </BorderPane>

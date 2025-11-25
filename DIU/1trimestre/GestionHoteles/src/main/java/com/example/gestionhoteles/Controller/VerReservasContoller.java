@@ -90,7 +90,37 @@ public class VerReservasContoller {
 
     @FXML
     private void handlerFindDni() throws ExeptionReserva {
-        tableViewReservas.setItems(mainApp.filterReserva(dni_find.getText()));
+
+           if (dni_find.getText().isEmpty()) {
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               alert.setTitle("Error");
+               alert.setHeaderText("Ingrese un dni");
+               alert.setContentText("Por favor ingrese el dni de la reserva");
+               alert.showAndWait();
+           }
+
+           if (checkDniOnTable()){
+               tableViewReservas.setItems(mainApp.filterReserva(dni_find.getText()));
+           }
+           if (!checkDniOnTable()){
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               alert.setTitle("Error");
+               alert.setHeaderText("Por favor ingrese el dni valido");
+               alert.setContentText("Por favor ingrese el dni de la reserva");
+               alert.showAndWait();
+           }
+    }
+
+    public boolean checkDniOnTable(){
+        boolean dniFound = false;
+        for (Reserva r : tableViewReservas.getItems()) {
+            if (r.getDniCliente().equals(dni_find.getText().toUpperCase())) {
+                dniFound = true;
+                break;
+            }
+        }
+
+        return dniFound;
     }
 
     @FXML

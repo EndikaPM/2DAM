@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -23,13 +21,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Nombre" GridPane.rowIndex="1" />
-                <Label text="Apellidos" GridPane.rowIndex="2" />
-                <Label text="Calle" GridPane.rowIndex="3" />
-                <Label text="Ciudad" GridPane.rowIndex="4" />
-                <Label text="Codigo Postal" GridPane.rowIndex="5" />
-                <Label text="Provincia" GridPane.rowIndex="6" />
-                <Label text="Dni" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Nombre" underline="true" GridPane.rowIndex="1" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Apellidos" GridPane.rowIndex="2" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Calle" GridPane.rowIndex="3" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Ciudad" GridPane.rowIndex="4" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Codigo Postal" GridPane.rowIndex="5" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Provincia" GridPane.rowIndex="6" />
+                <Label styleClass="bold-label" stylesheets="@../Css/Enunciados.css" text="Dni" underline="true" />
                 <TextField fx:id="dni_edit" disable="true" GridPane.columnIndex="1" />
                 <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -46,8 +44,8 @@
         </GridPane>
         <HBox layoutX="346.0" layoutY="-1.0" prefHeight="36.0" prefWidth="220.0" spacing="15.0" stylesheets="@../Css/TemaCss.css" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="34.0">
             <children>
-                <Button layoutX="359.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="36.0" prefWidth="109.0" text="OK" />
-                <Button layoutX="441.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="36.0" prefWidth="114.0" text="Cancel" />
+                <Button layoutX="359.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="36.0" prefWidth="109.0" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="OK" />
+                <Button layoutX="441.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="36.0" prefWidth="114.0" styleClass="round-button" stylesheets="@../Css/botonesChicox.css" text="Cancel" />
             </children>
         </HBox>
     </children>

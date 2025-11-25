@@ -4,3 +4,7 @@
     -fx-font-weight: bold;
     -fx-text-fill: #4c11ba;
 }
+.label-class{
+    -fx-font-family: "Segoe UI Black";
+    -fx-text-fill: #ffffff;
+}
