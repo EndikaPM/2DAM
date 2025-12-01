@@ -1,8 +1,7 @@
 package Model.Repository;
 
-import Model.Usuario;
+import Model.Usuario.Usuario;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface UsuarioRespository {

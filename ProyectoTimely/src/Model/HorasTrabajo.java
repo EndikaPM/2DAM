@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Usuario.Usuario;
+
 public class HorasTrabajo {
     Usuario usuarioId;
     Integer horasContrato;

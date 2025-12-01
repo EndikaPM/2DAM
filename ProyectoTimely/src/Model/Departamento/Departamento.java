@@ -1,4 +1,6 @@
-package Model;
+package Model.Departamento;
+
+import Model.Empresa.Empresa;
 
 public class Departamento {
 

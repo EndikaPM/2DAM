@@ -1,4 +1,7 @@
-package Model;
+package Model.Usuario;
+
+import Model.Departamento.Departamento;
+import Model.UserType;
 
 import java.time.LocalDate;
 
@@ -10,14 +13,14 @@ public class Usuario {
     private String password;
     private LocalDate fechaNacimiento;
     private LocalDate fechaContrato;
-    private int numSS;
+    private String numSS;
     private UserType userType;
     private Departamento departamento;
 
     public Usuario() {}
 
     public Usuario(String dni, String nombre, String apellido, String email, String password, LocalDate fechaNacimiento,
-                   LocalDate fechaContrato, int numSS, UserType userType, Departamento departamento) {
+                   LocalDate fechaContrato, String numSS, UserType userType, Departamento departamento) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -86,11 +89,11 @@ public class Usuario {
         this.fechaContrato = fechaContrato;
     }
 
-    public int getSs() {
+    public String getSs() {
         return numSS;
     }
 
-    public void setSs(int nSS) {
+    public void setSs(String nSS) {
         this.numSS = nSS;
     }
 
