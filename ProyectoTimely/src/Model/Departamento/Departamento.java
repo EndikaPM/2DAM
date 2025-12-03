@@ -39,4 +39,13 @@ public class Departamento {
     public void setId_empresa(Empresa id_empresa) {
         this.id_empresa = id_empresa;
     }
+
+    @Override
+    public String toString() {
+        return "\n\t\tDepartamento{" +
+                "\n\t\t\tid=" + id +
+                "\n\t\t\tnombre='" + nombre + '\'' +
+                "\n\t\t\tid_empresa=" + id_empresa +
+                "\n\t}";
+    }
 }

@@ -27,16 +27,17 @@ public class DepartamentoRepositoryImpl implements DepartamentoRepository {
             ResultSet resultSet = preStat.executeQuery();
             while (resultSet.next()) {
                 int idDepartamento = resultSet.getInt("id");
-                String nombreDepartamento = resultSet.getString("nombre");
+                String nombreDepartamento = resultSet.getString("nombre_depar");
                 String id_empresa = resultSet.getString("id_empresa");
 
                 String nif = resultSet.getString("nif");
-                String nombre = resultSet.getString("nombre");
+                String nombre = resultSet.getString("nombre_empre");
                 String direccion = resultSet.getString("direccion");
 
                 Empresa empresa = new Empresa(nif, nombre, direccion);
 
                 departamento = new Departamento(idDepartamento, nombreDepartamento,empresa);
+                listaDepartamentos.add(departamento);
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());

@@ -24,7 +24,7 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
 
     @Override
     public ArrayList<Usuario> getListUsuarios() throws UsuarioExcepcion {
-        this.sentenciaSQL = "SELECT u.*, d.*, e.* FROM usuario u INNER JOIN departamento d ON u.departamento = d.id" +
+        this.sentenciaSQL = "SELECT u.*, d.*, e.* FROM usuario u INNER JOIN departamento d ON u.department = d.id " +
                 "INNER JOIN empresa e ON e.nif = d.id_empresa";
         this.listUsuarios = new ArrayList<>();
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
@@ -35,25 +35,27 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
                 String apellido = resultSet.getString("lastName");
                 String email = resultSet.getString("email");
                 String passwd = resultSet.getString("password");
-                LocalDate bithdate= resultSet.getDate("birthDate").toLocalDate();
-                LocalDate dateContract = resultSet.getDate("dateContract").toLocalDate();
+                LocalDate bithdate= resultSet.getDate("birthday").toLocalDate();
+                LocalDate dateContract = resultSet.getDate("contract_date").toLocalDate();
                 String numSS = resultSet.getString("social_security");
-                UserType tipoUser = resultSet.getObject("user_type", UserType.class);
+                UserType tipoUser = UserType.valueOf(resultSet.getString("user_type"));
+
 
                 //Necesito todos estos datos para crear un departamento asociado a una empresa que está asociada a un Usuario
-                int idDepartamento = resultSet.getInt("departamento");
-                String nombreDepartamento = resultSet.getString("nombre");
-                int idEmpresa = resultSet.getInt("id_empresa");
+                int idDepartamento = resultSet.getInt("department");
+                String nombreDepartamento = resultSet.getString("nombre_depar");
+                String idEmpresa = resultSet.getString("id_empresa");
 
                 String nifEmpresa = resultSet.getString("nif");
-                String nombreEmpresa = resultSet.getString("nombre");
-                String direccion = resultSet.getString("email");
+                String nombreEmpresa = resultSet.getString("nombre_empre");
+                String direccion = resultSet.getString("direccion");
 
                 Empresa empresa = new Empresa(nifEmpresa, nombreEmpresa, direccion);
-                Departamento departamentoTem = new Departamento(idDepartamento,nombreEmpresa,empresa);
+                Departamento departamentoTem = new Departamento(idDepartamento,nombreDepartamento,empresa);
 
 
                 usuario = new Usuario(dni, nombre, apellido,email, passwd, bithdate,dateContract,numSS,tipoUser,departamentoTem);
+                listUsuarios.add(usuario);
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -87,7 +89,7 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
     @Override
     public boolean updateUsuario(Usuario usuario) throws UsuarioExcepcion {
         this.sentenciaSQL = "UPDATE usuario SET firstName= ?, lastName= ?, email= ?, password= ?, birthday= ?," +
-                "contract_date= ?, social_security= ?,user_type= ?, departamento= ? WHERE dni= ?";
+                "contract_date= ?, social_security= ?,user_type= ?, department= ? WHERE dni= ?";
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
             preStat.setString(1, usuario.getNombre());
             preStat.setString(2, usuario.getApellido());

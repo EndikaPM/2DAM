@@ -36,4 +36,13 @@ public class Empresa {
     public void setNifEmpresa(String nifEmpresa) {
         this.nifEmpresa = nifEmpresa;
     }
+
+    @Override
+    public String toString() {
+        return "\n\t\t\tEmpresa{" +
+                "\n\t\t\t\tnifEmpresa='" + nifEmpresa + '\'' +
+                "\n\t\t\t\tnomEmpresa='" + nomEmpresa + '\'' +
+                "\n\t\t\t\tdireEmpresa='" + direEmpresa + '\'' +
+                "\n\t\t}";
+    }
 }

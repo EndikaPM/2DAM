@@ -8,9 +8,7 @@ import java.util.ArrayList;
 public class DepartamentoModel {
     private DepartamentoRepository departamentoRepository;
 
-    public DepartamentoRepository getDepartamentoRepository() {
-        return departamentoRepository;
-    }
+    public DepartamentoModel(DepartamentoRepository departamentoRepository) {this.departamentoRepository = departamentoRepository;}
 
     public ArrayList<Departamento> getListDepartamentos() throws DepartemantoException {
         return departamentoRepository.getListDepartamentos();

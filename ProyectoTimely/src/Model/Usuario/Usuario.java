@@ -112,4 +112,20 @@ public class Usuario {
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{\n" +
+                "\t\tdni='" + dni + '\'' +
+                "\n\t\tnombre='" + nombre + '\'' +
+                "\n\t\tapellido='" + apellido + '\'' +
+                "\n\t\temail='" + email + '\'' +
+                "\n\t\tpassword='" + password + '\'' +
+                "\n\t\tfechaNacimiento=" + fechaNacimiento +
+                "\n\t\tfechaContrato=" + fechaContrato +
+                "\n\t\tnumSS='" + numSS + '\'' +
+                "\n\t\tuserType=" + userType +
+                "\n\t\tdepartamento=" + departamento +
+                "\n}";
+    }
 }

@@ -10,7 +10,7 @@ public class UsuarioModel {
 
     public UsuarioModel(UsuarioRespository usuarioRespository) {this.usuarioRespository = usuarioRespository;}
 
-    public ArrayList<Usuario> getUsuarios() throws UsuarioExcepcion {
+    public ArrayList<Usuario> getListUsuarios() throws UsuarioExcepcion {
         return usuarioRespository.getListUsuarios();
     }
 
