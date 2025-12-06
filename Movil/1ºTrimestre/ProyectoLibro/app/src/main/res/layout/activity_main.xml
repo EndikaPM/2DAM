@@ -13,9 +13,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gestibook"
+        android:text="@string/gestibook"
         android:textColor="@color/white"
-        android:textSize="30dp"/>
+        android:textSize="30sp"/>
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -26,7 +26,7 @@
         android:id="@+id/textUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Intrduce tu usuario"
+        android:hint="@string/intrduce_tu_usuario"
         android:inputType="text"
         android:imeOptions="actionNext"
         style="@style/inicioSesion"/>
@@ -39,7 +39,7 @@
             android:id="@+id/textPassword"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:hint="Intrduce tu contraseña"
+            android:hint="@string/intrduce_tu_contrase_a"
             android:inputType="textPassword"
             android:imeOptions="actionDone"
             style="@style/inicioSesionpPass" />
@@ -58,13 +58,13 @@
             android:id="@+id/sign_In"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar"
+            android:text="@string/registrar"
             style="@style/botones"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"
+            android:text="@string/ok"
             style="@style/botones"/>
     </LinearLayout>
 

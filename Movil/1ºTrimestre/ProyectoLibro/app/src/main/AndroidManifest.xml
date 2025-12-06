@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/biblioteca_alfa_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ProyectoLibro">
+        android:theme="@style/Theme.ProyectoLibroPersonalizado">
         <activity
             android:name=".Controller.PantallaDetalles"
             android:exported="false" />

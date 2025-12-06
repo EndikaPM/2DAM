@@ -43,4 +43,10 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="intrduce_tu_usuario">Intrduce tu usuario</string>
+    <string name="intrduce_tu_contrase_a">Intrduce tu contraseña</string>
+    <string name="registrar">Registrar</string>
+    <string name="ok">OK</string>
+    <string name="gestibook">Gestibook</string>
+    <string name="rellena_los_capos_para_editar_un_libro">Rellena los capos para editar un libro</string>
 </resources>

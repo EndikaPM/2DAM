@@ -2,6 +2,7 @@ package com.example.proyectolibro.Controller;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Gravity;
@@ -159,7 +160,8 @@ public class Activity2 extends AppCompatActivity {
 
                          toastEliminar.setDuration(Toast.LENGTH_LONG);
                          toastEliminar.setGravity(Gravity.CENTER, 0,0);
-                         textToast.setText("Libro eliminado: " + libroEliminado.getTitulo());
+                         textToast.setText("Libro eliminado: \n" + libroEliminado.getTitulo());
+                         textToast.setTextColor(Color.GREEN);
                          toastEliminar.setView(layoutToast);
                          toastEliminar.show();
                         //Toast.makeText(this, "Libro eliminado: " + libroEliminado.getTitulo(), Toast.LENGTH_SHORT).show();
@@ -169,6 +171,7 @@ public class Activity2 extends AppCompatActivity {
                         toastEliminar.setDuration(Toast.LENGTH_LONG);
                         toastEliminar.setGravity(Gravity.CENTER, 0,0);
                         textToast.setText("¡¡Accion Cancelada!! ");
+                        textToast.setTextColor(Color.RED);
                         toastEliminar.setView(layoutToast);
                         toastEliminar.show();
                         //Toast.makeText(this, "Accion cancelada.",Toast.LENGTH_SHORT).show();
