@@ -1,5 +1,6 @@
-package Model.Repository;
+package Model.Repository.Interface;
 
+import Model.Repository.Exception.UsuarioExcepcion;
 import Model.Usuario.Usuario;
 
 import java.util.ArrayList;

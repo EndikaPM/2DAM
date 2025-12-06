@@ -1,4 +1,4 @@
-package Model.Repository;
+package Model.Repository.Exception;
 
 public class UsuarioExcepcion extends Exception {
     private String mensaje;

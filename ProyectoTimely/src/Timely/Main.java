@@ -2,14 +2,17 @@ import Model.Departamento.Departamento;
 import Model.Departamento.DepartamentoModel;
 import Model.Empresa.Empresa;
 import Model.Empresa.EmpresaModelo;
-import Model.Repository.*;
+import Model.Repository.Exception.DepartemantoException;
+import Model.Repository.Exception.EmpresaException;
+import Model.Repository.Exception.UsuarioExcepcion;
 import Model.Repository.Impl.DepartamentoRepositoryImpl;
 import Model.Repository.Impl.EmpresaRepositoryImpl;
 import Model.Repository.Impl.UsuarioRepositoriImpl;
-import Model.UserType;
+import Model.Repository.Interface.DepartamentoRepository;
+import Model.Repository.Interface.EmpresaRepository;
+import Model.Repository.Interface.UsuarioRespository;
 import Model.Usuario.Usuario;
 import Model.Usuario.UsuarioModel;
-import Util.FechasUtil;
 
 import java.sql.SQLException;
 
@@ -74,6 +77,7 @@ void main(String[] args) {
         for(Usuario u : usuarioList){
             System.out.println(u);
         }
+        //TODO PROBAR HORASTRABAJADAS Y JORNADA
 
     } catch (SQLException e) {
         System.out.println(e.getMessage());

@@ -2,8 +2,8 @@ package Model.Repository.Impl;
 
 import Model.Departamento.Departamento;
 import Model.Empresa.Empresa;
-import Model.Repository.UsuarioExcepcion;
-import Model.Repository.UsuarioRespository;
+import Model.Repository.Exception.UsuarioExcepcion;
+import Model.Repository.Interface.UsuarioRespository;
 import Model.UserType;
 import Model.Usuario.Usuario;
 
@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class UsuarioRepositoriImpl implements UsuarioRespository {
     private Connection con;
     private String sentenciaSQL;
-    private int filas;
     private ArrayList<Usuario> listUsuarios;
     private Usuario usuario;
 
@@ -44,7 +43,6 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
                 //Necesito todos estos datos para crear un departamento asociado a una empresa que está asociada a un Usuario
                 int idDepartamento = resultSet.getInt("department");
                 String nombreDepartamento = resultSet.getString("nombre_depar");
-                String idEmpresa = resultSet.getString("id_empresa");
 
                 String nifEmpresa = resultSet.getString("nif");
                 String nombreEmpresa = resultSet.getString("nombre_empre");
@@ -66,6 +64,7 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
 
     @Override
     public boolean addUsuario(Usuario usuario) throws UsuarioExcepcion {
+        int filas = 0;
         this.sentenciaSQL = "INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?,?)";
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
             preStat.setString(1, usuario.getDni());
@@ -78,7 +77,7 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
             preStat.setString(8,usuario.getSs());
             preStat.setString(9,usuario.getUserType().toString());
             preStat.setInt(10, usuario.getDepartamento().getId());
-            this.filas = preStat.executeUpdate();//executeUpdate devuelve un int con el número de filas afectadas.
+            filas = preStat.executeUpdate();//executeUpdate devuelve un int con el número de filas afectadas.
         }catch(SQLException e){
             System.out.println(e.getMessage());
             e.printStackTrace();
@@ -88,6 +87,7 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
 
     @Override
     public boolean updateUsuario(Usuario usuario) throws UsuarioExcepcion {
+        int filas = 0;
         this.sentenciaSQL = "UPDATE usuario SET firstName= ?, lastName= ?, email= ?, password= ?, birthday= ?," +
                 "contract_date= ?, social_security= ?,user_type= ?, department= ? WHERE dni= ?";
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
@@ -101,7 +101,7 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
             preStat.setString(8,usuario.getUserType().toString());
             preStat.setInt(9,usuario.getDepartamento().getId());
             preStat.setString(10,usuario.getDni());
-            this.filas = preStat.executeUpdate();//executeUpdate devuelve un int con el número de filas afectadas.
+            filas = preStat.executeUpdate();//executeUpdate devuelve un int con el número de filas afectadas.
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
@@ -111,10 +111,11 @@ public class UsuarioRepositoriImpl implements UsuarioRespository {
 
     @Override
     public boolean deleteUsuario(String dniUsuario) throws UsuarioExcepcion {
+        int filas = 0;
         this.sentenciaSQL = "DELETE FROM usuario WHERE dni= ?";
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
             preStat.setString(1, dniUsuario);
-            this.filas = preStat.executeUpdate();//executeUpdate devuelve un int con el número de filas afectadas.
+            filas = preStat.executeUpdate();//executeUpdate devuelve un int con el número de filas afectadas.
         }catch (SQLException e){
             System.out.println(e.getMessage());
             e.printStackTrace();

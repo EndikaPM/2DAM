@@ -1,7 +1,7 @@
 package Model.Departamento;
 
-import Model.Repository.DepartamentoRepository;
-import Model.Repository.DepartemantoException;
+import Model.Repository.Interface.DepartamentoRepository;
+import Model.Repository.Exception.DepartemantoException;
 
 import java.util.ArrayList;
 

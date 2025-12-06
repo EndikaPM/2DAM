@@ -1,7 +1,7 @@
 package Model.Usuario;
 
-import Model.Repository.UsuarioExcepcion;
-import Model.Repository.UsuarioRespository;
+import Model.Repository.Exception.UsuarioExcepcion;
+import Model.Repository.Interface.UsuarioRespository;
 
 import java.util.ArrayList;
 

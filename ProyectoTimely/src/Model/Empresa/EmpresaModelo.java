@@ -1,7 +1,7 @@
 package Model.Empresa;
 
-import Model.Repository.EmpresaException;
-import Model.Repository.EmpresaRepository;
+import Model.Repository.Exception.EmpresaException;
+import Model.Repository.Interface.EmpresaRepository;
 
 import java.util.ArrayList;
 
