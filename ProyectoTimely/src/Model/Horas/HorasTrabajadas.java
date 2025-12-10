@@ -4,10 +4,10 @@ import Model.Usuario.Usuario;
 
 public class HorasTrabajadas {
     private Usuario id_usuario;
-    private int horasContrato;
+    private float horasContrato;
     private int horasTrabajadas;
 
-    public HorasTrabajadas(Usuario id_usuario, int horasContrato) {
+    public HorasTrabajadas(Usuario id_usuario, float horasContrato) {
         this.id_usuario = id_usuario;
         this.horasContrato = horasContrato;
     }
@@ -20,12 +20,12 @@ public class HorasTrabajadas {
         this.id_usuario = id_usuario;
     }
 
-    public int getHorasContrato() {
+    public float getHorasContrato() {
         return horasContrato;
     }
 
-    public void setHorasContrato(int horasContrato) {
-        this.horasContrato = horasContrato;
+    public void setHorasContrato(float horasContrato) {
+        this.horasContrato = (float) Math.round(horasContrato * 10) /10;
     }
 
     public int getHorasTrabajadas() {

@@ -100,8 +100,7 @@ public class JornadaRepositoryImpl implements JornadaRepository {
     public boolean addEntradaJornada(Jornada jornada) throws JornadaExeception {
         int filas = 0;
         // Insertar solo la entrada, salida en NULL
-        this.sentenciaSQL = "INSERT INTO jornadas (id_trabajador, fecha_actual, hora_entrada, hora_salida, modificado) " +
-                "VALUES (?, ?, ?, NULL, false)";
+        this.sentenciaSQL = "INSERT INTO jornada(id_trabajador,fecha_actual , hora_entrada, hora_salida, modificado) VALUES (?, ?, ?, NULL, false)";
 
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL,
                 Statement.RETURN_GENERATED_KEYS)) {
@@ -132,12 +131,9 @@ public class JornadaRepositoryImpl implements JornadaRepository {
     public boolean addSalidaJornada(Jornada jornada) throws JornadaExeception {
         int filas = 0;
         // Actualizar el último registro sin salida de ese día
-        this.sentenciaSQL = "UPDATE jornadas " +
-                "SET hora_salida = ?, modificado = false " +
-                "WHERE id_trabajador = ? " +
-                "AND fecha_actual = ? " +
-                "AND hora_salida IS NULL " +
-                "ORDER BY hora_entrada DESC " +
+        this.sentenciaSQL = "UPDATE jornada SET hora_salida = ?, modificado = false " +
+                "WHERE id_trabajador = ? AND fecha_actual = ? " +
+                "AND hora_salida IS NULL ORDER BY hora_entrada DESC " +
                 "LIMIT 1";
 
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)) {
@@ -148,7 +144,7 @@ public class JornadaRepositoryImpl implements JornadaRepository {
             filas = preStat.executeUpdate();
 
             if(filas == 0) {
-                throw new JornadaExeception("No hay ninguna entrada abierta para registrar la salida");
+                System.out.println("No hay ninguna entrada registrada");
             }
         } catch(SQLException e) {
             System.out.println(e.getMessage());
@@ -162,12 +158,13 @@ public class JornadaRepositoryImpl implements JornadaRepository {
     @Override
     public boolean updateJornada(Jornada jornada) throws JornadaExeception {
         int filas = 0;
-        this.sentenciaSQL = "UPDATE jornadas SET fecha_actual=?, hora_entrada=?, hora_salida=?, modificado=? WHERE id=? AND id_trabajador=?";
+        this.sentenciaSQL = "UPDATE jornada SET fecha_actual=?, hora_entrada=?, hora_salida=?, modificado=? " +
+                "WHERE id=? AND id_trabajador=?";
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
             preStat.setDate(1, Date.valueOf(jornada.getFechaActual()));
             preStat.setTime(2, Time.valueOf(jornada.getHoraEntrada()));
             preStat.setTime(3, Time.valueOf(jornada.getHoraSalida()));
-            preStat.setBoolean(4, jornada.isModificado());
+            preStat.setBoolean(4, true);
             preStat.setInt(5, jornada.getId());
             preStat.setString(6, jornada.getIdTrabajador().getDni());
             filas = preStat.executeUpdate();

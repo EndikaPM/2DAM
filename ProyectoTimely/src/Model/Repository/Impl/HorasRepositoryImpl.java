@@ -27,11 +27,11 @@ public class HorasRepositoryImpl implements HorasRepository {
 
     @Override
     public ArrayList<HorasTrabajadas> obtenerListHorasTrabajadas() throws HorasException {
-        this.sentenciaSQL = "SELECT ht.*, u.*, d.*, e.*" +
-                "FROM HorasTrabajadas ht " +
-                "INNER JOIN usuario u ON u.dni = ht.id_usuario" +
-                "INNER JOIN departamento d ON u.department = d.id" +
-                "INNER JOIN empresa e ON e.nif = d.id_empresa";
+        this.sentenciaSQL = "SELECT ht.*, u.*, d.*, e.* " +
+                "FROM horas_trabajo ht " +
+                "INNER JOIN usuario u ON u.dni = ht.id_usuario " +
+                "INNER JOIN departamento d ON u.department = d.id " +
+                "INNER JOIN empresa e ON e.nif = d.id_empresa ";
         this.listaHorasTrabajadas = new ArrayList<>();
 
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
@@ -80,7 +80,7 @@ public class HorasRepositoryImpl implements HorasRepository {
 
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
             preStat.setString(1, horasTrabajadas.getId_usuario().getDni());
-            preStat.setInt(2, horasTrabajadas.getHorasContrato());
+            preStat.setFloat(2, horasTrabajadas.getHorasContrato());
             preStat.setInt(3, horasTrabajadas.getHorasTrabajadas());
             filas = preStat.executeUpdate();
         }catch (SQLException e){
@@ -96,7 +96,7 @@ public class HorasRepositoryImpl implements HorasRepository {
         this.sentenciaSQL = "UPDATE horas_trabajo SET horas_contrato=?, horas_trabajadas=?  WHERE id_usuario = ?";
 
         try(PreparedStatement preStat = con.prepareStatement(sentenciaSQL)){
-            preStat.setInt(1, horasTrabajadas.getHorasContrato());
+            preStat.setFloat(1, horasTrabajadas.getHorasContrato());
             preStat.setInt(2, horasTrabajadas.getHorasTrabajadas());
             preStat.setString(3, horasTrabajadas.getId_usuario().getDni());
             filas = preStat.executeUpdate();

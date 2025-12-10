@@ -20,6 +20,12 @@ public class Jornada {
         this.horaSalida = horaSalida;
     }
 
+    public Jornada(Usuario usuario, LocalDate fechaActual, LocalTime horaEntrada) {
+        this.idTrabajador = usuario;
+        this.fechaActual = fechaActual;
+        this.horaEntrada = horaEntrada;
+    }
+
     public int getId() {
         return id;
     }
