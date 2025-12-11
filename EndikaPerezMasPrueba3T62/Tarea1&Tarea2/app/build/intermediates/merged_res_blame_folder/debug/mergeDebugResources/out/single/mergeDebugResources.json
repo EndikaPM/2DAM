@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima2.jpeg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima2.jpeg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima1.jpg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima1.jpg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-anydpi-v26_icono_biblioteca_alfa.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-anydpi-v26/icono_biblioteca_alfa.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-hdpi_icono_biblioteca_alfa_foreground.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-hdpi/icono_biblioteca_alfa_foreground.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima4.jpg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima4.jpg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/xml_backup_rules.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xhdpi_icono_biblioteca_alfa_foreground.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xhdpi/icono_biblioteca_alfa_foreground.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-anydpi-v26_icono_biblioteca_alfa_round.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-anydpi-v26/icono_biblioteca_alfa_round.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-mdpi_icono_biblioteca_alfa_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-mdpi/icono_biblioteca_alfa_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/layout_activity_3.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/layout/activity_3.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima5.jpg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima5.jpg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-hdpi_icono_biblioteca_alfa_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-hdpi/icono_biblioteca_alfa_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xhdpi_icono_biblioteca_alfa.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xhdpi/icono_biblioteca_alfa.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-mdpi_icono_biblioteca_alfa.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-mdpi/icono_biblioteca_alfa.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxxhdpi_icono_biblioteca_alfa_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxxhdpi/icono_biblioteca_alfa_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_outline_book_ribbon_24.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/outline_book_ribbon_24.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxxhdpi_icono_biblioteca_alfa.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxxhdpi/icono_biblioteca_alfa.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_iconobiblioteca_alfa.png.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/iconobiblioteca_alfa.png"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_start.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/start.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima6.jpg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima6.jpg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_iconobiblioteca.jpg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/iconobiblioteca.jpg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxhdpi_icono_biblioteca_alfa.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxhdpi/icono_biblioteca_alfa.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/layout_activity_2.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/layout/activity_2.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-mdpi_icono_biblioteca_alfa_foreground.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-mdpi/icono_biblioteca_alfa_foreground.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima3.jpeg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima3.jpeg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xhdpi_icono_biblioteca_alfa_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xhdpi/icono_biblioteca_alfa_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/layout_activity_main.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxhdpi_icono_biblioteca_alfa_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxhdpi/icono_biblioteca_alfa_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ima7.jpg.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ima7.jpg"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_outline_all_match_24.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/outline_all_match_24.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxhdpi_icono_biblioteca_alfa_foreground.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxhdpi/icono_biblioteca_alfa_foreground.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-hdpi_icono_biblioteca_alfa.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-hdpi/icono_biblioteca_alfa.webp"
+    },
+    {
+        "merged": "com.example.tarea1tarea2.app-debug-34:/layout_activity_3.xml.flat",
+        "source": "com.example.tarea1tarea2.app-main-36:/layout/activity_3.xml"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/mipmap-xxxhdpi_icono_biblioteca_alfa_foreground.webp.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/mipmap-xxxhdpi/icono_biblioteca_alfa_foreground.webp"
+    },
+    {
+        "merged": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-debug-34:/layout_entrada.xml.flat",
+        "source": "/home/usuario/.gradle/daemon/8.13/com.example.tarea1tarea2.app-main-36:/layout/entrada.xml"
+    }
+]
