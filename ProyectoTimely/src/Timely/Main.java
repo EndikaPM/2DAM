@@ -149,7 +149,7 @@ void main(String[] args) {
         jornadaModel.addEntradaJornada(jornada2U5);
         jornadaModel.addSalidaJornada(jornada2U5);*/
         //Actualizamos una jornada para qeu me salga Modificada true
-        jornada1U1.setHoraSalida(LocalTime.now());
+        //jornada1U1.setHoraSalida(LocalTime.now());
         //Eliminar una jornada
         //jornadaModel.deleteJornada(u1, jornada1U5.getId(), u5.getDni());//esto va a fallar porque no se el id luedo lo soluciono
         //jornadaModel.deleteJornada(admin, jornada1U5.getId(), u5.getDni());
@@ -167,18 +167,16 @@ void main(String[] args) {
 
         horasTrabajadasList = horasTrabajadasModel.obtenerListHorasTrabajadas();
 
-        /*for(Departamento d: departamentoList){
-            System.out.println(d);
-        }
 
-        for(Empresa e : empresaList){
-            System.out.println(e);
-        }
 
         for(Usuario u : usuarioList){
             System.out.println(u);
-        }*/
+        }
         //TODO PROBAR HORAS TRABAJADAS Y JORNADA
+        for(HorasTrabajadas ht : horasTrabajadasList){
+            System.out.println(ht);
+        }
+
 
     } catch (SQLException e) {
         System.out.println(e.getMessage());

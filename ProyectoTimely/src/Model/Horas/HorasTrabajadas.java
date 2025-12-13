@@ -35,4 +35,13 @@ public class HorasTrabajadas {
     public void setHorasTrabajadas(int horasTrabajadas) {
         this.horasTrabajadas = horasTrabajadas;
     }
+
+    @Override
+    public String toString() {
+        return "HorasTrabajadas{" +
+                "id_usuario=" + id_usuario +
+                ", horasContrato=" + horasContrato +
+                ", horasTrabajadas=" + horasTrabajadas +
+                '}';
+    }
 }

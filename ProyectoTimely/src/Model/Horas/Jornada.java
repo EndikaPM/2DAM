@@ -73,4 +73,16 @@ public class Jornada {
     public void setModificado(boolean modificado) {
         this.modificado = modificado;
     }
+
+    @Override
+    public String toString() {
+        return "Jornada{" +
+                "id=" + id +
+                ", idTrabajador=" + idTrabajador +
+                ", fechaActual=" + fechaActual +
+                ", horaEntrada=" + horaEntrada +
+                ", horaSalida=" + horaSalida +
+                ", modificado=" + modificado +
+                '}';
+    }
 }
