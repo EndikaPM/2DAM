@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText textoEditar1, textoEditar2;
     TextView texto1, texto2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
