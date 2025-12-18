@@ -39,23 +39,26 @@ public class Main extends AppCompatActivity {
             '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'
     };
     private char codificado[];
-    String endika = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, "Endika", codificado));
-    String root = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, "root", codificado));
-    private Map<String, String> usuarios = new HashMap<String, String>() {{
-        put(endika, endika);
-        put(root, root);
-    }};
-    public SharedPreferences usuariosDb = getSharedPreferences("Usuarios", MODE_PRIVATE);
+    String endika;
+    String root;
+    private Map<String, String> usuarios;
+    public SharedPreferences usuariosDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        endika = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, "Endika", codificado));
+        root = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, "root", codificado));
+        usuarios = new HashMap<>();
+
         /*usuario.add(new Usuario("Endika", "Endika"));
         usuario.add(new Usuario("Eva", "Eva"));
         usuario.add(new Usuario("Usuario", "Usuario"));
         usuario.add(new Usuario("Root", "root"));*/
+        usuariosDb = getSharedPreferences("Usuarios", MODE_PRIVATE);
+        cargarUsuarios();
 
 
         EditText textUser = (EditText) findViewById(R.id.textUsuario);
@@ -122,10 +125,11 @@ public class Main extends AppCompatActivity {
                 String passwdEncriptada = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, b.getString("passwd"), codificado));
                 editor.putString(usuarioEncriptado, passwdEncriptada);// guardamos el usuario y la contraseña encriptada
                 editor.apply();
+
+                cargarUsuarios();
             }
         }
     }
-
 
     private static char[] codificar(char[] alfabeto, char[] alfabetoEncriptado, String palabra, char[] codificado) {
         codificado = new char[palabra.length()];
@@ -150,4 +154,16 @@ public class Main extends AppCompatActivity {
         }
         return codificado;
     }
+
+    private void cargarUsuarios() {
+        usuarios.clear();
+        usuarios.put(endika, endika);
+        usuarios.put(root, root);
+
+        Map<String, ?> prefs = usuariosDb.getAll();
+        for (Map.Entry<String, ?> entry : prefs.entrySet()) {
+            usuarios.put(entry.getKey(), entry.getValue().toString());
+        }
+    }
+
 }
