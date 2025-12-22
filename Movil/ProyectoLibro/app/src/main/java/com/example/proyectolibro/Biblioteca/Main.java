@@ -38,31 +38,33 @@ public class Main extends AppCompatActivity {
             'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm',
             '9', '8', '7', '6', '5', '4', '3', '2', '1', '0'
     };
-    private char codificado[];
     String endika;
     String root;
     private Map<String, String> usuarios;
     public SharedPreferences usuariosDb;
+    EditText textUser;
+    EditText textPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        endika = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, "Endika", codificado));
-        root = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, "root", codificado));
+        endika = codificar(alfabeto, alfabetoEncriptado, "Endika");
+        root = codificar(alfabeto, alfabetoEncriptado, "root");
         usuarios = new HashMap<>();
 
         /*usuario.add(new Usuario("Endika", "Endika"));
         usuario.add(new Usuario("Eva", "Eva"));
         usuario.add(new Usuario("Usuario", "Usuario"));
-        usuario.add(new Usuario("Root", "root"));*/
+        usuario.add(new Usuario("Root", "root"));
+        TODO nuevos insertasos en sharePerferent Maria , Maria*/
         usuariosDb = getSharedPreferences("Usuarios", MODE_PRIVATE);
         cargarUsuarios();
 
 
-        EditText textUser = (EditText) findViewById(R.id.textUsuario);
-        EditText textPassword = (EditText) findViewById(R.id.textPassword);
+        textUser = (EditText) findViewById(R.id.textUsuario);
+        textPassword = (EditText) findViewById(R.id.textPassword);
 
         ojo = findViewById(R.id.ojo);
         ojo.setOnClickListener(new View.OnClickListener() {
@@ -85,21 +87,25 @@ public class Main extends AppCompatActivity {
                 int tam = usuarios.size();
                 String user = textUser.getText().toString();
                 String passwo = textPassword.getText().toString();
+
                 boolean registrado = false;
+
                 if (user.isEmpty() || passwo.isEmpty()) {
-                    Toast.makeText(Main.this, "Rellena todos los campos",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Main.this, "Rellena todos los campos ",Toast.LENGTH_LONG).show();
                 }
 
+                String userEncriptado = codificar(alfabeto, alfabetoEncriptado, user);
+                String passEncriptada = codificar(alfabeto, alfabetoEncriptado, passwo);
+
                 for (Map.Entry<String,String> u : usuarios.entrySet()) {
-                    Usuario temp = new Usuario(u.getKey(),u.getValue());
-                    if (temp.comprovarAcces(user,passwo)){
+                    if (u.getKey().equals(userEncriptado) && u.getValue().equals(passEncriptada)) {
                         registrado = true;
                         Intent pasarActivity2 = new Intent(Main.this, Activity2.class);
                         startActivity(pasarActivity2);
                     }
                 }
-                if (!registrado && !(user.isEmpty() || passwo.isEmpty())) {
-                    Toast.makeText(Main.this, "Usuario no registrado\n registrate para entrar", Toast.LENGTH_LONG).show();
+                if (!registrado) {
+                    Toast.makeText(Main.this, "Usuario no registrado\n registrate para entrar ", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -120,39 +126,47 @@ public class Main extends AppCompatActivity {
         if (RESULT_OK == resultCode && REQUEST_CODE == requestCode){
             Bundle b = recibir.getExtras();
             if (b != null) {
+                String usuario = b.getString("usuario");
+                String passwd = b.getString("passwd");
+
+                String usuarioEncriptado = codificar(alfabeto, alfabetoEncriptado, usuario);
+                String passwdEncriptada = codificar(alfabeto, alfabetoEncriptado, passwd);
+
                 SharedPreferences.Editor editor = usuariosDb.edit();
-                String usuarioEncriptado = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, b.getString("usuario"), codificado));
-                String passwdEncriptada = Arrays.toString(codificar(alfabeto, alfabetoEncriptado, b.getString("passwd"), codificado));
                 editor.putString(usuarioEncriptado, passwdEncriptada);// guardamos el usuario y la contraseña encriptada
                 editor.apply();
 
                 cargarUsuarios();
+
+                Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    private static char[] codificar(char[] alfabeto, char[] alfabetoEncriptado, String palabra, char[] codificado) {
-        codificado = new char[palabra.length()];
+    private static String codificar(char[] alfabeto, char[] alfabetoEncriptado, String palabra) {
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < palabra.length(); i++) {
             for (int j = 0; j < alfabeto.length; j++) {
                 if (palabra.charAt(i) == alfabeto[j]) {
-                    codificado[i] = alfabetoEncriptado[j];
+                    result.append(alfabetoEncriptado[j]);
+                    break;
                 }
             }
         }
-        return codificado;
+        return result.toString();
     }
 
-    private static char[] decodificar(char[] alfabeto, char[] alfabetoEncriptado, String palabra, char[] codificado) {
-        codificado = new char[palabra.length()];
+    private static String decodificar(char[] alfabeto, char[] alfabetoEncriptado, String palabra) {
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < palabra.length(); i++) {
             for (int j = 0; j < alfabetoEncriptado.length; j++) {
                 if (palabra.charAt(i) == alfabetoEncriptado[j]) {
-                    codificado[i] = alfabeto[j];
+                    result.append(alfabeto[j]);
+                    break;
                 }
             }
         }
-        return codificado;
+        return result.toString();
     }
 
     private void cargarUsuarios() {
