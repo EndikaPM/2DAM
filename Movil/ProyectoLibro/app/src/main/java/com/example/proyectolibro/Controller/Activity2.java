@@ -2,8 +2,10 @@ package com.example.proyectolibro.Controller;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,13 +24,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.proyectolibro.Controller.DB.LibrosSQLite;
 import com.example.proyectolibro.Model.Libro;
 import com.example.proyectolibro.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class Activity2 extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity{
     private final static int REQUEST_CODE_ADD = 10;
     private final static int REQUEST_CODE_Edit = 20;
     private ListView lista;
@@ -42,6 +45,7 @@ public class Activity2 extends AppCompatActivity {
     private ImageView imageToast;
     private TextView textToast;
     private Toast toastEliminar;
+    private LibrosSQLite librosSQLite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,10 +63,14 @@ public class Activity2 extends AppCompatActivity {
 
         lista = findViewById(R.id.principa_lista_view);
 
-
+        librosSQLite = new LibrosSQLite(this, "libros", null, 1);
 
         datosLibros = new ArrayList<>();
-        datosLibros.add(new Libro(R.drawable.ima1, "La mano izquierda de dios",
+
+        adaptador = new LibroAdaptador(this, R.layout.libro_each, datosLibros);
+        lista.setAdapter(adaptador);
+
+        /*datosLibros.add(new Libro(R.drawable.ima1, "La mano izquierda de dios",
                 "Thomas Cale ha sido criado en un monasterio donde se entrena a niños " +
                         "para convertirse en guerreros sin piedad. Cuando escapa, descubre un mundo " +
                         "que nunca imaginó y se ve envuelto en una guerra que podría cambiar el destino " +
@@ -104,8 +112,10 @@ public class Activity2 extends AppCompatActivity {
                         "fundamental de la literatura universal que ha influenciado la cultura " +
                         "occidental durante milenios.","fecha publicación: Siglo\nVII a.c." ,false));
 
-        adaptador = new LibroAdaptador(this, R.layout.libro_each, datosLibros);
-        lista.setAdapter(adaptador);
+
+*/
+        //inicioDB();
+        cargarDatosLibros();
 
         registerForContextMenu(lista);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -259,4 +269,30 @@ public class Activity2 extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+
+    public void cargarDatosLibros(){
+        Log.d("DEBUG_DB", "Intentando cargar libros desde BD...");
+        ArrayList<Libro> librosDB = librosSQLite.consultLibros(librosSQLite.getReadableDatabase());
+        Log.d("DEBUG_DB", "Libros cargados: " + datosLibros.size());
+        datosLibros.clear();
+        datosLibros.addAll(librosDB);
+        if (datosLibros.isEmpty()) {
+            Log.e("DEBUG_DB", "¡¡¡La BD está vacía!!!");
+        } else {
+            for (Libro libro : datosLibros) {
+                Log.d("DEBUG_DB", "Libro: " + libro.getTitulo());
+            }
+        }
+        adaptador.notifyDataSetChanged();
+    }
+    public void inicioDB (){
+        librosSQLite = new LibrosSQLite(this, "libros", null, 1);
+        Log.d("DEBUG_DB","Iniciando BD - total de libros a insertar: " + datosLibros.size());
+        for (Libro libro: datosLibros) {
+            librosSQLite.addLibro(librosSQLite.getWritableDatabase(), libro);
+            Log.d("DEBUG_DB", "Insertado libro: " + libro.getTitulo());
+        }
+        Log.d("DEBUG_DB", "Inserción completada");
+    }
+
 }

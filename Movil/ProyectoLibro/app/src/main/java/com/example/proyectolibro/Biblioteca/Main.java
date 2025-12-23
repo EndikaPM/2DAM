@@ -2,6 +2,7 @@ package com.example.proyectolibro.Biblioteca;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -26,6 +27,7 @@ public class Main extends AppCompatActivity {
     private ImageView ojo;
     private boolean ojoPulsado;
     //private List<Usuario> usuario = new ArrayList<>(); TODO tengo que quitarla
+    private MediaPlayer mediaPlayer;
     private final char alfabeto[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -49,6 +51,8 @@ public class Main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
 
         endika = codificar(alfabeto, alfabetoEncriptado, "Endika");
         root = codificar(alfabeto, alfabetoEncriptado, "root");
@@ -118,6 +122,34 @@ public class Main extends AppCompatActivity {
                 startActivityForResult(registro,REQUEST_CODE);
             }
         });
+
+        mediaPlayer.setLooping(true);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+           // mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.example.proyectolibro.Model;
 import java.io.Serializable;
 
 public class Libro implements Serializable {
+    private int id;
     private int imagen;
     private String titulo;
     private String texto;
@@ -46,5 +47,13 @@ public class Libro implements Serializable {
     }
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
