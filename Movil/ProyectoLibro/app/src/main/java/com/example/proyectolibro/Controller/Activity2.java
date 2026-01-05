@@ -112,8 +112,8 @@ public class Activity2 extends AppCompatActivity{
                         "fundamental de la literatura universal que ha influenciado la cultura " +
                         "occidental durante milenios.","fecha publicación: Siglo\nVII a.c." ,false));
 
-
 */
+
         //inicioDB();
         cargarDatosLibros();
 

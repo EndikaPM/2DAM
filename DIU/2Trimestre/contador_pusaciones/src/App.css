@@ -21,4 +21,17 @@
 
     .incButton{
         background-color: red;
+        margin-right: 15px;
+        padding: 10px;
+        border-radius: 20px;
+        color: wheat;
+        font-size: large;
+    }
+    .titulo{
+        font-size: 90px;
+        color: wheat;
+    }
+    p{
+        color: wheat;
+        font-size: 40px;
     }
