@@ -1,5 +1,4 @@
 import './App.css';
-import * as math from "mathjs";
 import BodyComponents from './Components/BodyComponents';
 
 function App() {

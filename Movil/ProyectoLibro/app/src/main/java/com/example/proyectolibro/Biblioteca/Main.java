@@ -202,7 +202,7 @@ public class Main extends AppCompatActivity {
     }
 
     private void cargarUsuarios() {
-        usuarios.clear();
+        //usuarios.clear();
         usuarios.put(endika, endika);
         usuarios.put(root, root);
 

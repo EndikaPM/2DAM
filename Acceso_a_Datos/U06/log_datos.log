@@ -1,0 +1,13 @@
+2026-01-09 17:55:01,175 - INFO - Archivo JSON guardado. Versión actual:1
+2026-01-09 17:55:01,175 - INFO - Transacción iniciada.
+2026-01-09 17:55:01,175 - INFO - Dato agregado: {'nombre': 'McDonals', 'direccion': 'sevilla', 'telefono': '66666', 'tipo': 'Rapida'}
+2026-01-09 17:55:01,175 - INFO - Dato agregado: {'nombre': 'La liebre', 'direccion': 'Alcala de guadaira', 'telefono': '77777', 'tipo': 'Mediterraneo'}
+2026-01-09 17:55:01,175 - INFO - Dato agregado: {'nombre': 'La Para', 'direccion': 'Utrera', 'telefono': '888888', 'tipo': 'Casera'}
+2026-01-09 17:55:01,175 - INFO - Archivo JSON guardado. Versión actual:2
+2026-01-09 17:55:01,175 - INFO - Transacción confirmada y cambios guardados.
+2026-01-09 17:55:01,175 - INFO - Configuración actualizada. Nueva ruta del archivo: restaurante.csv
+2026-01-09 17:55:26,916 - INFO - Archivo JSON cargado con éxito. Versión actual:1
+2026-01-09 17:55:26,916 - INFO - Configuración actualizada. Nueva ruta del archivo: restaurante.csv
+2026-01-09 17:57:42,916 - INFO - Archivo JSON cargado con éxito. Versión actual:1
+2026-01-09 17:57:42,916 - INFO - Configuración actualizada. Nueva ruta del archivo: restaurante.csv
+2026-01-09 17:57:42,917 - INFO - Archivo CSV guardado. Versión actual:1

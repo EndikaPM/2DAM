@@ -1,0 +1,20 @@
+[
+    {
+        "nombre": "McDonals",
+        "direccion": "sevilla",
+        "telefono": "66666",
+        "tipo": "Rapida"
+    },
+    {
+        "nombre": "La liebre",
+        "direccion": "Alcala de guadaira",
+        "telefono": "77777",
+        "tipo": "Mediterraneo"
+    },
+    {
+        "nombre": "La Para",
+        "direccion": "Utrera",
+        "telefono": "888888",
+        "tipo": "Casera"
+    }
+]

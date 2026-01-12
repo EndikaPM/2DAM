@@ -1,0 +1,37 @@
+2026-01-09 18:47:05,275 - INFO - Conexión exitosa a la base de datos.
+2026-01-09 18:47:05,275 - INFO - Transacción iniciada.
+2026-01-09 18:47:05,275 - ERROR - Se produjo un error: DatabaseManager.crear_restaurante() takes 6 positional arguments but 7 were given
+2026-01-09 18:47:05,275 - INFO - Revertida.
+2026-01-09 18:47:05,275 - INFO - Conexión cerrada.
+2026-01-09 18:48:21,494 - INFO - Conexión exitosa a la base de datos.
+2026-01-09 18:48:21,494 - INFO - Transacción iniciada.
+2026-01-09 18:48:21,495 - ERROR - Error al insertar la Restaurante 'Creado para actualizar': 1054 (42S22): Unknown column 'tipo' in 'field list'
+2026-01-09 18:48:21,495 - ERROR - Se produjo un error: DatabaseManager.actualizar_restaurante() missing 1 required positional argument: 'marca'
+2026-01-09 18:48:21,495 - INFO - Revertida.
+2026-01-09 18:48:21,495 - INFO - Conexión cerrada.
+2026-01-09 18:53:45,256 - INFO - Conexión exitosa a la base de datos.
+2026-01-09 18:53:45,256 - INFO - Transacción iniciada.
+2026-01-09 18:53:45,256 - ERROR - Se produjo un error: DatabaseManager.crear_restaurante() missing 1 required positional argument: 'valoraciones'
+2026-01-09 18:53:45,256 - INFO - Revertida.
+2026-01-09 18:53:45,256 - INFO - Conexión cerrada.
+2026-01-09 18:56:04,973 - INFO - Conexión exitosa a la base de datos.
+2026-01-09 18:56:04,973 - INFO - Transacción iniciada.
+2026-01-09 18:56:04,974 - INFO - Restaurante '5' insertada exitosamente.
+2026-01-09 18:56:04,974 - ERROR - Error al actualizar la Restaurante con ID 6: 1054 (42S22): Unknown column 'tipo' in 'field list'
+2026-01-09 18:56:04,977 - INFO - Transacción confirmada.
+2026-01-09 18:56:04,978 - INFO - Restaurantes recuperados:
+2026-01-09 18:56:04,978 - INFO - {'id': 1, 'nombre': 'La Trattoria', 'tipo_comida': 'Italiana', 'ubicacion': 'Madrid', 'horario': '12:00-23:00', 'valoraciones': 4.6}
+2026-01-09 18:56:04,978 - INFO - {'id': 2, 'nombre': 'Sushi Go!', 'tipo_comida': 'Japonesa', 'ubicacion': 'Barcelona', 'horario': '13:00-23:30', 'valoraciones': 4.8}
+2026-01-09 18:56:04,978 - INFO - {'id': 3, 'nombre': 'El Buen Taco', 'tipo_comida': 'Mexicana', 'ubicacion': 'Valencia', 'horario': '11:00-22:00', 'valoraciones': 4.5}
+2026-01-09 18:56:04,978 - INFO - {'id': 4, 'nombre': 'Sabores Andaluces', 'tipo_comida': 'Andaluza', 'ubicacion': 'Sevilla', 'horario': '09:00-21:00', 'valoraciones': 4.7}
+2026-01-09 18:56:04,978 - INFO - {'id': 5, 'nombre': 'Creado para actualizar', 'tipo_comida': 'Española', 'ubicacion': 'Bilbao', 'horario': '12:00-23:00', 'valoraciones': 1.5}
+2026-01-09 18:56:04,978 - INFO - Transacción iniciada.
+2026-01-09 18:56:04,978 - ERROR - Error al actualizar la Restaurante con ID 5: 1054 (42S22): Unknown column 'tipo' in 'field list'
+2026-01-09 18:56:04,978 - INFO - Transacción confirmada.
+2026-01-09 18:56:04,979 - INFO - Transacción iniciada.
+2026-01-09 18:56:04,979 - INFO - Restaurante con ID 6 eliminada exitosamente.
+2026-01-09 18:56:04,979 - INFO - Transacción confirmada.
+2026-01-09 18:56:04,979 - INFO - Transacción iniciada.
+2026-01-09 18:56:04,979 - INFO - Restaurante '7' insertada exitosamente.
+2026-01-09 18:56:04,981 - INFO - Revertida.
+2026-01-09 18:56:04,981 - INFO - Conexión cerrada.
