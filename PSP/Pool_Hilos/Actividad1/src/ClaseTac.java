@@ -5,17 +5,14 @@ public class ClaseTac extends Thread {
     public ClaseTac(){}
     @Override
     public void run() {
-        super.run();
-        try {
-            while (true) {
+        while (true) {
+            try {
                 IO.print(tac + ", ");
                 TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                IO.print(e.getMessage());
+                e.printStackTrace();
             }
-        }catch (InterruptedException e) {
-            IO.print(e.getMessage());
-            e.printStackTrace();
         }
     }
 }
-
-dimalamota

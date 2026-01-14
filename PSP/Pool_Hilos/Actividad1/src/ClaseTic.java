@@ -3,17 +3,18 @@ import java.util.concurrent.TimeUnit;
 public class ClaseTic extends Thread{
     private String tic = "Tic";
     public ClaseTic(){}
+
     @Override
     public void run() {
-        super.run();
-        try {
-            while (true) {
+        while (true) {
+            try {
                 IO.print(tic + ", ");
                 TimeUnit.SECONDS.sleep(1);
+
+            } catch (InterruptedException e) {
+                IO.print(e.getMessage());
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-           IO.print(e.getMessage());
-           e.printStackTrace();
         }
     }
 }
