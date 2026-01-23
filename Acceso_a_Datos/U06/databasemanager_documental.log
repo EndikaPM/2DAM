@@ -1,0 +1,16 @@
+2026-01-20 19:57:50,467 - INFO - Conectado a MongoDB: 2dam.restaurante
+2026-01-20 19:57:50,467 - INFO - Transacción iniciada.
+2026-01-20 19:57:50,477 - INFO - Documento insertado con ID: 696fd02e9242579c3d66bf50
+2026-01-20 19:57:50,477 - INFO - Documento insertado con ID: 696fd02e9242579c3d66bf51
+2026-01-20 19:57:50,477 - INFO - Transacción confirmada.
+2026-01-20 19:57:50,478 - INFO - Documentos recuperados: 2
+2026-01-20 19:57:50,478 - INFO - {'_id': ObjectId('696fd02e9242579c3d66bf50'), 'nombre': 'Mc Donald', 'tipo': 'Rapida', 'localizacion': 'Alcala de guaira', 'Estrellas': '3 estrellas'}
+2026-01-20 19:57:50,478 - INFO - {'_id': ObjectId('696fd02e9242579c3d66bf51'), 'nombre': 'Pizzeria Carlos', 'tipo': 'Italiana', 'localizacion': 'Sevilla', 'Ranking': '4.5'}
+2026-01-20 19:57:50,478 - INFO - Transacción iniciada.
+2026-01-20 19:57:50,478 - INFO - Documento actualizado: {'nombre': 'Mc Donald'}
+2026-01-20 19:57:50,478 - INFO - Transacción confirmada.
+2026-01-20 19:57:50,478 - INFO - Transacción iniciada.
+2026-01-20 19:57:50,478 - INFO - Documento eliminado: {'nombre': 'Pizzeria Carlos'}
+2026-01-20 19:57:50,478 - INFO - Transacción confirmada.
+2026-01-20 19:57:50,478 - INFO - Conexión a MongoDB cerrada.
+

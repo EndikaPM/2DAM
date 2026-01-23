@@ -1,0 +1,32 @@
+2026-01-20 20:47:21,225 - INFO - Conexión establecida con ZODB.
+2026-01-20 20:47:21,225 - INFO - Transacción iniciada.
+2026-01-20 20:47:21,225 - INFO - Restaurante con ID 1 creado exitosamente.
+2026-01-20 20:47:21,225 - INFO - Restaurante con ID 2 creado exitosamente.
+2026-01-20 20:47:21,225 - INFO - Restaurante con ID 3 creado exitosamente.
+2026-01-20 20:47:21,225 - INFO - Transacción confirmada.
+2026-01-20 20:47:21,225 - INFO - ID: 1, Nombre: AnCapaca, Tipo: Casera, Localización: LA puebla, Estrellas: ***
+2026-01-20 20:47:21,225 - INFO - ID: 2, Nombre: Burger, Tipo: Rapida, Localización: Sevilla, Estrellas: ****
+2026-01-20 20:47:21,225 - INFO - ID: 3, Nombre: La cochera, Tipo: Gourmet, Localización: Alcalá de Guadaíra, Estrellas: *****
+2026-01-20 20:47:21,225 - INFO - Transacción iniciada.
+2026-01-20 20:47:21,225 - ERROR - Error al crear el restaurante con ID 3: Ya existe un restaurante con ID 3.
+2026-01-20 20:47:21,225 - INFO - Transacción confirmada.
+2026-01-20 20:47:21,225 - INFO - ID: 1, Nombre: AnCapaca, Tipo: Casera, Localización: LA puebla, Estrellas: ***
+2026-01-20 20:47:21,225 - INFO - ID: 2, Nombre: Burger, Tipo: Rapida, Localización: Sevilla, Estrellas: ****
+2026-01-20 20:47:21,225 - INFO - ID: 3, Nombre: La cochera, Tipo: Gourmet, Localización: Alcalá de Guadaíra, Estrellas: *****
+2026-01-20 20:47:21,225 - INFO - Transacción iniciada.
+2026-01-20 20:47:21,225 - INFO - Restaurante con ID 2 actualizado exitosamente.
+2026-01-20 20:47:21,225 - INFO - Transacción confirmada.
+2026-01-20 20:47:21,225 - INFO - ID: 1, Nombre: AnCapaca, Tipo: Casera, Localización: LA puebla, Estrellas: ***
+2026-01-20 20:47:21,225 - INFO - ID: 2, Nombre: Burger Actualizada, Tipo: Actualizada, Localización: Sevilla Centro, Estrellas: *****
+2026-01-20 20:47:21,225 - INFO - ID: 3, Nombre: La cochera, Tipo: Gourmet, Localización: Alcalá de Guadaíra, Estrellas: *****
+2026-01-20 20:47:21,225 - INFO - Transacción iniciada.
+2026-01-20 20:47:21,225 - INFO - Restaurante con ID 3 eliminado exitosamente.
+2026-01-20 20:47:21,225 - INFO - Transacción confirmada.
+2026-01-20 20:47:21,225 - INFO - ID: 1, Nombre: AnCapaca, Tipo: Casera, Localización: LA puebla, Estrellas: ***
+2026-01-20 20:47:21,225 - INFO - ID: 2, Nombre: Burger Actualizada, Tipo: Actualizada, Localización: Sevilla Centro, Estrellas: *****
+2026-01-20 20:47:21,225 - INFO - Transacción iniciada.
+2026-01-20 20:47:21,225 - ERROR - Error al eliminar el restaurante con ID 5: No existe un restaurante con ID 5.
+2026-01-20 20:47:21,225 - INFO - Transacción confirmada.
+2026-01-20 20:47:21,225 - INFO - ID: 1, Nombre: AnCapaca, Tipo: Casera, Localización: LA puebla, Estrellas: ***
+2026-01-20 20:47:21,225 - INFO - ID: 2, Nombre: Burger Actualizada, Tipo: Actualizada, Localización: Sevilla Centro, Estrellas: *****
+2026-01-20 20:47:21,225 - INFO - Conexión a ZODB cerrada.

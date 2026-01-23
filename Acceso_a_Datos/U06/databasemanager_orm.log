@@ -1,0 +1,289 @@
+2026-01-19 18:39:00,975 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:01:56,127 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:25:36,060 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:34:28,778 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:35:08,709 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:35:08,709 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 19:37:05,230 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:37:05,233 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 19:37:05,234 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 19:37:05,234 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 19:51:51,591 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:51:51,591 - INFO - Leyendo herramientas:
+2026-01-19 19:51:51,594 - INFO - Proveedor Actualizado: Proveedor B
+2026-01-19 19:51:51,594 - INFO - Leyendo herramientas:
+2026-01-19 19:58:05,345 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:58:05,345 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 19:58:25,605 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:58:25,605 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 19:59:07,842 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 19:59:07,842 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:00:08,283 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:00:08,283 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:01:12,162 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:01:12,166 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:01:12,169 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:01:12,169 - INFO - Leyendo herramientas:
+2026-01-19 20:01:12,169 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:04:14,932 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:04:14,936 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:04:14,939 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:04:14,939 - INFO - Leyendo herramientas:
+2026-01-19 20:04:14,940 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:04:14,941 - INFO - Leyendo herramientas:
+2026-01-19 20:04:14,943 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:04:14,943 - INFO - Leyendo herramientas:
+2026-01-19 20:06:08,883 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:06:08,885 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:06:08,886 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:06:08,886 - INFO - Leyendo Proveedores:
+2026-01-19 20:06:08,888 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:06:08,888 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:06:08,888 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:06:08,888 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:06:08,889 - INFO - Leyendo Proveedores:
+2026-01-19 20:06:08,889 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:06:08,889 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:06:08,889 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:06:08,890 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:06:08,891 - INFO - Leyendo Proveedores:
+2026-01-19 20:06:08,891 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:06:08,891 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,523 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:08:00,527 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:08:00,528 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:08:00,528 - INFO - Leyendo Proveedores:
+2026-01-19 20:08:00,529 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,529 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,530 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:08:00,530 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:08:00,530 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:08:00,531 - INFO - Leyendo Proveedores:
+2026-01-19 20:08:00,531 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,531 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,532 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,532 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:08:00,533 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:08:00,533 - INFO - Leyendo Proveedores:
+2026-01-19 20:08:00,534 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,534 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:08:00,534 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,967 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:09:16,970 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:09:16,972 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:09:16,972 - INFO - Leyendo Proveedores:
+2026-01-19 20:09:16,972 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,972 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,972 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:09:16,972 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:09:16,972 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:09:16,973 - INFO - Leyendo Proveedores:
+2026-01-19 20:09:16,974 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,974 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,974 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,974 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:09:16,976 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:09:16,976 - INFO - Leyendo Proveedores:
+2026-01-19 20:09:16,977 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,977 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:09:16,977 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,654 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:12:46,657 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:12:46,658 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:12:46,658 - INFO - Leyendo Proveedores:
+2026-01-19 20:12:46,659 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,659 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,660 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,660 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:12:46,660 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:12:46,660 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:12:46,661 - INFO - Leyendo Proveedores:
+2026-01-19 20:12:46,661 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,662 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,662 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,662 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,662 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:12:46,663 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:12:46,663 - INFO - Leyendo Proveedores:
+2026-01-19 20:12:46,664 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,664 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,664 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,664 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:12:46,667 - INFO - Herramienta creada: Martillo - Manual
+2026-01-19 20:12:46,668 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-19 20:12:46,668 - INFO - Leyendo herramientas:
+2026-01-19 20:12:46,669 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:12:46,670 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:20:10,721 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:20:10,721 - INFO - Leyendo herramientas:
+2026-01-19 20:23:01,255 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:23:01,257 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:23:01,259 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:23:01,259 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:01,260 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:01,260 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:23:01,260 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:23:01,260 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:23:01,262 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:01,262 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:01,262 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:01,262 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:23:01,264 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:23:01,264 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:01,264 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:01,265 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:01,266 - INFO - Herramienta creada: Martillo - Manual
+2026-01-19 20:23:01,267 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-19 20:23:01,267 - INFO - Leyendo herramientas:
+2026-01-19 20:23:01,268 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:01,269 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:01,269 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:01,270 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:26,310 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:23:26,315 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:23:26,316 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:23:26,316 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:26,317 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,317 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,317 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:23:26,317 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:23:26,317 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:23:26,318 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:26,318 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,318 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,318 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,319 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:23:26,320 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:23:26,320 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:26,320 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,320 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,320 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:26,321 - INFO - Herramienta creada: Martillo - Manual
+2026-01-19 20:23:26,322 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-19 20:23:26,322 - INFO - Leyendo herramientas:
+2026-01-19 20:23:26,323 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:26,324 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:26,324 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:26,324 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:26,324 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:26,325 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:26,325 - INFO - Leyendo herramientas:
+2026-01-19 20:23:53,897 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:23:53,899 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:23:53,902 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:23:53,902 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:53,902 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,902 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,902 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,902 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:23:53,902 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:23:53,902 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:23:53,903 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:53,903 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,904 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,904 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,904 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,904 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:23:53,905 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:23:53,905 - INFO - Leyendo Proveedores:
+2026-01-19 20:23:53,905 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,905 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,905 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,905 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:23:53,906 - INFO - Herramienta creada: Martillo - Manual
+2026-01-19 20:23:53,909 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-19 20:23:53,909 - INFO - Leyendo herramientas:
+2026-01-19 20:23:53,910 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:53,911 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:53,911 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:53,911 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:53,912 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:53,912 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:23:53,913 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:23:53,914 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:31:51,680 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:31:51,682 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:31:51,684 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:31:51,684 - INFO - Leyendo Proveedores:
+2026-01-19 20:31:51,685 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:31:51,685 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:31:51,685 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:31:51,687 - INFO - Leyendo Proveedores:
+2026-01-19 20:31:51,687 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:31:51,687 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:31:51,689 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:31:51,689 - INFO - Leyendo Proveedores:
+2026-01-19 20:31:51,690 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:31:51,691 - INFO - Herramienta creada: Martillo - Manual
+2026-01-19 20:31:51,692 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-19 20:31:51,693 - INFO - Leyendo herramientas:
+2026-01-19 20:31:51,693 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:31:51,693 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:31:51,694 - INFO - Leyendo herramientas:
+2026-01-19 20:31:51,694 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:31:51,694 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:42:44,380 - INFO - Conexión establecida y tablas creadas.
+2026-01-19 20:42:44,382 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-19 20:42:44,383 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-19 20:42:44,383 - INFO - Leyendo Proveedores:
+2026-01-19 20:42:44,384 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:42:44,385 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-19 20:42:44,385 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:42:44,385 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-19 20:42:44,386 - INFO - Leyendo Proveedores:
+2026-01-19 20:42:44,386 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:42:44,386 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:42:44,386 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-19 20:42:44,387 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-19 20:42:44,387 - INFO - Leyendo Proveedores:
+2026-01-19 20:42:44,388 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:42:44,388 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-19 20:42:44,389 - INFO - Herramienta creada: Martillo - Manual
+2026-01-19 20:42:44,390 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-19 20:42:44,390 - INFO - Leyendo herramientas:
+2026-01-19 20:42:44,390 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:42:44,391 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:42:44,391 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:42:44,391 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:42:44,391 - INFO - Leyendo herramientas:
+2026-01-19 20:42:44,392 - INFO - Martillo - Manual (Proveedor A)
+2026-01-19 20:42:44,392 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-19 20:42:44,392 - INFO - Herramienta Actualizada: Martillo - Reforzado - Bellota - Manual - madera y hierro - 23
+2026-01-20 19:23:07,518 - INFO - Transacción iniciada.
+2026-01-20 19:23:27,779 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,897 - INFO - Conexión establecida y tablas creadas.
+2026-01-20 19:25:12,897 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,898 - INFO - Proveedor creado: Proveedor A - 123-456-789
+2026-01-20 19:25:12,898 - INFO - Proveedor creado: Proveedor B - 987-654-321
+2026-01-20 19:25:12,900 - INFO - Transacción confirmada.
+2026-01-20 19:25:12,900 - INFO - Leyendo Proveedores:
+2026-01-20 19:25:12,902 - INFO - Nombre: Proveedor A, Contacto: 123-456-789
+2026-01-20 19:25:12,902 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-20 19:25:12,902 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,902 - INFO - Proveedor Actualizado: Proveedor A - 15413448K
+2026-01-20 19:25:12,903 - INFO - Transacción confirmada.
+2026-01-20 19:25:12,903 - INFO - Leyendo Proveedores:
+2026-01-20 19:25:12,904 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-20 19:25:12,904 - INFO - Nombre: Proveedor B, Contacto: 987-654-321
+2026-01-20 19:25:12,904 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,904 - INFO - Proveedor Eliminado: Proveedor B
+2026-01-20 19:25:12,905 - INFO - Transacción confirmada.
+2026-01-20 19:25:12,905 - INFO - Leyendo Proveedores:
+2026-01-20 19:25:12,905 - INFO - Nombre: Proveedor A, Contacto: 15413448K
+2026-01-20 19:25:12,905 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,906 - INFO - Herramienta creada: Martillo - Manual
+2026-01-20 19:25:12,906 - INFO - Herramienta creada: Taladro - Eléctrica
+2026-01-20 19:25:12,907 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,907 - INFO - Leyendo herramientas:
+2026-01-20 19:25:12,908 - INFO - Martillo - Manual (Proveedor A)
+2026-01-20 19:25:12,909 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-20 19:25:12,909 - INFO - Leyendo herramientas:
+2026-01-20 19:25:12,911 - INFO - Martillo - Manual (Proveedor A)
+2026-01-20 19:25:12,911 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-20 19:25:12,911 - INFO - Transacción iniciada.
+2026-01-20 19:25:12,912 - INFO - Herramienta Actualizada: Martillo - Reforzado - Bellota - Manual - madera y hierro - 1
+2026-01-20 19:25:12,913 - INFO - Transacción confirmada.
+2026-01-20 19:25:12,913 - INFO - Leyendo herramientas:
+2026-01-20 19:25:12,914 - INFO - Martillo - Reforzado (Proveedor A)
+2026-01-20 19:25:12,915 - INFO - Taladro - Eléctrica (Proveedor A)
+2026-01-20 19:25:12,915 - INFO - Conexión cerrada.

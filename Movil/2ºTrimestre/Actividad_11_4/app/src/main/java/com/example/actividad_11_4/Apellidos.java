@@ -45,7 +45,7 @@ public class Apellidos extends View {
         // --- 4. Estilo de trazo (contorno ) ---
         pincel.setColor(Color.GREEN);
         pincel.setTextSize(70);
-        pincel.setStyle(Paint.Style.STROKE);
+        pincel.setStyle(Paint.Style.STROKE);// esto dibuja solo el contorno
         canvas.drawText(apellidos,600,900,pincel);
         pincel.setStyle(Paint.Style.FILL);
 

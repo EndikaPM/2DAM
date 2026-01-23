@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="#5E9BF4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top|center">
+        <TextView
+            android:id="@+id/textoGrabando"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grabando sonido"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/black"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="40dp">
+
+        <ImageButton
+            android:id="@+id/mic"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/outline_mic_gear_24"
+            android:background="@drawable/borde"
+            android:layout_margin="2dp"/>
+        <ImageButton
+            android:id="@+id/pause"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/outline_autopause_24"
+            android:background="@drawable/borde"
+            android:layout_margin="2dp"/>
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/outline_autoplay_24"
+            android:background="@drawable/borde"
+            android:layout_margin="2dp"/>
+    </LinearLayout>
+
+</LinearLayout>
