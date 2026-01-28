@@ -1,0 +1,2 @@
+spring.application.name=Tutorials
+spring.data.mongodb.uri=mongodb://localhost:27018/tu_base_de_datos

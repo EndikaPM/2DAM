@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#41ABB9"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GRABANDO VIDEO !!"
+            android:textColor="@color/red"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_margin="15dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5px"
+            android:background="@color/black" />
+    </LinearLayout>
+    <SurfaceView
+        android:id="@+id/video"
+        android:layout_width="520dp"
+        android:layout_height="520dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/grabar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grabar"
+            android:layout_margin="10dp"
+            app:cornerRadius="5dp"
+            android:backgroundTint="@color/green"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/parar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parar"
+            android:layout_margin="10dp"
+            app:cornerRadius="5dp"
+            android:backgroundTint="@color/green"
+            android:enabled="false"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/repro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reproducir"
+            android:layout_margin="10dp"
+            app:cornerRadius="5dp"
+            android:backgroundTint="@color/green"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
