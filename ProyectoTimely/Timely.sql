@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 22-01-2026 a las 19:07:18
+-- Tiempo de generación: 03-02-2026 a las 22:09:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `Timely`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Ausencias`
+--
+
+CREATE TABLE `Ausencias` (
+  `id` int(11) NOT NULL,
+  `id_trabajador` char(9) NOT NULL,
+  `dia_inicio_ausencia` date NOT NULL,
+  `dia_fin_ausencia` date NOT NULL,
+  `motivo` enum('VACACIONES','DESCANSO','CITA_MEDICA','OTRAS') NOT NULL
+) ;
 
 -- --------------------------------------------------------
 
@@ -97,7 +111,7 @@ CREATE TABLE `jornada` (
   `hora_entrada` time DEFAULT NULL,
   `hora_salida` time DEFAULT NULL,
   `modificado` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ;
 
 --
 -- Volcado de datos para la tabla `jornada`
@@ -191,6 +205,13 @@ INSERT INTO `usuario` (`dni`, `firstName`, `lastName`, `email`, `password`, `bir
 --
 
 --
+-- Indices de la tabla `Ausencias`
+--
+ALTER TABLE `Ausencias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_trabajador` (`id_trabajador`);
+
+--
 -- Indices de la tabla `departamento`
 --
 ALTER TABLE `departamento`
@@ -228,14 +249,26 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `Ausencias`
+--
+ALTER TABLE `Ausencias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `jornada`
 --
 ALTER TABLE `jornada`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `Ausencias`
+--
+ALTER TABLE `Ausencias`
+  ADD CONSTRAINT `Ausencias_ibfk_1` FOREIGN KEY (`id_trabajador`) REFERENCES `usuario` (`dni`);
 
 --
 -- Filtros para la tabla `departamento`
