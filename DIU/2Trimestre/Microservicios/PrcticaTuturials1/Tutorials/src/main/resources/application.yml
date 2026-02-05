@@ -1,2 +1,18 @@
-spring.application.name=Tutorials
-spring.data.mongodb.uri=mongodb://localhost:27018/tu_base_de_datos
+server:
+  port: 8080
+
+spring:
+  application:
+    name: tutorials-service
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      # Aquí es donde defines la conexión principal
+      uri: mongodb://localhost:27018/tu_base_de_datos
+
+# Estas son propiedades personalizadas (custom)
+# Solo úsalas si las estás llamando con @Value en tu código Java
+mongodb:
+  host: localhost
+  port: 27018
