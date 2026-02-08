@@ -35,9 +35,9 @@
 
         <ImageView
             android:id="@+id/imgEdit"
-            android:layout_width="70dp"
-            android:layout_height="90dp"
-            android:hint="Añade el id de la imagen"/>
+            android:layout_width="260dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,7 +56,8 @@
             android:id="@+id/titleEdit"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:hint="Añade el titulo del libro"/>
+            android:hint="Añade el titulo del libro"
+            android:imeOptions="actionNext"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,7 +76,8 @@
             android:id="@+id/textDescripEdit"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:hint="Añade una descripción del libro"/>
+            android:hint="Añade una descripción del libro"
+            android:imeOptions="actionNext"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -107,7 +109,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="50dp">
         <com.google.android.material.button.MaterialButton
             android:id="@+id/backEdit"
             android:layout_width="wrap_content"

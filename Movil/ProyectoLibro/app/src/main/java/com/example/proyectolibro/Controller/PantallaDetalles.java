@@ -1,6 +1,7 @@
 package com.example.proyectolibro.Controller;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,7 +40,14 @@ public class PantallaDetalles extends AppCompatActivity {
         Bundle datosRecibidos = recibir.getExtras();
 
         if (datosRecibidos != null){
-            imgenLibro.setImageResource(datosRecibidos.getInt("imagen"));
+            // Verificar si se recibió un Bitmap o un recurso drawable
+            Bitmap imagenBitmap = datosRecibidos.getParcelable("imagenBitmap");
+            if (imagenBitmap != null) {
+                imgenLibro.setImageBitmap(imagenBitmap);
+            } else {
+                imgenLibro.setImageResource(datosRecibidos.getInt("imagen"));
+            }
+
             titulo.setText(datosRecibidos.getString("titulo"));
             descrip.setText(datosRecibidos.getString("contenido"));
             fecha.setText(datosRecibidos.getString("fecha"));

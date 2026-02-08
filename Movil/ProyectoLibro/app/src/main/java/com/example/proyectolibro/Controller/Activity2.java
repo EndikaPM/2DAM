@@ -3,6 +3,7 @@ package com.example.proyectolibro.Controller;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -130,14 +131,22 @@ public class Activity2 extends AppCompatActivity{
         botonFlotante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int imagen = datosLibros.get(elementoSelecionado).getImagen();
-                String titulo = datosLibros.get(elementoSelecionado).getTitulo();
-                String contenido = datosLibros.get(elementoSelecionado).getTexto();
-                String fecha = datosLibros.get(elementoSelecionado).getFecha();
-                boolean favorito = datosLibros.get(elementoSelecionado).isDato1();
+                Libro libroSeleccionado = datosLibros.get(elementoSelecionado);
+                int imagen = libroSeleccionado.getImagen();
+                String titulo = libroSeleccionado.getTitulo();
+                String contenido = libroSeleccionado.getTexto();
+                String fecha = libroSeleccionado.getFecha();
+                boolean favorito = libroSeleccionado.isDato1();
 
                 Intent enviarDetalles = new Intent(Activity2.this, PantallaDetalles.class);
-                enviarDetalles.putExtra("imagen", imagen);
+
+                // Enviar el Bitmap si existe, sino enviar el ID del recurso
+                if (libroSeleccionado.getImagenBitmap() != null) {
+                    enviarDetalles.putExtra("imagenBitmap", libroSeleccionado.getImagenBitmap());
+                } else {
+                    enviarDetalles.putExtra("imagen", imagen);
+                }
+
                 enviarDetalles.putExtra("titulo", titulo);
                 enviarDetalles.putExtra("contenido", contenido);
                 enviarDetalles.putExtra("fecha", fecha);
@@ -201,8 +210,31 @@ public class Activity2 extends AppCompatActivity{
             if (requestCode == REQUEST_CODE_ADD) {
                 Bundle datosAdd = recibir.getExtras();
                 if (datosAdd != null) {
+                    // Obtener el Bitmap de la imagen seleccionada
+                    Object imagenObj = datosAdd.get("imagen");
+                    Bitmap imagenBitmap = null;
+                    int imagenId = R.drawable.ic_launcher_foreground;
 
-                    datosLibros.add(new Libro(R.drawable.ic_launcher_foreground, datosAdd.getString("Title"), datosAdd.getString("Descri"), datosAdd.getString("datePublis"), true));
+                    if (imagenObj instanceof Bitmap) {
+                        imagenBitmap = (Bitmap) imagenObj;
+                    } else if (imagenObj instanceof Integer) {
+                        int valor = (Integer) imagenObj;
+                        if (valor != -1) {
+                            imagenId = valor;
+                        }
+                    }
+
+                    // Crear nuevo libro
+                    Libro nuevoLibro = new Libro(imagenId, datosAdd.getString("Title"),
+                                                  datosAdd.getString("Descri"),
+                                                  datosAdd.getString("datePublis"), true);
+
+                    // Si se seleccionó una imagen de la galería, guardarla
+                    if (imagenBitmap != null) {
+                        nuevoLibro.setImagenBitmap(imagenBitmap);
+                    }
+
+                    datosLibros.add(nuevoLibro);
 
                     Toast.makeText(Activity2.this, "Libro añadido: " + datosAdd.getString("Title"), Toast.LENGTH_SHORT).show();
                     adaptador.notifyDataSetChanged();
@@ -215,8 +247,15 @@ public class Activity2 extends AppCompatActivity{
                     if (posicion != -1 && posicion < datosLibros.size()) {
                         Libro libro = datosLibros.get(posicion);
 
-                        int nuevaImagen = datosEdit.getInt("imgId", libro.getImagen());
-                        libro.setImagen(nuevaImagen);
+                        // Obtener el Bitmap de la imagen seleccionada
+                        Object imagenObj = datosEdit.get("imagen");
+                        if (imagenObj instanceof Bitmap) {
+                            libro.setImagenBitmap((Bitmap) imagenObj);
+                        } else {
+                            int nuevaImagen = datosEdit.getInt("imgId", libro.getImagen());
+                            libro.setImagen(nuevaImagen);
+                        }
+
                         libro.setTitulo(datosEdit.getString("Title"));
                         libro.setTexto(datosEdit.getString("Descri"));
                         libro.setFecha(datosEdit.getString("datePublis"));

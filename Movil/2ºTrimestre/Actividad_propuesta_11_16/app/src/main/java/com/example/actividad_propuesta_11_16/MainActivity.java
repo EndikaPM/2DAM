@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.location.LocationProvider;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -21,41 +22,49 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView visor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        visor = findViewById(R.id.visor);
+
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.
+                checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) !=
+                PackageManager.PERMISSION_GRANTED) {
+            //solicitamos permisos al usuario
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        } else {
+            iniciarLocalizacion();
+        }
+
+    }
+
+    private void iniciarLocalizacion() {
         LocationManager miGestorDeLocalizaciones = (LocationManager) getSystemService(LOCATION_SERVICE);
-        List<String> misProveedores = miGestorDeLocalizaciones.getAllProviders();
-        for (String proveedor : misProveedores) {
 
-            LocationProvider info = miGestorDeLocalizaciones.getProvider(proveedor);
-            Log.i("GEO", proveedor);
-            Log.i("GEO", "REQUIERE SATELITE : " + info.requiresSatellite() );
-        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        miGestorDeLocalizaciones.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, new LocationListener() {
-            @Override
-            public void onLocationChanged(@NonNull Location location) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.i("GOE", "Nueva Latitud :" + location.getLatitude());
+            miGestorDeLocalizaciones.requestLocationUpdates(
+                    LocationManager.NETWORK_PROVIDER,
+                    5000,
+                    5,
+                    new LocationListener() {
+                        @Override
+                        public void onLocationChanged(@NonNull Location location) {
+                            runOnUiThread(() -> {
+                                String localizacion = "Latitud: " + location.getLatitude() + "\n" +
+                                        "Longitud: " + location.getLongitude();
+                                visor.setText(localizacion);
+                            });
+                        }
                     }
-                });
-            }
-        });
-
+            );
+        }
     }
 }

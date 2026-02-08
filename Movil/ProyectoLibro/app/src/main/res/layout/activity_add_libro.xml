@@ -31,7 +31,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:id="@+id/imageContainer">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,12 +40,12 @@
             android:textStyle="bold"
             android:layout_marginEnd="10dp"
             android:textColor="@color/white"/>
-        <TextView
+        <ImageView
             android:id="@+id/img"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:text="Imagen añadida por defecto"
-            android:textColor="@color/white"/>
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/outline_add_box_30"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,7 +64,8 @@
             android:id="@+id/title"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:hint="Añade el titulo del libro"/>
+            android:hint="Añade el titulo del libro"
+            android:imeOptions="actionNext"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,7 +84,8 @@
             android:id="@+id/textDescrip"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
-            android:hint="Añade una descripción del libro"/>
+            android:hint="Añade una descripción del libro"
+            android:imeOptions="actionNext"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -114,7 +117,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="50dp">
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back"
             android:layout_width="wrap_content"

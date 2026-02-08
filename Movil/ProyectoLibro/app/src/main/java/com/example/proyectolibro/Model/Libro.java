@@ -1,10 +1,12 @@
 package com.example.proyectolibro.Model;
 
+import android.graphics.Bitmap;
 import java.io.Serializable;
 
 public class Libro implements Serializable {
     private int id;
     private int imagen;
+    private Bitmap imagenBitmap; // Nueva variable para almacenar imagen de galería
     private String titulo;
     private String texto;
     private String fecha;
@@ -55,5 +57,13 @@ public class Libro implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Bitmap getImagenBitmap() {
+        return imagenBitmap;
+    }
+
+    public void setImagenBitmap(Bitmap imagenBitmap) {
+        this.imagenBitmap = imagenBitmap;
     }
 }

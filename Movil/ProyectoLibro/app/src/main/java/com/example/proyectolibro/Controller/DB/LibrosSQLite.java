@@ -15,7 +15,12 @@ import java.util.ArrayList;
 public class LibrosSQLite extends SQLiteOpenHelper {
     private ArrayList<Libro> listaLibros;
 
-    private String sqlCreate = "CREATE TABLE libros (id INTEGER PRIMARY KEY AUTOINCREMENT, img INTEGER, titulo TEXT, descripcion TEXT, fecha TEXT)";
+    private String sqlCreate = "CREATE TABLE libros (" +
+            "id INTEGER PRIMARY KEY AUTOINCREMENT" +
+            ", img INTEGER, " +
+            "titulo TEXT, " +
+            "descripcion TEXT, " +
+            "fecha TEXT)";
 
     public LibrosSQLite(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

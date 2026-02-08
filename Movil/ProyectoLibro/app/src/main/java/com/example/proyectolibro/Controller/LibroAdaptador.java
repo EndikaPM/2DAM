@@ -25,7 +25,13 @@ import java.util.ArrayList;
             TextView texto = view.findViewById(R.id.texto_libro);
             TextView fecha = view.findViewById(R.id.fecha_libro);
 
-            imagen.setImageResource(libro.getImagen());
+            // Verificar si hay un Bitmap personalizado, sino usar el recurso drawable
+            if (libro.getImagenBitmap() != null) {
+                imagen.setImageBitmap(libro.getImagenBitmap());
+            } else {
+                imagen.setImageResource(libro.getImagen());
+            }
+            
             titulo.setText(libro.getTitulo());
             texto.setText(libro.getTexto());
             fecha.setText(libro.getFecha());
