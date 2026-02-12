@@ -1,0 +1,24 @@
+2026-02-12 20:09:11,488 - INFO - Conexión a la base de datos establecida
+2026-02-12 20:09:11,489 - INFO - Tabla creada/verificada correctamente
+2026-02-12 20:09:11,489 - ERROR - Error al insertar en SQL: 'nombre'
+2026-02-12 20:09:11,489 - INFO - Conexión cerrada correctamente
+2026-02-12 20:10:28,722 - INFO - Conexión a la base de datos establecida
+2026-02-12 20:10:28,724 - INFO - Tabla creada/verificada correctamente
+2026-02-12 20:10:28,724 - ERROR - Error al leer el csv: [Errno 2] No such file or directory: 'info_alumno.csv'
+2026-02-12 20:10:28,724 - WARNING - No se encontraron datos en el CSV
+2026-02-12 20:10:28,725 - INFO - Conexión cerrada correctamente
+2026-02-12 20:11:14,217 - INFO - Conexión a la base de datos establecida
+2026-02-12 20:11:14,218 - INFO - Tabla creada/verificada correctamente
+2026-02-12 20:11:14,218 - ERROR - Error al leer el csv: [Errno 2] No such file or directory: 'info_alumno.csv'
+2026-02-12 20:11:14,219 - WARNING - No se encontraron datos en el CSV
+2026-02-12 20:11:14,219 - INFO - Conexión cerrada correctamente
+2026-02-12 20:11:41,122 - INFO - Conexión a la base de datos establecida
+2026-02-12 20:11:41,124 - INFO - Tabla creada/verificada correctamente
+2026-02-12 20:11:41,124 - ERROR - Error al leer el csv: [Errno 2] No such file or directory: 'info_alumno.csv'
+2026-02-12 20:11:41,124 - WARNING - No se encontraron datos en el CSV
+2026-02-12 20:11:41,124 - INFO - Conexión cerrada correctamente
+2026-02-12 20:12:18,304 - INFO - Conexión a la base de datos establecida
+2026-02-12 20:12:18,305 - INFO - Tabla creada/verificada correctamente
+2026-02-12 20:12:18,306 - ERROR - Error al leer el csv: [Errno 2] No such file or directory: 'info_alumno.csv'
+2026-02-12 20:12:18,306 - WARNING - No se encontraron datos en el CSV
+2026-02-12 20:12:18,306 - INFO - Conexión cerrada correctamente

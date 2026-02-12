@@ -16,5 +16,39 @@
         "direccion": "Utrera",
         "telefono": "888888",
         "tipo": "Casera"
-    }
+    },
+    [
+        {
+            "nombre": "La Parra",
+            "tipo": "Casera",
+            "localizacion": "Utrera"
+        },
+        {
+            "nombre": "La Liebre",
+            "tipo": "Mediterr\u00e1nea",
+            "localizacion": "Alcal\u00e1 de Guada\u00edra"
+        },
+        {
+            "nombre": "McDonald's",
+            "tipo": "R\u00e1pida",
+            "localizacion": "Sevilla"
+        }
+    ],
+    [
+        {
+            "nombre": "La Parra",
+            "tipo": "Casera",
+            "localizacion": "Utrera"
+        },
+        {
+            "nombre": "La Liebre",
+            "tipo": "Mediterr\u00e1nea",
+            "localizacion": "Alcal\u00e1 de Guada\u00edra"
+        },
+        {
+            "nombre": "McDonald's",
+            "tipo": "R\u00e1pida",
+            "localizacion": "Sevilla"
+        }
+    ]
 ]

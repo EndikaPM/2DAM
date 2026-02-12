@@ -11,3 +11,15 @@
 2026-01-09 17:57:42,916 - INFO - Archivo JSON cargado con éxito. Versión actual:1
 2026-01-09 17:57:42,916 - INFO - Configuración actualizada. Nueva ruta del archivo: restaurante.csv
 2026-01-09 17:57:42,917 - INFO - Archivo CSV guardado. Versión actual:1
+2026-02-11 19:12:42,481 - INFO - Archivo JSON cargado con éxito. Versión actual:1
+2026-02-11 19:12:42,481 - INFO - Transacción iniciada.
+2026-02-11 19:12:42,481 - INFO - Dato agregado: [{'nombre': 'La Parra', 'tipo': 'Casera', 'localizacion': 'Utrera'}, {'nombre': 'La Liebre', 'tipo': 'Mediterránea', 'localizacion': 'Alcalá de Guadaíra'}, {'nombre': "McDonald's", 'tipo': 'Rápida', 'localizacion': 'Sevilla'}]
+2026-02-11 19:12:42,481 - INFO - Archivo JSON guardado. Versión actual:2
+2026-02-11 19:12:42,481 - INFO - Transacción confirmada y cambios guardados.
+2026-02-11 19:12:42,482 - INFO - Archivo JSON guardado. Versión actual:2
+2026-02-11 19:12:53,750 - INFO - Archivo JSON cargado con éxito. Versión actual:1
+2026-02-11 19:12:53,750 - INFO - Transacción iniciada.
+2026-02-11 19:12:53,751 - INFO - Dato agregado: [{'nombre': 'La Parra', 'tipo': 'Casera', 'localizacion': 'Utrera'}, {'nombre': 'La Liebre', 'tipo': 'Mediterránea', 'localizacion': 'Alcalá de Guadaíra'}, {'nombre': "McDonald's", 'tipo': 'Rápida', 'localizacion': 'Sevilla'}]
+2026-02-11 19:12:53,751 - INFO - Archivo JSON guardado. Versión actual:2
+2026-02-11 19:12:53,751 - INFO - Transacción confirmada y cambios guardados.
+2026-02-11 19:12:53,753 - INFO - Archivo JSON guardado. Versión actual:2
