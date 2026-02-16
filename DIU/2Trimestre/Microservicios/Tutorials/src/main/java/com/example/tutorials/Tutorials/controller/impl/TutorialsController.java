@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:8082")
 @RestController
 @RequestMapping("/api/v1")
 public class TutorialsController implements TutorialsAPI {
@@ -45,6 +46,7 @@ public class TutorialsController implements TutorialsAPI {
     public TutorialsDto save(@RequestBody TutorialsDto tutorialDto) {
         return tutorialsService.save(tutorialDto);
     }
+
 
     @Override
     @PutMapping("/tutorials/{id}")

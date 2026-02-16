@@ -16,4 +16,5 @@ public interface TutorialsService {
     TutorialsDto updateTutorial(TutorialsDto tutorial); //funciona
     ResponseEntity deleteTutorial(String id); //funciona
     ResponseEntity deleteAllTutorials(); //funciona
+
 }

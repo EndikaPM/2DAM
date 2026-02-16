@@ -34,7 +34,7 @@ public class Usuario {
     @Column(name = "dni", length = 9)
     private String dni;
 
-    // name = "firstName" → coincide con la columna en MySQL
+    // name = "first_name" → coincide con la columna en MySQL
     @Column(name = "first_name", nullable = false, length = 50)
     private String firstName;
 
