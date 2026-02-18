@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Dibujo11_3 divujo = new Dibujo11_3(this);
-        setContentView(divujo);
+        Dibujo11_3 dibujo = new Dibujo11_3(this);
+        setContentView(dibujo);
     }
 }
