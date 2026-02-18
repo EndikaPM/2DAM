@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="053fa240-0b40-4bd0-90de-312da5c3f28d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/androidTest/java/com/example/preparacion_examen_11/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/java/com/example/preparacion_examen_11/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/java/com/example/preparacion_examen_11/MainActivity2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/drawable/outline_arrow_back_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/drawable/outline_autoplay_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/layout/activity_main2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/values/style.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/app/src/test/java/com/example/preparacion_examen_11/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/gradle/libs.versions.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_examen_11/settings.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_inclinacion/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_inclinacion/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2ºTrimestre/Preparacion_examen/Preparacion_inclinacion/app/src/main/res/drawable/muneco.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../1ºTrimestre/Tema10/Actividad10_1/app/src/main/java/com/example/actividad10_1/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../1ºTrimestre/Tema10/Actividad10_1/app/src/main/java/com/example/actividad10_1/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_12_3/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_12_3/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_12_3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_12_3/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_propuesta_12_1/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_propuesta_12_1/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_propuesta_12_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../2ºTrimestre/Actividad_propuesta_12_1/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="39qyKprxOuYZa0OSmkjSWkFSa3J" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "android.gradle.sync.needed": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="053fa240-0b40-4bd0-90de-312da5c3f28d" name="Changes" comment="" />
+      <created>1771437834684</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771437834684</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
