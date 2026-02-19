@@ -1,0 +1,548 @@
+// ============================================
+// COMENTARIOS DETALLADOS DEL CÓDIGO
+// ============================================
+
+/**
+ * ESTRUCTURA DEL MainActivity.java
+ *
+ * Este archivo gestiona:
+ * 1. Captura de datos del acelerómetro
+ * 2. Movimiento del ImageView según inclinación
+ * 3. Detección y efectos de sacudida
+ * 4. Vibración del dispositivo
+ * 5. Reproducción de sonido
+ * 6. Actualización de UI cada 100ms
+ */
+
+// ============================================
+// SECCIÓN 1: VARIABLES DEL ACELERÓMETRO
+// ============================================
+
+private SensorManager sensorManager;           // Gestor que proporciona acceso a los sensores
+private Sensor accelerometro;                  // El sensor específico del acelerómetro
+private double x = 0, y = 0, z = 0;            // Valores de aceleración en cada eje (m/s²)
+private double a = 0, amax = 0;                // 'a' = aceleración total, 'amax' = máximo registrado
+private final double SHAKE_THRESHOLD = 12.0;   // Si 'a' > 12, se considera una sacudida
+
+/**
+ * ¿POR QUÉ ESTOS EJES?
+ *
+ * X (eje horizontal):
+ *   - X negativo = inclinación hacia la DERECHA
+ *   - X positivo = inclinación hacia la IZQUIERDA
+ *
+ * Y (eje vertical):
+ *   - Y negativo = inclinación hacia ARRIBA
+ *   - Y positivo = inclinación hacia ABAJO
+ *
+ * Z (eje profundo):
+ *   - Z positivo = levantando el teléfono (de la pantalla)
+ *   - Z negativo = presionando el teléfono (hacia la pantalla)
+ */
+
+// ============================================
+// SECCIÓN 2: VARIABLES DE INTERFAZ DE USUARIO
+// ============================================
+
+private TextView tvax, tvay, tvaz, tva, tvaMax;  // TextViews para mostrar X, Y, Z, A, Max
+private ImageView imagen;                        // La imagen que se mueve (ic_launcher_foreground)
+private FrameLayout frameLayout;                 // Contenedor principal (permite posicionamiento absoluto)
+
+// ============================================
+// SECCIÓN 3: VARIABLES DE POSICIÓN
+// ============================================
+
+private float imagenCenterX = 0;     // Centro X de la pantalla (ejemplo: 540px en un móvil de 1080px)
+private float imagenCenterY = 0;     // Centro Y de la pantalla (ejemplo: 1170px en un móvil de 2340px)
+private float imagenX = 0;           // Posición X ACTUAL de la imagen
+private float imagenY = 0;           // Posición Y ACTUAL de la imagen
+private float sensitivity = 3.0f;    // Multiplicador: cuánto se mueve por cada unidad de aceleración
+
+/**
+ * EJEMPLO DE SENSIBILIDAD:
+ * Si X = 5 m/s² y sensitivity = 3.0f:
+ *   imagenX = imagenCenterX - (5 * 3.0) = imagenCenterX - 15px
+ *
+ * Aumentar 'sensitivity' = más movimiento por inclinación
+ * Disminuir 'sensitivity' = menos sensible
+ */
+
+// ============================================
+// SECCIÓN 4: CONTROL DE SACUDIDAS Y TIMING
+// ============================================
+
+private final Handler handler = new Handler(Looper.getMainLooper());
+// Handler para ejecutar tareas en el hilo principal de UI
+
+private Runnable runnable;
+// El bucle que se ejecuta cada 100ms para actualizar los TextViews
+
+private Vibrator vibrator;
+// Servicio del sistema para controlar la vibración del teléfono
+
+private MediaPlayer mediaPlayer;
+// Para reproducir sonidos (en este caso, cuando sale de pantalla)
+
+private boolean sacudidaDetectada = false;
+// Bandera de control (aunque se usa el cooldown en su lugar)
+
+private static final long SHAKE_COOLDOWN = 500;
+// Espera MÍNIMA entre sacudidas (en milisegundos)
+// Si se detecta una sacudida, no se detará otra hasta 500ms después
+
+private long ultimaSacudida = 0;
+// Almacena el timestamp (tiempo) de la última sacudida detectada
+
+// ============================================
+// SECCIÓN 5: MÉTODO onCreate()
+// ============================================
+
+/**
+ * SE EJECUTA: Una sola vez al crear la actividad
+ * PROPÓSITO: Inicializar todo
+ */
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);  // Cargar el layout XML
+
+    // PASO 1: Vincular las vistas (ID del XML con variables Java)
+    tvax = findViewById(R.id.textViewAX);    // Busca el TextView con ID 'textViewAX'
+    tvay = findViewById(R.id.textViewAY);    // (Similar para los demás)
+    tvaz = findViewById(R.id.textViewAZ);
+    tva = findViewById(R.id.textViewA);
+    tvaMax = findViewById(R.id.textViewAmax);
+    imagen = findViewById(R.id.imagen);      // El ImageView que se va a mover
+    frameLayout = findViewById(R.id.main);   // El contenedor FrameLayout
+
+    // PASO 2: Obtener acceso a los sensores
+    sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+    // getSystemService() obtiene servicios del sistema (sensores, vibrador, etc.)
+
+    accelerometro = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+    // getDefaultSensor() obtiene el acelerómetro del teléfono
+
+    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+    // Obtener el servicio de vibración
+
+    // PASO 3: Esperar a que el layout se renderice para obtener dimensiones
+    frameLayout.post(() -> {
+        // 'post()' ejecuta este código después de que se dibuje el layout
+        // Necesitamos esto porque getWidth() devuelve 0 antes de que se dibuje
+
+        imagenCenterX = frameLayout.getWidth() / 2f;   // Centro X
+        imagenCenterY = frameLayout.getHeight() / 2f;  // Centro Y
+
+        // Posicionar la imagen en el centro inicialmente
+        imagenX = imagenCenterX;
+        imagenY = imagenCenterY;
+        actualizarPosicionImagen();  // Aplicar la posición
+
+        Log.d("DIMENSION", "Ancho: " + frameLayout.getWidth() +
+                          ", Alto: " + frameLayout.getHeight());
+    });
+
+    // PASO 4: Crear el Runnable (bucle de actualización)
+    runnable = new Runnable() {
+        @Override
+        public void run() {
+            contador++;  // Incrementar contador (solo para tracking)
+
+            // Actualizar cada TextView con el valor formateado
+            tvax.setText("X: " + String.format("%.2f", x));
+            // String.format("%.2f", x) → convierte el valor a 2 decimales
+            // Ejemplo: 5.123456 → "5.12"
+
+            tvay.setText("Y: " + String.format("%.2f", y));
+            tvaz.setText("Z: " + String.format("%.2f", z));
+            tva.setText("A: " + String.format("%.2f", a));
+            tvaMax.setText("Max: " + String.format("%.2f", amax));
+
+            // Volver a ejecutar este código en 100 milisegundos
+            handler.postDelayed(this, 100);
+        }
+    };
+}
+
+// ============================================
+// SECCIÓN 6: MÉTODO onSensorChanged()
+// ============================================
+
+/**
+ * SE EJECUTA: Cada vez que el acelerómetro detecta un cambio
+ * PROPÓSITO: Procesar los datos del sensor
+ *
+ * VELOCIDAD: Aproximadamente 50-100 veces por segundo (SENSOR_DELAY_UI)
+ */
+@Override
+public void onSensorChanged(SensorEvent event) {
+    // event.values[] contiene los 3 valores del acelerómetro
+    x = event.values[0];  // Valor X
+    y = event.values[1];  // Valor Y
+    z = event.values[2];  // Valor Z
+
+    // Calcular la magnitud del vector de aceleración
+    // Fórmula: √(x² + y² + z²)
+    a = Math.sqrt(x * x + y * y + z * z);
+
+    // Guardar el valor máximo registrado
+    if (a > amax) amax = a;
+
+    // ===== MOVER LA IMAGEN SEGÚN LA INCLINACIÓN =====
+    // Si el teléfono se inclina, la imagen se mueve en la dirección opuesta
+    imagenX = imagenCenterX - (float)(x * sensitivity);
+    imagenY = imagenCenterY - (float)(y * sensitivity);
+
+    // Aplicar los cambios de posición a la pantalla
+    actualizarPosicionImagen();
+
+    // ===== LOGS PARA DEBUGGING =====
+    // Ver en logcat qué dirección está inclinada el teléfono
+    if (x < -2) Log.d("SENSOR_INCLINA", "Derecha");
+    else if (x > 2) Log.d("SENSOR_INCLINA", "Izquierda");
+    if (y < -2) Log.d("SENSOR_INCLINA", "Arriba");
+    else if (y > 2) Log.d("SENSOR_INCLINA", "Abajo");
+
+    // ===== DETECTAR SACUDIDA =====
+    if (a > SHAKE_THRESHOLD) {
+        long tiempoActual = System.currentTimeMillis();
+        // System.currentTimeMillis() → tiempo en ms desde 1970
+
+        // Verificar si ha pasado el tiempo mínimo desde la última sacudida
+        if (tiempoActual - ultimaSacudida > SHAKE_COOLDOWN) {
+            ultimaSacudida = tiempoActual;  // Actualizar timestamp
+
+            Log.i("SENSOR_EVENTO", "¡SACUDIDA DETECTADA!");
+
+            // Ejecutar todos los efectos de la sacudida
+            ejecutarEfectoSacudida();
+        }
+    }
+}
+
+// ============================================
+// SECCIÓN 7: MÉTODO actualizarPosicionImagen()
+// ============================================
+
+/**
+ * PROPÓSITO: Aplicar los cambios de posición calculados al ImageView
+ *
+ * PROCESO:
+ * 1. Obtener el tamaño de la imagen
+ * 2. Calcular la posición de la esquina superior izquierda
+ * 3. Aplicar con LayoutParams
+ * 4. Verificar si salió de pantalla
+ */
+private void actualizarPosicionImagen() {
+    int imagenWidth = imagen.getWidth();    // Ancho actual de la imagen
+    int imagenHeight = imagen.getHeight();  // Alto actual de la imagen
+
+    // Si aún no se ha dibujado (width = 0), usar tamaño por defecto
+    if (imagenWidth == 0) imagenWidth = 100;
+    if (imagenHeight == 0) imagenHeight = 100;
+
+    // Calcular la esquina superior izquierda
+    // (imagenX, imagenY) es el CENTRO, así que restamos la mitad del tamaño
+    float posX = imagenX - (imagenWidth / 2f);
+    float posY = imagenY - (imagenHeight / 2f);
+
+    // Obtener los parámetros de layout actuales
+    FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) imagen.getLayoutParams();
+
+    // Establecer márgenes (posición desde arriba-izquierda)
+    params.leftMargin = (int) posX;  // Distancia desde la izquierda
+    params.topMargin = (int) posY;   // Distancia desde arriba
+    params.gravity = 0;              // Desactivar gravity para usar márgenes
+
+    // Aplicar los cambios
+    imagen.setLayoutParams(params);
+
+    // Verificar si la imagen salió de la pantalla visible
+    verificarSalidaPantalla(posX, posY, imagenWidth, imagenHeight);
+}
+
+// ============================================
+// SECCIÓN 8: MÉTODO verificarSalidaPantalla()
+// ============================================
+
+/**
+ * PROPÓSITO: Detectar si la imagen está completamente fuera de los límites
+ * ACCIÓN: Reproducir sonido si está fuera
+ */
+private void verificarSalidaPantalla(float posX, float posY, int width, int height) {
+    // Obtener los límites de la pantalla
+    int pantallaDerecha = frameLayout.getWidth();
+    int pantallaAbajo = frameLayout.getHeight();
+
+    // Verificar cada lado
+    boolean estaFueraDeIzquierda = posX + width < 0;
+    // posX + width < 0 significa que la esquina derecha de la imagen está a la izquierda de 0
+
+    boolean estaFueraDeDerecha = posX > pantallaDerecha;
+    // Si la esquina izquierda está más allá del borde derecho
+
+    boolean estaFueraDeArriba = posY + height < 0;
+    // Si la esquina inferior está por encima de 0
+
+    boolean estaFueraDeAbajo = posY > pantallaAbajo;
+    // Si la esquina superior está debajo del borde inferior
+
+    // Si está fuera en alguna dirección
+    if (estaFueraDeIzquierda || estaFueraDeDerecha ||
+        estaFueraDeArriba || estaFueraDeAbajo) {
+        Log.w("PANTALLA", "¡Imagen salió de la pantalla!");
+        reproducirSonido();
+    }
+}
+
+// ============================================
+// SECCIÓN 9: MÉTODO reproducirSonido()
+// ============================================
+
+/**
+ * PROPÓSITO: Reproducir un sonido de notificación cuando sale de pantalla
+ *
+ * PROCESO:
+ * 1. Liberar MediaPlayer anterior si existe
+ * 2. Crear nuevo MediaPlayer con sonido del sistema
+ * 3. Reproducir
+ */
+private void reproducirSonido() {
+    try {
+        // Liberar el anterior para evitar 'memory leaks'
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+        }
+
+        // Crear nuevo MediaPlayer
+        // RingtoneManager.getDefaultUri() obtiene un sonido del sistema
+        // TYPE_NOTIFICATION → sonido típico de notificaciones
+        mediaPlayer = MediaPlayer.create(this,
+            android.media.RingtoneManager.getDefaultUri(
+                android.media.RingtoneManager.TYPE_NOTIFICATION));
+
+        if (mediaPlayer != null) {
+            mediaPlayer.setVolume(1.0f, 1.0f);  // Volumen máximo
+            mediaPlayer.start();                // Reproducir
+            Log.d("SONIDO", "Reproduciendo sonido de salida de pantalla");
+        }
+    } catch (Exception e) {
+        Log.e("SONIDO", "Error al reproducir sonido: " + e.getMessage());
+    }
+}
+
+// ============================================
+// SECCIÓN 10: MÉTODO ejecutarEfectoSacudida()
+// ============================================
+
+/**
+ * PROPÓSITO: Ejecutar todos los efectos cuando se detecta sacudida
+ *
+ * EFECTOS:
+ * 1. Vibración con patrón (200ms - pausa - 200ms)
+ * 2. Animación visual: rotación 360° + escalado 1.5x
+ * 3. Retorno al centro después de 500ms
+ */
+private void ejecutarEfectoSacudida() {
+    // EFECTO 1: Vibración
+    generarVibracion();
+
+    // EFECTO 2: Animación visual
+    // AnimationSet = combinar múltiples animaciones
+    android.view.animation.AnimationSet animationSet =
+        new android.view.animation.AnimationSet(true);
+
+    animationSet.setDuration(500);  // Duración total: 500ms
+
+    // === ROTACIÓN ===
+    android.view.animation.RotateAnimation rotateAnim =
+        new android.view.animation.RotateAnimation(
+            0, 360,  // De 0 a 360 grados
+            android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f,  // Centro X
+            android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f   // Centro Y
+        );
+    animationSet.addAnimation(rotateAnim);
+
+    // === ESCALADO ===
+    android.view.animation.ScaleAnimation scaleAnim =
+        new android.view.animation.ScaleAnimation(
+            1.0f, 1.5f,  // Escala X: de 1.0 a 1.5 (50% más grande)
+            1.0f, 1.5f,  // Escala Y: de 1.0 a 1.5
+            android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f,  // Centro X
+            android.view.animation.Animation.RELATIVE_TO_SELF, 0.5f   // Centro Y
+        );
+
+    // Hacer que el escalado se repita (grande → pequeño → grande)
+    scaleAnim.setRepeatCount(1);  // Repetir 1 vez (2 veces total)
+    scaleAnim.setRepeatMode(android.view.animation.Animation.REVERSE);  // Volver atrás
+
+    animationSet.addAnimation(scaleAnim);
+
+    // Iniciar la animación
+    imagen.startAnimation(animationSet);
+
+    Log.d("EFECTO", "Efecto de sacudida aplicado (rotación + escalado)");
+
+    // EFECTO 3: Retornar al centro después de 500ms
+    handler.postDelayed(() -> {
+        // Este código se ejecuta 500ms después
+        imagenX = imagenCenterX;  // Volver a posición central X
+        imagenY = imagenCenterY;  // Volver a posición central Y
+        actualizarPosicionImagen();
+
+        Log.d("EFECTO", "Imagen retornada al centro");
+    }, 500);  // Retraso: 500 milisegundos
+}
+
+// ============================================
+// SECCIÓN 11: MÉTODO generarVibracion()
+// ============================================
+
+/**
+ * PROPÓSITO: Hacer vibrar el teléfono en un patrón específico
+ *
+ * PATRÓN:
+ * {0, 200, 100, 200}
+ * - 0ms: espera inicial (no vibra)
+ * - 200ms: VIBRA durante 200ms
+ * - 100ms: PAUSA durante 100ms
+ * - 200ms: VIBRA durante 200ms
+ */
+private void generarVibracion() {
+    if (vibrator != null && vibrator.hasVibrator()) {
+        // vibrator.hasVibrator() comprueba si el dispositivo TIENE vibrador
+
+        long[] pattern = {0, 200, 100, 200};
+
+        // Adaptarse a diferentes versiones de Android
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0 (API 26) o superior
+            // Usar VibrationEffect (más moderno)
+            VibrationEffect vibrateEffect = VibrationEffect.createWaveform(pattern, -1);
+            // -1 significa: no repetir después
+
+            vibrator.vibrate(vibrateEffect);
+        } else {
+            // Versiones anteriores a Android 8.0
+            // Usar método antiguo (deprecado pero compatible)
+            vibrator.vibrate(pattern, -1);
+        }
+
+        Log.d("VIBRACIÓN", "Patrón de vibración ejecutado");
+    }
+}
+
+// ============================================
+// SECCIÓN 12: CICLO DE VIDA
+// ============================================
+
+/**
+ * onResume()
+ * SE EJECUTA: Cuando la app vuelve a primer plano
+ * PROPÓSITO: Activar sensores y comenzar actualización de UI
+ */
+@Override
+protected void onResume() {
+    super.onResume();
+
+    // Registrar el listener del acelerómetro
+    if (accelerometro != null) {
+        sensorManager.registerListener(
+            this,  // Este objeto (MainActivity) escucha los cambios
+            accelerometro,  // El sensor a escuchar
+            SensorManager.SENSOR_DELAY_UI  // Frecuencia: 50-100 veces/seg
+        );
+    }
+
+    // Iniciar el bucle de actualización de UI
+    handler.post(runnable);
+
+    Log.i("SISTEMA", "Sensor registrado y actualización de UI iniciada");
+}
+
+/**
+ * onPause()
+ * SE EJECUTA: Cuando la app pasa a segundo plano
+ * PROPÓSITO: Liberar recursos y ahorrar batería
+ */
+@Override
+protected void onPause() {
+    super.onPause();
+
+    // Desregistrar el sensor (IMPORTANTE para ahorrar batería)
+    sensorManager.unregisterListener(this);
+
+    // Detener el bucle de actualización
+    handler.removeCallbacks(runnable);
+
+    // Liberar el sonido si está reproduciéndose
+    if (mediaPlayer != null) {
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+        }
+        mediaPlayer.release();
+        mediaPlayer = null;
+    }
+
+    Log.w("SISTEMA", "Sensor desregistrado y recursos liberados (Ahorro de batería)");
+}
+
+/**
+ * onDestroy()
+ * SE EJECUTA: Cuando la actividad se destruye
+ * PROPÓSITO: Limpieza final
+ */
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+
+    // Liberar recursos finales
+    if (mediaPlayer != null) {
+        mediaPlayer.release();
+    }
+    handler.removeCallbacks(runnable);
+}
+
+// ============================================
+// RESUMEN DEL FLUJO
+// ============================================
+
+/*
+FLUJO GENERAL:
+
+1. onCreate()
+   ├─ Vincular vistas (TextViews, ImageView, FrameLayout)
+   ├─ Inicializar SensorManager y Vibrator
+   ├─ Esperar a que el layout se dibuje
+   ├─ Calcular centro de pantalla
+   ├─ Crear Runnable para actualizar UI cada 100ms
+   └─ Imagen en centro de pantalla
+
+2. onResume()
+   ├─ Registrar acelerómetro (comienza a detectar cambios)
+   └─ Iniciar bucle de actualización (handler.post(runnable))
+
+3. onSensorChanged() (Se ejecuta ~100 veces/segundo)
+   ├─ Capturar valores X, Y, Z
+   ├─ Calcular aceleración total (a)
+   ├─ Mover imagen según inclinación
+   ├─ Actualizar posición visual
+   └─ Detectar si hay sacudida (a > 12)
+      └─ Vibración + Animación + Retorno al centro
+
+4. Runnable (Se ejecuta cada 100ms)
+   └─ Actualizar TextViews con valores actuales
+
+5. verificarSalidaPantalla() (Llamado desde actualizarPosicionImagen)
+   └─ Si imagen está fuera → reproducirSonido()
+
+6. onPause()
+   ├─ Desregistrar acelerómetro (IMPORTANTE)
+   ├─ Detener bucle de actualización
+   └─ Liberar recursos de audio
+
+7. onDestroy()
+   └─ Limpiar recursos finales
+
+*/
+
