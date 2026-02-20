@@ -18,13 +18,13 @@ services:
       - 27017
 
   app-tutorials:
-    image: endikaperezmas/mongo-micro:v8
+    image: endikaperezmas/mongo-micro:v9
     container_name: tutorialsapp
     networks:
       mired2:
         ipv4_address: 182.28.0.12
     ports:
-      - "8080:8080"
+      - "80:8080"
     expose:
       - 8080
     depends_on:
