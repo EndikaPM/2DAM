@@ -98,8 +98,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         y = event.values[1];
         z = event.values[2];
 
+        a = Math.sqrt(x * x + y * y + z * z);
 
-        float sensibilidad = 50f;
+        if (a > amax) {
+            amax = a;
+        }
+
+        float sensibilidad = 150f;
 
         imagenX = imagenCenterX - (float)(x * sensibilidad);
         imagenY = imagenCenterY - (float)(y * sensibilidad);
@@ -116,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {    }
 
     private void actualizarPosicionImagen() {
         int imagenWidth = imagen.getWidth();
@@ -191,7 +196,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
     private void generarVibracion() {
-        //Generar vibracion  Mirar libro
+        if (vibrator != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                VibrationEffect effect = VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE);
+                vibrator.vibrate(effect);
+            }
+        }
     }
 
     @Override
