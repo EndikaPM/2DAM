@@ -1,0 +1,13 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: tutorials-service
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      #database: db
+      #host: 182.28.0.11
+      host: 182.28.0.11
+      port: 27017
