@@ -12,10 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Builder
 public class TutorialsDto {
-
+    @Id
     private String id;
     private String title;
     private String description;
     private Boolean published;
+    private String imagen;
+    private int personaId;
 
 }

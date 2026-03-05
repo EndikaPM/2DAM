@@ -52,6 +52,8 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        BiometricManager.from(context).canAuthenticate();
+
         mediaPlayer = MediaPlayer.create(this, R.raw.background_music);
 
         endika = codificar(alfabeto, alfabetoEncriptado, "Endika");

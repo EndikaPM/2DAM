@@ -65,4 +65,5 @@ public class TutorialsController implements TutorialsAPI {
     public ResponseEntity deleteAllTutorials() {
         return tutorialsService.deleteAllTutorials();
     }
+
 }

@@ -65,6 +65,7 @@ public class TutorialsServiceImpl implements TutorialsService {
             existingTutorial.setTitle(tutorial.getTitle());
             existingTutorial.setDescription(tutorial.getDescription());
             existingTutorial.setPublished(tutorial.getPublished());
+            existingTutorial.setImagen(tutorial.getImagen());
 
             Tutorials updatedTutorial = tutorialsRepository.save(existingTutorial);
 
@@ -90,6 +91,7 @@ public class TutorialsServiceImpl implements TutorialsService {
         }
     }
 
+
     @Override
     public ResponseEntity deleteAllTutorials() {
         tutorialsRepository.deleteAll();
@@ -97,6 +99,9 @@ public class TutorialsServiceImpl implements TutorialsService {
         return ResponseEntity.ok().build();
     }
 
-
-
+    @Override
+    public List<TutorialsDto> getAllTutorialsByPersona(String name) {
+        tutorialsRepository.getTutorialById();
+        return List.of();
+    }
 }

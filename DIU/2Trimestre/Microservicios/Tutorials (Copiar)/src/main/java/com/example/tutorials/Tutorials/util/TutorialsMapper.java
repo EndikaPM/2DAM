@@ -13,6 +13,8 @@ public class TutorialsMapper {
                 .title(tutorials.getTitle())
                 .description(tutorials.getDescription())
                 .published(tutorials.getPublished())
+                .imagen(tutorials.getImagen())
+                .personaId(tutorials.getPersonaId())
                 .build();
     }
 
@@ -22,6 +24,8 @@ public class TutorialsMapper {
                 .title(tutorials.getTitle())
                 .description(tutorials.getDescription())
                 .published(tutorials.getPublished())
+                .imagen(tutorials.getImagen())
+                .personaId(tutorials.getPersonaId())
                 .build();
     }
 
