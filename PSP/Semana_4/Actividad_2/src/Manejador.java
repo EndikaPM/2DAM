@@ -13,10 +13,8 @@ public class Manejador implements Runnable{
 
     @Override
     public void run() {
-        try (
-                BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-                PrintWriter salida = new PrintWriter(new OutputStreamWriter(cliente.getOutputStream()), true)
-        ) {
+        try ( BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+             PrintWriter salida = new PrintWriter(new OutputStreamWriter(cliente.getOutputStream()), true)) {
             System.out.println("Cliente " + idCliente + " conectado.");
 
             String mensajeRecibido = entrada.readLine();

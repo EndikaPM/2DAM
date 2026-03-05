@@ -13,6 +13,7 @@ public class Actividad5_2_Servidor {
             byte[] buffer = new byte[1024];
             while (true) {
                 DatagramPacket paqueteRecibido = new DatagramPacket(buffer, buffer.length);
+
                 socket.receive(paqueteRecibido);
 
                 String mensaje = new String(paqueteRecibido.getData(), 0, paqueteRecibido.getLength());

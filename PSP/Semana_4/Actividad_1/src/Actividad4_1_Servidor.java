@@ -3,6 +3,9 @@ import java.io.NotSerializableException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Actividad4_1_Servidor {
     private static final int PUERTO = 6101;
