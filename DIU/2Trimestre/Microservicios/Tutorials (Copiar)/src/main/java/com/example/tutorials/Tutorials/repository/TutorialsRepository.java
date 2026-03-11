@@ -12,5 +12,4 @@ public interface TutorialsRepository extends MongoRepository<Tutorials,String> {
     Optional<Tutorials> getTutorialById();
     List<Tutorials> findByTitleContaining(String title);
     List<Tutorials> findByPublished(boolean published);
-    List<Tutorials> findTutorialsByPersonaId(int idPersona);
 }

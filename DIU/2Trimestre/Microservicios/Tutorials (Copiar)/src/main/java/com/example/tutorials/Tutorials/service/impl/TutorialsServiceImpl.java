@@ -99,9 +99,4 @@ public class TutorialsServiceImpl implements TutorialsService {
         return ResponseEntity.ok().build();
     }
 
-    @Override
-    public List<TutorialsDto> getAllTutorialsByPersona(String name) {
-        tutorialsRepository.getTutorialById();
-        return List.of();
-    }
 }

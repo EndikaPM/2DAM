@@ -7,11 +7,12 @@ import org.springframework.data.annotation.Id;
 @Setter
 @Builder
 public class Tutorials {
-
+    @Id
     private String id;
     private String title;
     private String description;
     private Boolean published;
+    private String imagen;
 
 }
 

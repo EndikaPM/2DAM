@@ -7,6 +7,7 @@ networks:
 
 services:
   db:
+    # --- BASE DE DATOS (Compartida o pensar si necesito crear una) ---
     image: bitnami/mongodb:latest
     container_name: mongo_DB
     networks:
@@ -16,16 +17,29 @@ services:
       - "27017:27017"
     expose:
       - 27017
-
+  # --- MICROSERVICIO TUTORIALES ---
   app-tutorials:
-    image: endikaperezmas/mongo-micro:v9
+    image: endikaperezmas/mongo-micro:v10
     container_name: tutorialsapp
     networks:
       mired2:
         ipv4_address: 182.28.0.12
     ports:
-      - "80:8080"
+      - "8080:8080"
     expose:
       - 8080
+    depends_on:
+      - db
+  # --- MICROSERVICIO PERSONAS ---
+  app-personas:
+    image: endikaperezmas/persona-micro:v4 # Descargar de dockerhub
+    container_name: personasapp
+    networks:
+      mired2:
+        ipv4_address: 182.28.0.13 # Una IP libre en tu rango
+    ports:
+      - "8081:8081" # Puerto diferente para que no choque con tutoriales
+    expose:
+      - 8081
     depends_on:
       - db

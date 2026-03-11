@@ -18,6 +18,5 @@ public class TutorialsDto {
     private String description;
     private Boolean published;
     private String imagen;
-    private int personaId;
 
 }
