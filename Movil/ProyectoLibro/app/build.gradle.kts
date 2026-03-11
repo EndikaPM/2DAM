@@ -45,4 +45,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // Para escanear códigos de barras (ZXing)
+    implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
+    // Para hacer peticiones HTTP (obtener datos de la API)
+    implementation ("com.android.volley:volley:1.2.1")
+    // Para cargar imágenes desde URLs (las portadas)
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
 }

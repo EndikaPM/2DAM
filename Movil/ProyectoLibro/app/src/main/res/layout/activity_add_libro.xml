@@ -43,7 +43,7 @@
         <ImageView
             android:id="@+id/img"
             android:layout_width="260dp"
-            android:layout_height="140dp"
+            android:layout_height="60dp"
             android:scaleType="fitCenter"
             android:src="@drawable/outline_add_box_30"/>
     </LinearLayout>
@@ -110,6 +110,12 @@
             android:inputType="date"
             android:hint="DD/MM/YYYY                              "
             android:layout_marginStart="10dp"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -124,6 +130,13 @@
             android:layout_height="wrap_content"
             app:icon="@drawable/outline_arrow_back_ios_new_24"
             app:iconGravity="textEnd"
+            style="@style/boton_guardar_registro"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEscanearISBN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scan"
+            app:icon="@drawable/outline_barcode_scanner_24"
             style="@style/boton_guardar_registro"/>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/save"
