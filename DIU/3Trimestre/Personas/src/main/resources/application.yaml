@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: persona-service
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      host: db
+      port: 27017
+      #database: db_personas
